@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Introduction | Av_eSAFE Gurukul</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="icon" type="image/png" href="../../images/India.png">
+
+</head>
+<body>
+    <header></header> <!-- Injected via JS -->
+
+    <div class="tutorial-container">
+        <aside class="sidebar">
+            <!-- Sidebar links injected via JS -->
+        </aside>
+
+        <main class="content reveal">
+            <h1>JavaScript Introduction</h1>
+            <p>JavaScript is the world's most popular programming language.</p>
+            <p>JavaScript is the programming language of the Web.</p>
+
+            <h2>My First JavaScript</h2>
+            <p>JavaScript can change HTML content.</p>
+            <pre><code>document.getElementById("demo").innerHTML = "Hello JavaScript";</code><button class="copy-btn">Copy</button></pre>
+
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+                <div class="editor-header">
+                    <span>Live Editor</span>
+                    <button class="run-btn" onclick="runCode()">Run ▶</button>
+                </div>
+                <div class="editor-body">
+                    <textarea id="code-html" class="code-input" spellcheck="false">
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>What Can JavaScript Do?</h2>
+
+<p id="demo">JavaScript can change HTML content.</p>
+
+<button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+
+</body>
+</html></textarea>
+                    <iframe id="preview-frame" class="preview-frame"></iframe>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/editor.js"></script>
+</body>
+</html>

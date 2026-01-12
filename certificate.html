@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Certificate | Av_eSAFE Gurukul</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="images/India.png">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --cert-bg-color: #ffffff;
+            --cert-pattern-color: #f9fafb;
+            /* Fallback variables for PDF generation */
+            --primary: #6366f1;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --glass-border: rgba(0, 0, 0, 0.1);
+        }
+        body.dark-mode {
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        html {
+            /* For smooth scrolling to anchors if any are added */
+            scroll-behavior: smooth;
+        }
+        .cert-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: auto;
+            padding: 1rem;
+            width: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .certificate {
+            /* Force Light Mode Variables for Certificate */
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --glass-border: rgba(0, 0, 0, 0.1);
+
+            background: #ffffff;
+            color: var(--text-main);
+            width: 1100px; /* More landscape width */
+            height: 780px; /* Fixed height for A4 aspect ratio */
+            padding: 2.5rem 2rem 2.5rem; /* Increased bottom padding to lift QR code up */
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            transform-origin: top left;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            display: none; /* Hidden by default */
+            /* Subtle background pattern */
+            background-color: var(--cert-bg-color);
+            background-image:
+                linear-gradient(45deg, var(--cert-pattern-color) 25%, transparent 25%),
+                linear-gradient(-45deg, var(--cert-pattern-color) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, var(--cert-pattern-color) 75%),
+                linear-gradient(-45deg, transparent 75%, var(--cert-pattern-color) 75%);
+            background-size: 20px 20px;
+            overflow: hidden;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .certificate.visible { display: block; animation: certReveal 0.6s ease-out forwards; }
+        
+        .cert-logo-text {
+            font-size: 2.8rem; /* Slightly reduced to save vertical space */
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+        .cert-logo-text span {
+            font-weight: 900;
+            color: var(--primary);
+        }
+        .cert-header {
+            font-family: var(--font-main);
+            font-size: 2rem; /* Slightly reduced */
+            font-weight: 300;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 0.25rem;
+        }
+        .cert-sub { 
+            font-size: 1.2rem; 
+            color: var(--text-muted); 
+            margin-bottom: 0.5rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+        }
+        .cert-name { 
+            font-size: 3.5rem; /* Slightly reduced to prevent Safari overflow */
+            font-family: 'Alex Brush', cursive; 
+            font-weight: normal; 
+            color: var(--text-main);
+            margin: 0.5rem 0; 
+            border-bottom: 2px solid var(--glass-border); 
+            display: inline-block; 
+            padding: 0 2rem 0.5rem;
+            text-transform: capitalize;
+        }
+        .cert-body { font-size: 1.3rem; line-height: 1.2; margin-bottom: 0.5rem; } /* Tighter line-height for Safari */
+        .cert-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .cert-footer { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--glass-border); position: relative; z-index: 5; flex-wrap: nowrap; }
+        .cert-sig { text-align: center; min-width: 140px; display: flex; flex-direction: column; justify-content: flex-end; white-space: nowrap; }
+        .cert-sig img, .signature-img { height: 60px; margin-bottom: 5px; display: block; margin: 0 auto 5px; }
+        .cert-sig p { font-weight: bold; padding-top: 0; margin: 0 auto; font-size: 0.9rem; color: var(--text-main); }
+        .cert-sig span { font-size: 0.8rem; color: var(--text-muted); }
+        
+        .cert-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+        .cert-id { font-size: 0.8rem; color: var(--text-muted); font-family: monospace; letter-spacing: 1px; }
+        #qrcode img { display: block; }
+        
+        .locked-message {
+            text-align: center;
+            background: var(--glass-bg);
+            padding: 3rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
+            max-width: 600px;
+        }
+        @keyframes certReveal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes textFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .cert-content > * {
+            opacity: 0;
+            animation: textFadeIn 0.6s ease-out forwards;
+        }
+        .cert-content > *:nth-child(1) { animation-delay: 0.4s; }
+        .cert-content > *:nth-child(2) { animation-delay: 0.6s; }
+        .cert-content > *:nth-child(3) { animation-delay: 0.8s; }
+        .cert-content > *:nth-child(4) { animation-delay: 1.0s; }
+        .cert-content > *:nth-child(5) { animation-delay: 1.2s; }
+        .cert-content > *:nth-child(6) { animation-delay: 1.4s; }
+        .cert-content > *:nth-child(7) { animation-delay: 1.6s; }
+
+        .corner {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-color: var(--primary);
+            border-style: solid;
+            opacity: 0.8;
+        }
+        .corner.top-left { top: 20px; left: 20px; border-width: 4px 0 0 4px; }
+        .corner.top-right { top: 20px; right: 20px; border-width: 4px 4px 0 0; }
+        .corner.bottom-left { bottom: 20px; left: 20px; border-width: 0 0 4px 4px; }
+        .corner.bottom-right { bottom: 20px; right: 20px; border-width: 0 4px 4px 0; }
+        
+        /* --- New Features CSS --- */
+        
+        /* 2. Digital Hologram */
+        .hologram {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: conic-gradient(from 180deg, #e2e8f0, #f8fafc, #cbd5e1, #f8fafc, #e2e8f0);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1), inset 0 0 10px rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #cbd5e1;
+            z-index: 10;
+        }
+        .hologram svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 3. Skill Badges */
+        .skill-badges { display: flex; justify-content: center; gap: 12px; margin: 0.5rem 0; flex-wrap: wrap; position: relative; z-index: 5; }
+        .badge { background: #ffffff; color: #475569; padding: 6px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.03); display: flex; align-items: center; gap: 6px; }
+        
+        /* 4. MSME Logo */
+        .msme-container { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; margin: 0 10px; }
+        .msme-container img { height: 80px; width: auto; margin-bottom: 5px; }
+
+        /* Signature Image Specifics */
+        .signature-img {
+            transform: rotate(-2deg);
+            opacity: 0.95;
+        }
+
+        @media print {
+            body * { visibility: hidden; }
+            .certificate, .certificate * { visibility: visible; }
+            .certificate { position: absolute; left: 0; top: 0; width: 100%; border: 5px solid #000; box-shadow: none; background: #fff; color: #000; }
+        }
+
+        @media (max-width: 768px) {
+            .cert-wrapper { padding: 1rem 0.5rem; } /* Minimal padding on mobile */
+        }
+
+        /* --- Mobile Specific Logic --- */
+        #mobile-download-ui { display: none; }
+        
+        @media (max-width: 900px) {
+            /* Enable Desktop Preview on Mobile (Scaled) */
+            #desktop-preview-ui {
+                position: static;
+                width: 100%;
+                height: auto;
+                opacity: 1;
+                pointer-events: auto;
+                z-index: 1;
+                display: block;
+            }
+            /* Ensure download button is visible */
+            #downloadSection { display: block !important; } 
+        }
+    </style>
+    <!-- Google Font for Signature/Name style -->
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header></header>
+    
+    <div id="downloadSection" style="display:none; text-align: center; padding: 1rem 0;">
+        <div style="display: flex; justify-content: center; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <button onclick="downloadCertificate()" class="btn-small" style="background: var(--accent); border: none; cursor: pointer; font-size: 1.1rem; padding: 0.8rem 1.5rem;">Download 📥</button>
+            
+            <!-- Social Share Buttons -->
+            <button onclick="shareLinkedIn()" class="btn-small" style="background: #0077b5; color: white; border: none; cursor: pointer; font-size: 1.1rem; padding: 0.8rem 1.5rem; display: flex; align-items: center; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.358 1.248zM6.343 6.169h2.406v1.066c.332-.505.935-1.232 2.253-1.232 2.407 0 2.851 1.578 2.851 3.631v4.783h-2.402v-4.27c0-1.018-.021-2.329-1.421-2.329-1.421-2.329-1.424 0-1.645 1.109-1.645 2.253v4.346H6.343V6.169z"/></svg> LinkedIn
+            </button>
+            <button onclick="shareWhatsApp()" class="btn-small" style="background: #25D366; color: white; border: none; cursor: pointer; font-size: 1.1rem; padding: 0.8rem 1.5rem; display: flex; align-items: center; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg> WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Status Messages (Visible on both Mobile & Desktop) -->
+    <div id="status-container" class="cert-wrapper" style="min-height: auto; padding-bottom: 0; display: flex; justify-content: center;">
+        <div id="lockedMessage" class="locked-message" style="display:none;">
+            <h1>Certificate Locked 🔒</h1>
+            <p>You have not completed all quizzes for this module yet.</p>
+            <p>Please complete the course to earn your certificate.</p>
+            <a href="index.html" class="btn-small" style="background: var(--primary); margin-top: 1rem;">Back to Courses</a>
+        </div>
+
+        <div id="nameInputSection" class="locked-message" style="display:none;">
+            <h1>🎉 Course Completed!</h1>
+            <p>Congratulations! Please enter your full name to generate your certificate.</p>
+            <input type="text" id="studentNameInput" placeholder="Enter your full name" style="padding: 10px; font-size: 1rem; border-radius: 5px; border: 1px solid var(--glass-border); background-color: var(--input-bg); color: var(--text-main); width: 80%; margin: 1rem 0; display: block; margin-left: auto; margin-right: auto;">
+            <button onclick="generateCertificate()" class="btn-small" style="background: var(--primary); border: none; cursor: pointer;">Generate Certificate</button>
+        </div>
+    </div>
+
+    <!-- Mobile Only View -->
+    <div id="mobile-download-ui" style="display:none;">
+        <div class="locked-message">
+            <h1>Certificate Ready! 🏆</h1>
+            <p>Your certificate has been generated successfully.</p>
+            <button onclick="downloadCertificate()" class="btn-small" style="background: var(--accent); border: none; cursor: pointer; font-size: 1.1rem; padding: 1rem 2rem; width: 100%; margin-top: 1rem;">Download 📥</button>
+            <div style="display: flex; gap: 10px; margin-top: 1rem; justify-content: center;">
+                <button onclick="shareLinkedIn()" class="btn-small" style="background: #0077b5; color: white; border: none; cursor: pointer; font-size: 1rem; padding: 0.8rem; flex: 1; display: flex; justify-content: center; align-items: center; gap: 5px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.358 1.248zM6.343 6.169h2.406v1.066c.332-.505.935-1.232 2.253-1.232 2.407 0 2.851 1.578 2.851 3.631v4.783h-2.402v-4.27c0-1.018-.021-2.329-1.421-2.329-1.424 0-1.645 1.109-1.645 2.253v4.346H6.343V6.169z"/></svg> LinkedIn
+                </button>
+                <button onclick="shareWhatsApp()" class="btn-small" style="background: #25D366; color: white; border: none; cursor: pointer; font-size: 1rem; padding: 0.8rem; flex: 1; display: flex; justify-content: center; align-items: center; gap: 5px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg> WhatsApp
+                </button>
+            </div>
+            <br><br>
+            <a href="index.html" style="color: var(--text-muted); text-decoration: none;">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Desktop Preview & Capture Source -->
+    <div id="desktop-preview-ui">
+    <div class="cert-wrapper">
+        <div id="cert-responsive-wrapper" style="position: relative; margin: 0 auto;">
+          <div id="certificate" class="certificate">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+            <div class="cert-content">
+                <div class="cert-logo-text">Av_eSAFE <span>Gurukul</span></div>
+                <div class="cert-header">Certificate of Completion</div>
+                <div class="cert-sub">This is to certify that</div>
+                <div class="cert-name">Student Name</div>
+                <div class="cert-body">
+                    has successfully completed the <strong id="courseName">Course Name</strong> certification program
+                    <span id="scoreWrapper" style="display: none;"> with a score of <strong id="certScore"></strong>%</span><br>at Av_eSAFE Gurukul.
+                </div>
+                
+                <div id="skillBadges" class="skill-badges">
+                    <!-- Badges injected via JS -->
+                </div>
+
+                <div class="cert-footer">
+                    <div class="cert-sig">
+                        <p>Date</p>
+                        <span id="certDate"></span>
+                    </div>
+                    
+                    <div class="msme-container">
+                        <img src="images/msme.png" alt="MSME Logo">
+                    </div>
+
+                    <!-- Hologram Moved Here -->
+                    <div style="display: flex; justify-content: center; align-items: center; margin: 0 10px;">
+                        <div class="hologram">
+                            <svg viewBox="0 0 100 100">
+                                <defs>
+                                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#e2e8f0;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+                                    </linearGradient>
+                                    <path id="circlePath" d="M 50, 50 m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+                                </defs>
+                                <!-- Background for PNG download -->
+                                <circle id="holo-bg" cx="50" cy="50" r="48" fill="url(#grad)" style="opacity: 0;" />
+                                
+                                <!-- Outer Border -->
+                                <circle cx="50" cy="50" r="48" fill="none" stroke="#d4af37" stroke-width="3" opacity="0.8"/>
+                                
+                                <!-- Inner Ring -->
+                                <circle cx="50" cy="50" r="42" fill="none" stroke="#94a3b8" stroke-width="1" opacity="0.7"/>
+                                
+                                <!-- Star Icon -->
+                                <path d="M50 35 L55.88 46.18 L68.54 47.96 L59.27 56.82 L61.76 69.82 L50 63.5 L38.24 69.82 L40.73 56.82 L31.46 47.96 L44.12 46.18 Z" fill="#d4af37" opacity="0.6" transform="translate(50, 48) scale(1.7) translate(-50, -52.5)"/>
+                                
+                                <text font-size="8.5" font-weight="bold" fill="#475569" letter-spacing="1.2" text-anchor="middle">
+                                    <textPath href="#circlePath" startOffset="25%">
+                                        ★ Digitally Verified ★
+                                    </textPath>
+                                </text>
+                                
+                                <text x="50" y="55" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">Av_eSAFE</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="cert-sig">
+                        <img src="images/sign.PNG" class="signature-img" alt="Signature" onerror="this.style.display='none'; var el=document.getElementById('founderSigName'); el.style.fontFamily='Alex Brush, cursive'; el.style.fontSize='2rem'; el.style.fontWeight='normal'; el.style.marginTop='10px';">
+                        <p id="founderSigName">Abhinav Utkarsh</p>
+                        <span>Founder, Av_eSAFE</span>
+                    </div>
+                </div>
+                <div class="cert-meta">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/India.png" alt="Made in India" style="height: 40px; width: auto;">
+                    </div>
+                    <div class="cert-id">Certificate ID: <span id="certIdDisplay"></span></div>
+                    <div style="text-align: center;">
+                        <div id="qrcode"></div>
+                        <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 4px; font-weight: 500;">Scan to Verify</div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Global initialization function to handle Auth race conditions
+        window.initCertificatePage = async function(userOrEvent) {
+            console.log("Initializing Certificate Page...");
+            
+            // Extract user if passed from firebase-auth
+            let authUser = null;
+            if (userOrEvent && userOrEvent.displayName) {
+                authUser = userOrEvent;
+            } else if (window.currentUser) {
+                authUser = window.currentUser;
+            }
+
+            const params = new URLSearchParams(window.location.search);
+            const course = params.get('course');
+            
+            if (!course) {
+                console.error("No course specified in URL");
+                return;
+            }
+
+            // 1. Ensure Curriculum Data is Loaded (Fix for blank page)
+            if (!window.curriculum || !window.curriculum[course]) {
+                try {
+                    const response = await fetch(`${course}.json`);
+                    if (!response.ok) throw new Error(`Failed to fetch ${course}.json`);
+                    const data = await response.json();
+                    
+                    // Initialize curriculum object if missing
+                    if (!window.curriculum) window.curriculum = {};
+                    
+                    // Populate global state similar to main.js
+                    const pageName = course === 'html' ? 'intro.html' : 'index.html';
+                    window.curriculum[course] = data.modules.map(mod => ({
+                        title: mod.title,
+                        items: mod.lessons.map(lesson => ({
+                            name: lesson.title,
+                            url: `/tutorials/${course}/${pageName}?topic=${lesson.id}`
+                        }))
+                    }));
+                } catch (e) {
+                    console.error("Failed to load course data for certificate:", e);
+                    // Don't return yet, try to render what we can or show error in locked message
+                }
+            }
+
+            const isAdmin = params.get('admin') === 'true';
+            
+            // Use the global getUserKey function for consistency with the rest of the app
+            const badgeKey = window.getUserKey ? window.getUserKey(`badge_${course}`) : `badge_${course}`;
+            const isCompleted = localStorage.getItem(badgeKey) === 'true';
+
+            // Reset UI states
+            document.getElementById('certificate').classList.remove('visible');
+            document.getElementById('certificate').style.display = 'none';
+            document.getElementById('lockedMessage').style.display = 'none';
+            document.getElementById('nameInputSection').style.display = 'none';
+            document.getElementById('downloadSection').style.display = 'none';
+
+            if (isAdmin || isCompleted) {
+                
+                const courseTitles = {
+                    'html': 'HTML5 Expert',
+                    'css': 'CSS3 Styling Specialist',
+                    'js': 'JavaScript Professional',
+                    'react': 'React Developer',
+                    'java': 'Java Programming Master',
+                    'python': 'Python Developer',
+                    'sql': 'SQL Database Expert',
+                    'git': 'Git & GitHub Specialist',
+                    'methodologies': 'Software Methodology Practitioner'
+                };
+                document.getElementById('courseName').textContent = courseTitles[course] || (course || 'Web Development').toUpperCase();
+                document.getElementById('certDate').textContent = new Date().toLocaleDateString();
+
+                // --- Inject Score ---
+                const scoreKey = window.getUserKey ? window.getUserKey(`score_${course}`) : `score_${course}`;
+                const score = localStorage.getItem(scoreKey);
+                if (score) {
+                    document.getElementById('certScore').textContent = score;
+                    document.getElementById('scoreWrapper').style.display = 'inline';
+                }
+                // --- End Inject Score ---
+                
+                // --- Inject Skill Badges ---
+                const skillsMap = {
+                    'html': ['HTML5', 'Semantics', 'SEO', 'Accessibility'],
+                    'css': ['CSS3', 'Flexbox', 'Grid', 'Responsive Design'],
+                    'js': ['ES6+', 'DOM Manipulation', 'Async/Await', 'Events'],
+                    'react': ['React 18', 'Hooks', 'Components', 'Virtual DOM'],
+                    'java': ['Java SE', 'OOP', 'Collections', 'Multithreading'],
+                    'python': ['Python 3', 'Data Structures', 'OOP', 'Scripting'],
+                    'sql': ['RDBMS', 'Complex Queries', 'Joins', 'Normalization'],
+                    'git': ['Version Control', 'Branching', 'Merging', 'Collaboration'],
+                    'methodologies': ['Agile', 'Scrum', 'SDLC', 'DevOps']
+                };
+                
+                const skills = skillsMap[course] || ['Web Development', 'Programming', 'Software Engineering'];
+                const badgesContainer = document.getElementById('skillBadges');
+                badgesContainer.innerHTML = skills.map(skill => `<div class="badge"><span>🔹</span> ${skill}</div>`).join('');
+
+                // Check for saved name
+                const certNameKey = window.getUserKey ? window.getUserKey(`cert_name_${course}`) : `cert_name_${course}`;
+                const savedName = localStorage.getItem(certNameKey);
+
+            // Try to auto-detect name from Auth to skip popup
+            let autoName = authUser ? authUser.displayName : null;
+
+            // Clean name: Remove text in parentheses (e.g. Google Workspace aliases)
+            if (autoName) {
+                autoName = autoName.split('(')[0].trim();
+            }
+
+            if (autoName && !isAdmin) {
+                // Always update/save the latest name from Auth and render (Prioritize Auth Name)
+                localStorage.setItem(certNameKey, autoName);
+                renderCertificate(autoName, course, isAdmin);
+            } else if (savedName && !isAdmin) {
+                // Clean saved name as well
+                const cleanSavedName = savedName.split('(')[0].trim();
+                renderCertificate(cleanSavedName, course, isAdmin);
+            } else {
+                document.getElementById('nameInputSection').style.display = 'block';
+                const userSession = JSON.parse(localStorage.getItem('user_session'));
+                if (userSession && userSession.name && !isAdmin) {
+                    document.getElementById('studentNameInput').value = userSession.name.split('(')[0].trim();
+                }
+                }
+            } else if (window.curriculum && window.curriculum[course]) {
+                // Prevent flicker: If auth hasn't determined user status yet, don't show locked message.
+                // We wait for firebase-auth.js to call this function again with the user object.
+                if (typeof window.currentUserEmail === 'undefined') {
+                    return;
+                }
+
+                // --- Progress Calculation for Locked State ---
+                const curriculum = window.curriculum[course];
+                const completedTopics = JSON.parse(localStorage.getItem(window.getUserKey('completedTopics'))) || [];
+                let total = 0;
+                let completedCount = 0;
+                const pending = [];
+
+                curriculum.forEach(section => {
+                    section.items.forEach(item => {
+                        total++;
+                        // Check if item.url is in completedTopics
+                        if (completedTopics.includes(item.url)) {
+                            completedCount++;
+                        } else {
+                            pending.push(item.name);
+                        }
+                    });
+                });
+
+                const percent = total === 0 ? 0 : Math.round((completedCount / total) * 100);
+                
+                const lockedMsg = document.getElementById('lockedMessage');
+                lockedMsg.style.display = 'block'; // Show locked message
+                lockedMsg.innerHTML = `
+                    <h1>Certificate Locked 🔒</h1>
+                    <p>You have completed <strong>${percent}%</strong> of the course.</p>
+                    <div style="width: 100%; background: var(--glass-border); height: 10px; border-radius: 5px; margin: 1rem 0; overflow: hidden;">
+                        <div style="width: ${percent}%; background: var(--primary); height: 100%; transition: width 0.5s ease;"></div>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-muted);">Pending Modules:</p>
+                    <div style="text-align: left; max-height: 150px; overflow-y: auto; background: var(--input-bg); padding: 10px; border-radius: 5px; font-size: 0.85rem; border: 1px solid var(--glass-border);">
+                        ${pending.map(p => `<div style="padding: 4px 0; border-bottom: 1px solid var(--glass-border); color: var(--text-muted);">• ${p}</div>`).join('')}
+                    </div>
+                    <a href="index.html" class="btn-small" style="background: var(--primary); margin-top: 1rem; display: inline-block;">Back to Courses</a>
+                `;
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', window.initCertificatePage);
+
+        // --- Certificate Scaling Logic for Mobile ---
+        function scaleCertificate() {
+            const cert = document.getElementById('certificate');
+            const responsiveWrapper = document.getElementById('cert-responsive-wrapper');
+            const wrapper = document.querySelector('.cert-wrapper');
+            
+            if (!cert || !cert.classList.contains('visible')) return;
+
+            // Get the actual viewport width to ensure we fit on screen
+            const viewportWidth = window.innerWidth;
+            const margin = 40; // Safety margin
+            const availableWidth = viewportWidth - margin;
+            
+            const baseWidth = 1100;
+            const baseHeight = 780;
+            
+            let scale = availableWidth / baseWidth;
+            if (scale > 1) scale = 1;
+            
+            // Apply sizing to the wrapper to reserve space in DOM
+            responsiveWrapper.style.width = `${baseWidth * scale}px`;
+            responsiveWrapper.style.height = `${baseHeight * scale}px`;
+            
+            // Apply scaling to the certificate
+            cert.style.transform = `scale(${scale})`;
+            cert.style.transformOrigin = 'top left';
+            cert.style.position = 'absolute';
+            cert.style.top = '0';
+            cert.style.left = '0';
+        }
+        
+        window.addEventListener('resize', scaleCertificate);
+
+        function generateCertificate() {
+            const nameInput = document.getElementById('studentNameInput');
+            const name = nameInput.value;
+            if (!name.trim()) {
+                showModal("Input Required", "Please enter your name.");
+                return;
+            }
+            
+            const params = new URLSearchParams(window.location.search);
+            const course = params.get('course') || 'GEN';
+            const isAdmin = params.get('admin') === 'true';
+            
+            // Save name for future visits
+            if (!isAdmin) {
+                const certNameKey = window.getUserKey ? window.getUserKey(`cert_name_${course}`) : `cert_name_${course}`;
+                localStorage.setItem(certNameKey, name);
+            }
+
+            renderCertificate(name, course, isAdmin);
+        }
+
+        function renderCertificate(name, course, isAdmin = false) {
+            document.querySelector('.cert-name').textContent = name;
+            
+            // Generate Unique ID
+            const certIdKey = window.getUserKey ? window.getUserKey(`cert_id_${course}`) : `cert_id_${course}`;
+            let uniqueId;
+            
+            if (isAdmin) {
+                uniqueId = `AVE-${course.toUpperCase()}-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
+            } else {
+                uniqueId = localStorage.getItem(certIdKey);
+            }
+
+            if (!uniqueId) {
+                uniqueId = `AVE-${course.toUpperCase()}-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
+                if (!isAdmin) localStorage.setItem(certIdKey, uniqueId);
+            }
+
+            // Update user profile certificates list if not admin
+            if (!isAdmin) {
+                updateProfileCertificates(course);
+            }
+            document.getElementById('certIdDisplay').textContent = uniqueId;
+
+            // --- Start: QR Code Generation ---
+            // Dynamically generate verification URL relative to current location
+            const verificationUrl = new URL('verify.html?id=' + uniqueId, window.location.href).href;
+            const qrCodeContainer = document.getElementById('qrcode');
+            qrCodeContainer.innerHTML = ''; // Clear previous QR code if any
+            new QRCode(qrCodeContainer, {
+                text: verificationUrl,
+                width: 80,
+                height: 80,
+                colorDark : "#1e293b", // Match text color for consistency
+                colorLight : "#ffffff"
+            });
+            // --- End: QR Code Generation ---
+
+            document.getElementById('nameInputSection').style.display = 'none';
+            document.getElementById('certificate').classList.add('visible');
+            document.getElementById('certificate').style.display = 'block';
+            document.getElementById('downloadSection').style.display = 'block';
+            
+            // Trigger Confetti Celebration
+            if (typeof confetti === 'function') {
+                // Center burst
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    zIndex: 10000
+                });
+                
+                // Side cannons for extra effect
+                setTimeout(() => {
+                    confetti({ particleCount: 50, angle: 60, spread: 55, origin: { x: 0 }, zIndex: 10000 });
+                    confetti({ particleCount: 50, angle: 120, spread: 55, origin: { x: 1 }, zIndex: 10000 });
+                }, 250);
+            }
+            
+            // Apply scaling immediately after rendering
+            setTimeout(scaleCertificate, 100);
+        }
+
+        function downloadCertificate() {
+            const original = document.getElementById('certificate');
+            const clone = original.cloneNode(true);
+
+            // --- Fix 1: Explicitly Copy Dynamic Content (ID, Name, Date, Score) ---
+            // Sync critical text fields to ensure they appear in the download
+            const fieldsToSync = ['#certIdDisplay', '.cert-name', '#courseName', '#certDate', '#certScore'];
+            fieldsToSync.forEach(selector => {
+                const originalEl = original.querySelector(selector);
+                const cloneEl = clone.querySelector(selector);
+                if (originalEl && cloneEl && originalEl.innerText) {
+                    cloneEl.innerText = originalEl.innerText; // Use innerText for better sync
+                    cloneEl.style.opacity = '1';
+                }
+            });
+
+            // --- Fix 2: QR Code Regeneration (More Reliable than Copying) ---
+            const cloneQr = clone.querySelector('#qrcode');
+            const certId = document.getElementById('certIdDisplay').innerText;
+            
+            if (cloneQr && certId) {
+                cloneQr.innerHTML = ''; // Clear existing
+                // Re-generate QR code directly in the clone to ensure it renders as an image
+                const verificationUrl = new URL('verify.html?id=' + certId, window.location.href).href;
+                
+                // We use the library to generate, but we need to wait for it. 
+                // Instead, let's try to grab the data URL from the original if it exists, 
+                // otherwise fallback to a placeholder or simple regeneration.
+                
+                // Robust approach: Create a new QR in the clone
+                new QRCode(cloneQr, {
+                    text: verificationUrl,
+                    width: 80,
+                    height: 80,
+                    colorDark : "#1e293b",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+            }
+
+            // --- Fix 3: Remove Glitches & Animations ---
+            clone.classList.remove('visible');
+            clone.style.display = 'block';
+            clone.style.animation = 'none';
+            clone.style.transition = 'none';
+            clone.style.transform = 'none';
+            clone.style.boxShadow = 'none'; // Remove shadow glitch
+            clone.style.border = '1px solid #e2e8f0'; // Clean border
+            clone.style.margin = '0';
+
+            // Fix Hologram
+            const holoBg = clone.querySelector('#holo-bg');
+            if (holoBg) holoBg.style.opacity = '1';
+
+            // Fix Children Animations
+            const animatedChildren = clone.querySelectorAll('.cert-content > *');
+            animatedChildren.forEach(child => {
+                child.style.animation = 'none';
+                child.style.opacity = '1';
+            });
+
+            // Handle other Canvases
+            const originalCanvases = original.querySelectorAll('canvas');
+            const cloneCanvases = clone.querySelectorAll('canvas');
+            originalCanvases.forEach((canvas, index) => {
+                if (cloneCanvases[index] && !cloneCanvases[index].closest('#qrcode')) {
+                    const destCtx = cloneCanvases[index].getContext('2d');
+                    destCtx.drawImage(canvas, 0, 0);
+                }
+            });
+
+            // --- Fix 5: Container Positioning ---
+            const container = document.createElement('div');
+            container.style.position = 'fixed';
+            container.style.left = '-9999px'; // Move off-screen to prevent visual glitch
+            container.style.top = '0';
+            container.style.width = '1100px';
+            container.style.height = '780px';
+            container.style.zIndex = '99999'; /* Ensure visibility for iOS rendering */
+            container.style.overflow = 'hidden';
+            container.style.background = '#ffffff';
+
+            document.body.appendChild(container);
+            container.appendChild(clone);
+
+            // Detect Mobile to adjust scale (prevent memory crash on iOS)
+            const isMobile = window.innerWidth < 900;
+            const scale = isMobile ? 1.5 : 2;
+
+            // Increased delay to 1000ms to ensure QR code generation finishes on mobile
+            setTimeout(() => { 
+                html2canvas(clone, {
+                    scale: scale,
+                    useCORS: true,
+                    backgroundColor: '#ffffff',
+                    width: 1100,
+                    height: 780
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'Av_eSAFE_Certificate.png';
+                    link.href = canvas.toDataURL('image/png');
+                    document.body.appendChild(link); // Required for iOS/Firefox
+                    link.click();
+                    document.body.removeChild(link);
+                    document.body.removeChild(container);
+                }).catch(err => {
+                    console.error("Certificate download failed:", err);
+                    if (document.body.contains(container)) {
+                        document.body.removeChild(container);
+                    }
+                });
+            }, 1000);
+        }
+
+        function updateProfileCertificates(course) {
+            try {
+                const userSession = JSON.parse(localStorage.getItem('user_session'));
+                if (userSession) {
+                    if (!userSession.certificates) {
+                        userSession.certificates = [];
+                    }
+                    if (!userSession.certificates.includes(course)) {
+                        userSession.certificates.push(course);
+                        localStorage.setItem('user_session', JSON.stringify(userSession));
+                    }
+
+                    // Sync with main 'users' storage to persist changes
+                    const users = JSON.parse(localStorage.getItem('users')) || [];
+                    const userIndex = users.findIndex(u => u.email === userSession.email);
+                    
+                    if (userIndex !== -1) {
+                        if (!users[userIndex].certificates) {
+                            users[userIndex].certificates = [];
+                        }
+                        if (!users[userIndex].certificates.includes(course)) {
+                            users[userIndex].certificates.push(course);
+                            localStorage.setItem('users', JSON.stringify(users));
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error("Error updating profile certificates:", e);
+            }
+        }
+
+        function shareLinkedIn() {
+            const name = document.querySelector('.cert-name').textContent;
+            const course = document.getElementById('courseName').textContent;
+            const certId = document.getElementById('certIdDisplay').textContent;
+            const verifyUrl = new URL('verify.html?id=' + certId, window.location.href).href;
+            
+            const text = `I'm thrilled to share that I've successfully completed the ${course} certification at Av_eSAFE Gurukul! 🎓\n\nVerified Certificate ID: ${certId}\nVerify here: ${verifyUrl}\n\n#learning #certification #webdevelopment #avesafegurukul`;
+            
+            const shareUrl = `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(text)}`;
+            window.open(shareUrl, '_blank');
+        }
+
+        function shareWhatsApp() {
+            const name = document.querySelector('.cert-name').textContent;
+            const course = document.getElementById('courseName').textContent;
+            const certId = document.getElementById('certIdDisplay').textContent;
+            const verifyUrl = new URL('verify.html?id=' + certId, window.location.href).href;
+
+            const text = `Congratulation ${name} for completing ${course} course at Av_eSAFE Gurukul! 🎉\n\nCertificate ID: ${certId}\nVerify: ${verifyUrl}`;
+            
+            const shareUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
+            window.open(shareUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+

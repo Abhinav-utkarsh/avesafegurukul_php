@@ -1,0 +1,524 @@
+{
+  "courseId": "html",
+  "title": "HTML5 Mastery: Zero to Hero",
+  "level": "Beginner to Advanced",
+  "modules": [
+    {
+      "id": "mod-1",
+      "title": "Module 1: HTML Fundamentals",
+      "description": "Start with the absolute basics of HTML and web structure.",
+      "lessons": [
+        {
+          "id": "html-intro",
+          "title": "Introduction to HTML",
+          "theory": "HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser. It defines the structure of web content using markup. HTML elements are the building blocks of HTML pages.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<title>Page Title</title>\n</head>\n<body>\n<h1>My First Heading</h1>\n<p>My first paragraph.</p>\n</body>\n</html>",
+          "quiz": {
+            "question": "What does HTML stand for?",
+            "options": ["HyperText Machine Language", "HyperText Markup Language", "HyperTool Multi Language", "Home Tool Markup Language"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "html-editors",
+          "title": "HTML Editors",
+          "theory": "Web pages can be created and modified by using professional HTML editors. However, for learning HTML we recommend a simple text editor like Notepad (PC) or TextEdit (Mac).",
+          "code": "<!-- Open Notepad, write HTML, save as index.html -->\n<h1>Hello World</h1>",
+          "quiz": {
+            "question": "Which extension is used to save an HTML file?",
+            "options": [".ht", ".xml", ".html", ".hml"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-basic",
+          "title": "HTML Basic Examples",
+          "theory": "All HTML documents must start with a document type declaration: &lt;!DOCTYPE html&gt;. The HTML document itself begins with &lt;html&gt; and ends with &lt;/html&gt;. The visible part of the HTML document is between &lt;body&gt; and &lt;/body&gt;.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n<h1>My First Heading</h1>\n<p>My first paragraph.</p>\n</body>\n</html>",
+          "quiz": {
+            "question": "Where is the visible content of a webpage placed?",
+            "options": ["<head>", "<title>", "<body>", "<html>"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-elements",
+          "title": "HTML Elements",
+          "theory": "An HTML element is defined by a start tag, some content, and an end tag. Examples: &lt;h1&gt;, &lt;p&gt;, &lt;br&gt;. Some elements are empty (like &lt;br&gt;) and do not have an end tag.",
+          "code": "<h1>This is a Heading</h1>\n<p>This is a paragraph.</p>\n<br>",
+          "quiz": {
+            "question": "Which element is an empty element (has no closing tag)?",
+            "options": ["<p>", "<h1>", "<br>", "<div>"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-attributes",
+          "title": "HTML Attributes",
+          "theory": "Attributes provide additional information about HTML elements. All HTML elements can have attributes. Attributes are always specified in the start tag. They usually come in name/value pairs like: name=\"value\".",
+          "code": "<a href=\"https://www.google.com\">Visit Google</a>\n<img src=\"https://www.w3schools.com/html/img_girl.jpg\" width=\"500\" height=\"600\">",
+          "quiz": {
+            "question": "Which attribute specifies the URL for a link?",
+            "options": ["src", "link", "href", "url"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "My First Webpage",
+        "description": "Create a simple webpage with a heading, a paragraph, and a link to your favorite website."
+      }
+    },
+    {
+      "id": "mod-2",
+      "title": "Module 2: Text & Formatting",
+      "description": "Learn how to format text, use headings, and paragraphs.",
+      "lessons": [
+        {
+          "id": "html-headings",
+          "title": "HTML Headings",
+          "theory": "HTML headings are defined with the &lt;h1&gt; to &lt;h6&gt; tags. &lt;h1&gt; defines the most important heading. &lt;h6&gt; defines the least important heading.",
+          "code": "<h1>Heading 1</h1>\n<h2>Heading 2</h2>\n<h3>Heading 3</h3>\n<h4>Heading 4</h4>\n<h5>Heading 5</h5>\n<h6>Heading 6</h6>",
+          "quiz": {
+            "question": "Which HTML tag defines the most important heading?",
+            "options": ["<h6>", "<h1>", "<head>", "<header>"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "html-paragraphs",
+          "title": "HTML Paragraphs",
+          "theory": "The HTML &lt;p&gt; element defines a paragraph. A paragraph always starts on a new line, and browsers automatically add some white space (a margin) before and after a paragraph.",
+          "code": "<p>This is a paragraph.</p>\n<p>This is another paragraph.</p>",
+          "quiz": {
+            "question": "Which tag defines a paragraph?",
+            "options": ["<pg>", "<text>", "<p>", "<para>"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-styles",
+          "title": "HTML Styles",
+          "theory": "The HTML style attribute is used to add styles to an element, such as color, font, size, and more.",
+          "code": "<p style=\"color:red;\">I am red</p>\n<p style=\"color:blue;\">I am blue</p>\n<p style=\"font-size:50px;\">I am big</p>",
+          "quiz": {
+            "question": "Which attribute is used to add inline styles?",
+            "options": ["class", "style", "font", "css"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "html-formatting",
+          "title": "HTML Formatting",
+          "theory": "HTML contains several elements for defining text with a special meaning. Examples: &lt;b&gt; (bold), &lt;i&gt; (italic), &lt;strong&gt; (important), &lt;em&gt; (emphasized), &lt;mark&gt; (marked), &lt;small&gt; (smaller), &lt;del&gt; (deleted), &lt;ins&gt; (inserted), &lt;sub&gt; (subscript), &lt;sup&gt; (superscript).",
+          "code": "<p><b>Bold text</b></p>\n<p><i>Italic text</i></p>\n<p>This is <sub>subscript</sub> and <sup>superscript</sup></p>",
+          "quiz": {
+            "question": "Which tag makes text bold?",
+            "options": ["<i>", "<b>", "<bold>", "<emp>"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "html-quotations",
+          "title": "HTML Quotations",
+          "theory": "The HTML &lt;blockquote&gt; element defines a section that is quoted from another source. The HTML &lt;q&gt; tag defines a short quotation.",
+          "code": "<p>Browsers usually indent blockquote elements.</p>\n<blockquote cite=\"http://www.worldwildlife.org/who/index.html\">\nFor 50 years, WWF has been protecting the future of nature.\n</blockquote>",
+          "quiz": {
+            "question": "Which tag is used for long quotations?",
+            "options": ["<q>", "<quote>", "<blockquote>", "<cite>"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-comments",
+          "title": "HTML Comments",
+          "theory": "HTML comments are not displayed in the browser, but they can help document your HTML source code. You can add comments to your HTML source by using the following syntax: &lt;!-- Write your comments here --&gt;.",
+          "code": "<!-- This is a comment -->\n<p>This is a paragraph.</p>\n<!-- Comments are not displayed in the browser -->",
+          "quiz": {
+            "question": "How do you insert a comment in HTML?",
+            "options": ["// This is a comment", "/* This is a comment */", "<!-- This is a comment -->", "<comment> This is a comment </comment>"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Formatted Blog Post",
+        "description": "Create a blog post layout using headings, paragraphs, bold text, italics, and a blockquote."
+      }
+    },
+    {
+      "id": "mod-3",
+      "title": "Module 3: Links, Images & Media",
+      "description": "Connecting pages and adding visual content.",
+      "lessons": [
+        {
+          "id": "html-links",
+          "title": "HTML Links",
+          "theory": "HTML links are defined with the &lt;a&gt; tag. The destination address is specified in the href attribute. Links allow users to click their way from page to page.",
+          "code": "<a href=\"https://www.w3schools.com\">Visit W3Schools.com!</a>",
+          "quiz": {
+            "question": "Which attribute specifies the link destination?",
+            "options": ["src", "href", "link", "dest"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "html-images",
+          "title": "HTML Images",
+          "theory": "HTML images are defined with the &lt;img&gt; tag. The source file (src), alternative text (alt), width, and height are provided as attributes.",
+          "code": "<img src=\"https://www.w3schools.com/html/img_girl.jpg\" alt=\"Girl in a jacket\" width=\"500\" height=\"600\">",
+          "quiz": {
+            "question": "Which attribute specifies the path to the image?",
+            "options": ["href", "link", "src", "path"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-favicon",
+          "title": "HTML Favicon",
+          "theory": "A favicon is a small image displayed next to the page title in the browser tab.",
+          "code": "<link rel=\"icon\" type=\"image/x-icon\" href=\"https://www.w3schools.com/favicon.ico\">",
+          "quiz": {
+            "question": "Where is the favicon link placed?",
+            "options": ["In the <body>", "In the <head>", "In the <footer>", "Anywhere"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "html-media",
+          "title": "HTML Multimedia",
+          "theory": "Multimedia comes in many different formats. It can be almost anything you can hear or see, like images, music, sound, videos, records, films, animations, and more.",
+          "code": "<!-- No code example for general concept -->",
+          "quiz": {
+            "question": "Which of these is NOT a multimedia format?",
+            "options": [".mp3", ".mp4", ".jpg", ".txt"],
+            "answer": 3
+          }
+        },
+        {
+          "id": "html-video",
+          "title": "HTML Video",
+          "theory": "The HTML &lt;video&gt; element specifies a standard way to embed a video in a web page.",
+          "code": "<video width=\"320\" height=\"240\" controls>\n  <source src=\"https://www.w3schools.com/html/mov_bbb.mp4\" type=\"video/mp4\">\n  Your browser does not support the video tag.\n</video>",
+          "quiz": {
+            "question": "Which attribute adds play/pause controls to the video?",
+            "options": ["play", "controls", "buttons", "manager"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "html-audio",
+          "title": "HTML Audio",
+          "theory": "The HTML &lt;audio&gt; element is used to play an audio file on a web page.",
+          "code": "<audio controls>\n  <source src=\"https://www.w3schools.com/html/horse.ogg\" type=\"audio/ogg\">\n  <source src=\"https://www.w3schools.com/html/horse.mp3\" type=\"audio/mpeg\">\n  Your browser does not support the audio element.\n</audio>",
+          "quiz": {
+            "question": "Which tag is used to embed audio?",
+            "options": ["<sound>", "<music>", "<audio>", "<mp3>"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-youtube",
+          "title": "HTML YouTube",
+          "theory": "The easiest way to play videos in HTML is to use YouTube. You can use an &lt;iframe&gt; to display the video.",
+          "code": "<iframe width=\"420\" height=\"315\"\nsrc=\"https://www.youtube.com/embed/tgbNymZ7vqY\">\n</iframe>",
+          "quiz": {
+            "question": "Which tag is commonly used to embed YouTube videos?",
+            "options": ["<video>", "<movie>", "<iframe>", "<embed>"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Multimedia Page",
+        "description": "Create a page with an image, a link to another site, and an embedded YouTube video."
+      }
+    },
+    {
+      "id": "mod-4",
+      "title": "Module 4: Tables & Lists",
+      "description": "Organizing data effectively.",
+      "lessons": [
+        {
+          "id": "html-tables",
+          "title": "HTML Tables",
+          "theory": "HTML tables allow web developers to arrange data into rows and columns. Defined with &lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, and &lt;td&gt;.",
+          "code": "<table>\n  <tr>\n    <th>Firstname</th>\n    <th>Lastname</th>\n  </tr>\n  <tr>\n    <td>Peter</td>\n    <td>Griffin</td>\n  </tr>\n</table>",
+          "quiz": {
+            "question": "Which tag defines a table row?",
+            "options": ["<th>", "<td>", "<tr>", "<table>"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-lists",
+          "title": "HTML Lists",
+          "theory": "HTML lists allow web developers to group a set of related items in lists. Unordered lists use &lt;ul&gt;, ordered lists use &lt;ol&gt;, and list items use &lt;li&gt;.",
+          "code": "<ul>\n  <li>Coffee</li>\n  <li>Tea</li>\n</ul>\n<ol>\n  <li>First</li>\n  <li>Second</li>\n</ol>",
+          "quiz": {
+            "question": "Which tag is used for an ordered list?",
+            "options": ["<ul>", "<ol>", "<li>", "<dl>"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "html-block-inline",
+          "title": "Block & Inline",
+          "theory": "Every HTML element has a default display value. Block-level elements start on a new line (e.g., &lt;div&gt;, &lt;p&gt;). Inline elements do not (e.g., &lt;span&gt;, &lt;a&gt;).",
+          "code": "<div>This is a block element</div>\n<span>This is an inline element</span>",
+          "quiz": {
+            "question": "Which of these is a block-level element?",
+            "options": ["<span>", "<a>", "<div>", "<img>"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-classes",
+          "title": "HTML Classes",
+          "theory": "The class attribute is used to specify a class for an HTML element. Multiple HTML elements can share the same class. Used by CSS and JavaScript to select elements.",
+          "code": "<div class=\"city\">\n  <h2>London</h2>\n  <p>London is the capital of England.</p>\n</div>",
+          "quiz": {
+            "question": "Can multiple elements have the same class?",
+            "options": ["Yes", "No"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "html-id",
+          "title": "HTML Id",
+          "theory": "The id attribute is used to specify a unique id for an HTML element. You cannot have more than one element with the same id in an HTML document.",
+          "code": "<h1 id=\"myHeader\">My Header</h1>",
+          "quiz": {
+            "question": "Can multiple elements have the same id?",
+            "options": ["Yes", "No"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "html-iframes",
+          "title": "HTML Iframes",
+          "theory": "An HTML iframe is used to display a web page within a web page.",
+          "code": "<iframe src=\"https://www.w3schools.com\" title=\"W3Schools Free Online Web Tutorials\"></iframe>",
+          "quiz": {
+            "question": "What is an iframe used for?",
+            "options": ["To play audio", "To display a web page within a web page", "To create a frame for an image", "To format text"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Data Dashboard",
+        "description": "Create a page with a table of data and a list of key points."
+      }
+    },
+    {
+      "id": "mod-5",
+      "title": "Module 5: Forms & Input",
+      "description": "Collecting user data.",
+      "lessons": [
+        {
+          "id": "html-forms",
+          "title": "HTML Forms",
+          "theory": "An HTML form is used to collect user input. The user input is most often sent to a server for processing.",
+          "code": "<form action=\"/action_page.php\">\n  <label for=\"fname\">First name:</label><br>\n  <input type=\"text\" id=\"fname\" name=\"fname\" value=\"John\"><br>\n  <input type=\"submit\" value=\"Submit\">\n</form>",
+          "quiz": {
+            "question": "Which element is used to create a form?",
+            "options": ["<input>", "<form>", "<submit>", "<label>"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "html-form-attributes",
+          "title": "Form Attributes",
+          "theory": "The &lt;form&gt; element has attributes like action (where to send data), target (where to open response), and method (GET or POST).",
+          "code": "<form action=\"/action_page.php\" method=\"get\" target=\"_blank\">\n  <!-- form elements -->\n</form>",
+          "quiz": {
+            "question": "Which attribute specifies the HTTP method to be used?",
+            "options": ["action", "target", "method", "name"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-form-elements",
+          "title": "Form Elements",
+          "theory": "The &lt;form&gt; element can contain various types of input elements: &lt;input&gt;, &lt;label&gt;, &lt;select&gt;, &lt;textarea&gt;, &lt;button&gt;, &lt;fieldset&gt;, &lt;legend&gt;, &lt;datalist&gt;, &lt;output&gt;, &lt;option&gt;, &lt;optgroup&gt;.",
+          "code": "<label for=\"cars\">Choose a car:</label>\n<select id=\"cars\" name=\"cars\">\n  <option value=\"volvo\">Volvo</option>\n  <option value=\"saab\">Saab</option>\n</select>",
+          "quiz": {
+            "question": "Which element creates a drop-down list?",
+            "options": ["<input>", "<list>", "<select>", "<option>"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-input-types",
+          "title": "Input Types",
+          "theory": "The &lt;input&gt; element is the most used form element. It can be displayed in many ways, depending on the type attribute: text, password, submit, radio, checkbox, button, color, date, email, number, range, etc.",
+          "code": "<input type=\"button\" onclick=\"alert('Hello World!')\" value=\"Click Me!\">\n<input type=\"checkbox\" id=\"vehicle1\" name=\"vehicle1\" value=\"Bike\">\n<input type=\"color\" id=\"favcolor\" name=\"favcolor\" value=\"#ff0000\">",
+          "quiz": {
+            "question": "Which input type is used for passwords?",
+            "options": ["text", "secure", "password", "hidden"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-input-attributes",
+          "title": "Input Attributes",
+          "theory": "The &lt;input&gt; element has many attributes: value, readonly, disabled, size, maxlength, min, max, multiple, pattern, placeholder, required, step, autofocus, etc.",
+          "code": "<input type=\"text\" name=\"fname\" value=\"John\" readonly>\n<input type=\"text\" name=\"lname\" placeholder=\"Last Name\" required>",
+          "quiz": {
+            "question": "Which attribute specifies that an input field must be filled out?",
+            "options": ["validate", "required", "mandatory", "fill"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Registration Form",
+        "description": "Build a user registration form with text inputs, radio buttons, a checkbox, and a submit button."
+      }
+    },
+    {
+      "id": "mod-6",
+      "title": "Module 6: Advanced HTML",
+      "description": "Semantics, APIs, and more.",
+      "lessons": [
+        {
+          "id": "html-semantics",
+          "title": "HTML Semantics",
+          "theory": "Semantic elements clearly describe their meaning to both the browser and the developer. Examples: &lt;form&gt;, &lt;table&gt;, and &lt;article&gt; - Clearly defines its content. Non-semantic: &lt;div&gt; and &lt;span&gt; - Tells nothing about its content.",
+          "code": "<article>\n  <h1>Google Chrome</h1>\n  <p>Google Chrome is a web browser developed by Google.</p>\n</article>",
+          "quiz": {
+            "question": "Which of these is a semantic element?",
+            "options": ["<div>", "<span>", "<article>", "<b>"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-style-guide",
+          "title": "HTML Style Guide",
+          "theory": "Consistent coding style is important. Always declare document type, use lowercase element names, close all HTML elements, use lowercase attribute names, always quote attribute values.",
+          "code": "<!-- Good -->\n<section>\n  <p>This is a paragraph.</p>\n</section>",
+          "quiz": {
+            "question": "Should HTML tags be uppercase or lowercase in HTML5?",
+            "options": ["Uppercase", "Lowercase", "CamelCase", "It doesn't matter, but lowercase is recommended"],
+            "answer": 3
+          }
+        },
+        {
+          "id": "html-entities",
+          "title": "HTML Entities",
+          "theory": "Reserved characters in HTML must be replaced with character entities. Characters not present on your keyboard can also be replaced by entities.",
+          "code": "<p>I will display &lt;</p>\n<p>I will display &#60;</p>",
+          "quiz": {
+            "question": "What is the entity for the less than (<) sign?",
+            "options": ["&gt;", "&lt;", "&amp;", "&copy;"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "html-symbols",
+          "title": "HTML Symbols",
+          "theory": "Many mathematical, technical, and currency symbols are not present on a normal keyboard. To add these to an HTML page, you can use the entity name or the entity number.",
+          "code": "<p>I will display &euro;</p>\n<p>I will display &#8364;</p>",
+          "quiz": {
+            "question": "Which entity displays the Euro sign?",
+            "options": ["&euro;", "&dollar;", "&pound;", "&yen;"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "html-emojis",
+          "title": "HTML Emojis",
+          "theory": "Emojis are characters from the UTF-8 character set. To display an emoji, you can use the decimal or hexadecimal reference.",
+          "code": "<h1>&#128512;</h1>",
+          "quiz": {
+            "question": "Are emojis images?",
+            "options": ["Yes", "No, they are characters"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Semantic Blog Layout",
+        "description": "Refactor your blog post to use semantic tags like <header>, <nav>, <section>, <article>, and <footer>."
+      }
+    },
+    {
+      "id": "mod-7",
+      "title": "Module 7: Graphics & APIs",
+      "description": "Drawing and browser interactions.",
+      "lessons": [
+        {
+          "id": "html-canvas",
+          "title": "HTML Canvas",
+          "theory": "The HTML &lt;canvas&gt; element is used to draw graphics, on the fly, via scripting (usually JavaScript). The &lt;canvas&gt; element is only a container for graphics. You must use a script to actually draw the graphics.",
+          "code": "<canvas id=\"myCanvas\" width=\"200\" height=\"100\" style=\"border:1px solid #000000;\"></canvas>\n<script>\nvar c = document.getElementById(\"myCanvas\");\nvar ctx = c.getContext(\"2d\");\nctx.moveTo(0, 0);\nctx.lineTo(200, 100);\nctx.stroke();\n</script>",
+          "quiz": {
+            "question": "What is used to draw on the canvas?",
+            "options": ["HTML", "CSS", "JavaScript", "Python"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-svg",
+          "title": "HTML SVG",
+          "theory": "SVG defines vector-based graphics in XML format. SVG stands for Scalable Vector Graphics.",
+          "code": "<svg width=\"100\" height=\"100\">\n  <circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n</svg>",
+          "quiz": {
+            "question": "What does SVG stand for?",
+            "options": ["Standard Vector Graphics", "Scalable Vector Graphics", "Simple Vector Graphics", "Style Vector Graphics"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "html-geolocation",
+          "title": "HTML Geolocation",
+          "theory": "The HTML Geolocation API is used to locate a user's position. Since this can compromise privacy, the position is not available unless the user approves it.",
+          "code": "<button onclick=\"getLocation()\">Try It</button>\n<p id=\"demo\"></p>\n<script>\nvar x = document.getElementById(\"demo\");\nfunction getLocation() {\n  if (navigator.geolocation) {\n    navigator.geolocation.getCurrentPosition(showPosition);\n  } else {\n    x.innerHTML = \"Geolocation is not supported by this browser.\";\n  }\n}\nfunction showPosition(position) {\n  x.innerHTML = \"Latitude: \" + position.coords.latitude + \n  \"<br>Longitude: \" + position.coords.longitude;\n}\n</script>",
+          "quiz": {
+            "question": "Does the user need to approve geolocation access?",
+            "options": ["Yes", "No"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "html-draganddrop",
+          "title": "HTML Drag/Drop",
+          "theory": "In HTML, any element can be dragged and dropped.",
+          "code": "<div id=\"div1\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\"></div>\n<img id=\"drag1\" src=\"https://www.w3schools.com/html/img_logo.gif\" draggable=\"true\" ondragstart=\"drag(event)\" width=\"336\" height=\"69\">",
+          "quiz": {
+            "question": "Which attribute makes an element draggable?",
+            "options": ["drag", "move", "draggable", "drop"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "html-webstorage",
+          "title": "HTML Web Storage",
+          "theory": "With web storage, web applications can store data locally within the user's browser. Before HTML5, application data had to be stored in cookies, included in every server request. Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance.",
+          "code": "<script>\n// Store\nlocalStorage.setItem(\"lastname\", \"Smith\");\n// Retrieve\ndocument.getElementById(\"result\").innerHTML = localStorage.getItem(\"lastname\");\n</script>",
+          "quiz": {
+            "question": "Which object stores data with no expiration date?",
+            "options": ["sessionStorage", "localStorage", "cookieStorage", "browserStorage"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "html-webworkers",
+          "title": "HTML Web Workers",
+          "theory": "A web worker is a JavaScript that runs in the background, independently of other scripts, without affecting the performance of the page. You can continue to do whatever you want: clicking, selecting things, etc., while the web worker runs in the background.",
+          "code": "<!-- Requires external file usually, simplified concept -->\n<p>Web Workers run in background.</p>",
+          "quiz": {
+            "question": "Do Web Workers affect page performance?",
+            "options": ["Yes", "No"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Interactive Map",
+        "description": "Use Geolocation API to get coordinates and display them (or integrate with a map service)."
+      }
+    }
+  ]
+}

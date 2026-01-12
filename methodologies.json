@@ -1,0 +1,188 @@
+{
+  "courseId": "methodologies",
+  "title": "Software Methodologies",
+  "level": "Beginner to Intermediate",
+  "modules": [
+    {
+      "id": "meth-mod-1",
+      "title": "Module 1: SDLC Fundamentals",
+      "description": "Understanding the Software Development Life Cycle.",
+      "lessons": [
+        {
+          "id": "meth-sdlc-intro",
+          "title": "What is SDLC?",
+          "theory": "The Software Development Life Cycle (SDLC) is a structured process used by the software industry to design, develop, and test high-quality software. The SDLC aims to produce software that meets or exceeds customer expectations, reaches completion within time and cost estimates, and is maintainable and scalable. It provides a well-defined framework for all the activities that take place during the software development process.",
+          "code": "SDLC Phases:\n1. Planning\n2. Analysis\n3. Design\n4. Implementation\n5. Testing\n6. Maintenance",
+          "quiz": {
+            "question": "What does SDLC stand for?",
+            "options": ["System Design Life Cycle", "Software Development Life Cycle", "Software Design Logic Cycle", "System Development Logic Cycle"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "meth-sdlc-phases",
+          "title": "SDLC Phases",
+          "theory": "The SDLC is composed of several distinct phases, each with its own set of activities and deliverables. While the exact names can vary, they generally follow this sequence:<br><br><h4>1. Planning & Requirement Analysis</h4><p>This is the most important phase. Business requirements are gathered and analyzed by senior members of the team. This stage involves understanding the problem, defining the project goals, and creating a project plan.</p><h4>2. Design</h4><p>The system and software design is prepared from the requirement specifications. This helps in specifying hardware and system requirements and also helps in defining the overall system architecture.</p><h4>3. Implementation/Coding</h4><p>On receiving system design documents, the work is divided into modules/units and actual coding is started. This is the longest phase of the SDLC.</p><h4>4. Testing</h4><p>After the code is developed, it is tested against the requirements to make sure that the product is actually solving the needs addressed and gathered during the requirements phase. During this phase, all types of functional testing like unit testing, integration testing, system testing, acceptance testing are done.</p><h4>5. Deployment</h4><p>Once the software is certified and no bugs or errors are stated, then it is deployed to the production environment.</p><h4>6. Maintenance</h4><p>Once the system is deployed, and customers start using the developed system, issues may come up and need to be fixed from time to time. This process where the care is taken for the developed product is known as maintenance.</p>",
+          "code": "Key Phases:\n- Requirement Gathering\n- System Design\n- Coding\n- Testing\n- Deployment",
+          "quiz": {
+            "question": "In which phase is the code actually written?",
+            "options": ["Design", "Implementation/Coding", "Testing", "Planning"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "meth-waterfall-intro",
+          "title": "Waterfall Basics",
+          "theory": "The Waterfall Model is the most traditional SDLC model, following a strict, linear-sequential flow. Each phase must be fully completed before the next phase can begin.<br><br><h4>1. Requirements</h4><p>All possible requirements of the system to be developed are captured in this phase and documented in a requirement specification document.</p><h4>2. Design</h4><p>The requirement specifications from the first phase are studied in this phase and the system design is prepared. This system design helps in specifying hardware and system requirements and also helps in defining the overall system architecture.</p><h4>3. Implementation</h4><p>With inputs from the system design, the system is first developed in small programs called units, which are integrated in the next phase. Each unit is developed and tested for its functionality, which is referred to as Unit Testing.</p><h4>4. Verification (Testing)</h4><p>All the units developed in the implementation phase are integrated into a system after testing of each unit. Post-integration the entire system is tested for any faults and failures.</p><h4>5. Maintenance</h4><p>This is the final phase. There are some issues which come up in the client environment. To fix those issues, patches are released. Also to enhance the product, some better versions are released. Maintenance is done to deliver these changes in the customer environment.</p>",
+          "code": "Waterfall Flow:\nRequirements -> Design -> Implementation -> Verification -> Maintenance",
+          "quiz": {
+            "question": "Is the Waterfall model iterative?",
+            "options": ["Yes", "No", "Sometimes", "Only in testing"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "meth-waterfall-pros-cons",
+          "title": "Pros & Cons",
+          "theory": "The Waterfall model has distinct advantages and disadvantages.<br><br><h4>Pros</h4><ul><li><strong>Simple and Clear:</strong> It's easy to understand, manage, and follow because the stages are rigid and well-defined.</li><li><strong>Well-Documented:</strong> Each phase has specific deliverables and a review process, leading to thorough documentation.</li><li><strong>Good for Small Projects:</strong> It works well for smaller projects where requirements are very well understood and are not expected to change.</li></ul><h4>Cons</h4><ul><li><strong>Inflexible:</strong> It is very rigid and does not allow for changes once a phase is complete.</li><li><strong>High Risk:</strong> If a mistake is found in an early phase, it is very costly to fix it in a later phase.</li><li><strong>No Working Software Until Late:</strong> A working version of the software is not produced until late in the life cycle.</li></ul>",
+          "code": "Best for:\n- Small projects\n- Requirements are well understood\n- Technology is understood",
+          "quiz": {
+            "question": "When is Waterfall NOT recommended?",
+            "options": ["Small projects", "Projects with clear requirements", "Projects with high risk of changing requirements", "Short projects"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Waterfall Case Study",
+        "description": "Analyze a scenario where Waterfall would be the best choice."
+      }
+    },
+    {
+      "id": "meth-mod-3",
+      "title": "Module 3: Agile Methodology",
+      "description": "Iterative and incremental development.",
+      "lessons": [
+        {
+          "id": "meth-agile-intro",
+          "title": "Agile Manifesto",
+          "theory": "Agile is a mindset and a set of values and principles, not a single methodology. It's an iterative approach to project management and software development that helps teams deliver value to their customers faster.<br><br><h4>The Agile Manifesto</h4><p>The core ideas are captured in the Agile Manifesto, which prioritizes:</p><ul><li><strong>Individuals and interactions</strong> over processes and tools</li><li><strong>Working software</strong> over comprehensive documentation</li><li><strong>Customer collaboration</strong> over contract negotiation</li><li><strong>Responding to change</strong> over following a plan</li></ul><br><h4>The Agile Process Flow</h4><p>Unlike the linear Waterfall model, Agile works in cycles (iterations). A typical cycle includes:</p><ul><li><strong>1. Requirements:</strong> Defining a small set of features to build next.</li><li><strong>2. Development:</strong> Coding and implementing these features.</li><li><strong>3. Testing:</strong> Verifying functionality immediately.</li><li><strong>4. Delivery:</strong> Releasing the increment to stakeholders.</li><li><strong>5. Feedback:</strong> Gathering input to guide the next cycle.</li></ul>",
+          "code": "Agile Values:\n- Individuals and interactions\n- Working software\n- Customer collaboration\n- Responding to change",
+          "quiz": {
+            "question": "What does Agile value more than comprehensive documentation?",
+            "options": ["Contract negotiation", "Working software", "Processes and tools", "Following a plan"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "meth-scrum",
+          "title": "Scrum Framework",
+          "theory": "Scrum is the most popular framework for implementing Agile. It is designed for teams of ten or fewer members, who break their work into goals that can be completed within time-boxed iterations, called Sprints (usually 2-4 weeks long). Key components include:<br><br><h4>Roles</h4><ul><li><strong>Product Owner:</strong> The 'voice of the customer'. They are responsible for maximizing the value of the product. They manage the Product Backlog, ensuring it is visible, transparent, and clear to all. They decide <em>what</em> needs to be built.</li><li><strong>Scrum Master:</strong> A servant-leader for the Scrum Team. They help everyone understand Scrum theory, practices, rules, and values. They coach the team in self-organization and help remove impediments (blockers) to the team's progress.</li><li><strong>Development Team:</strong> A self-organizing, cross-functional group of professionals who do the actual work of delivering a potentially releasable Increment of 'Done' product at the end of each Sprint.</li></ul><h4>Events</h4><ul><li><strong>Sprint Planning:</strong> A meeting where the entire Scrum Team collaborates to define the work to be performed in the upcoming Sprint and how it will be achieved.</li><li><strong>Daily Scrum:</strong> A 15-minute time-boxed event for the Development Team to synchronize activities, discuss progress, and plan for the next 24 hours. Often called a 'stand-up'.</li><li><strong>Sprint Review:</strong> Held at the end of the Sprint to inspect the Increment and adapt the Product Backlog if needed. The team demonstrates what they built to stakeholders.</li><li><strong>Sprint Retrospective:</strong> An opportunity for the Scrum Team to inspect itself (people, relationships, process, tools) and create a plan for improvements to be enacted during the next Sprint.</li></ul><h4>Artifacts</h4><ul><li><strong>Product Backlog:</strong> An ordered list of everything that is known to be needed in the product. It is the single source of requirements.</li><li><strong>Sprint Backlog:</strong> The set of Product Backlog items selected for the Sprint, plus a plan for delivering the product Increment.</li><li><strong>Increment:</strong> The sum of all the Product Backlog items completed during a Sprint and the value of the increments of all previous Sprints. It must be in usable condition.</li></ul>",
+          "code": "Scrum Roles:\n- Product Owner\n- Scrum Master\n- Development Team",
+          "quiz": {
+            "question": "What is a time-boxed iteration in Scrum called?",
+            "options": ["Cycle", "Sprint", "Phase", "Loop"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "meth-kanban",
+          "title": "Kanban",
+          "theory": "Kanban is an Agile framework focused on visualizing work, limiting work in progress (WIP), and maximizing flow. It uses a Kanban board to represent work items.<br><br><h4>Key Principles:</h4><ul><li><strong>Visualize Workflow:</strong> The board shows the current state of every task. Common columns include:</li><ul><li><strong>To Do:</strong> A backlog of tasks waiting to be started.</li><li><strong>In Progress:</strong> Tasks that the team is actively working on. The number of items here is often limited (WIP Limit) to prevent multitasking and improve focus.</li><li><strong>Done:</strong> Completed tasks.</li></ul><li><strong>Limit Work in Progress (WIP):</strong> By setting a maximum number of items per column, the team can identify bottlenecks and improve throughput.</li><li><strong>Manage Flow:</strong> The goal is to move work smoothly through the process from 'To Do' to 'Done' as quickly as possible.</li></ul>",
+          "code": "Kanban Board Columns:\n- To Do\n- In Progress\n- Done",
+          "quiz": {
+            "question": "What is the main focus of Kanban?",
+            "options": ["Time-boxed sprints", "Visualizing work and limiting work in progress", "Comprehensive documentation", "Strict roles"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "meth-agile-vs-waterfall",
+          "title": "Agile vs. Waterfall",
+          "theory": "Choosing the right methodology is critical for project success. Here is how they compare:<br><br><h4>Waterfall</h4><ul><li><strong>Structure:</strong> Linear and sequential. Like a relay race, the baton is passed only when a lap is finished.</li><li><strong>Flexibility:</strong> Rigid. Changes are difficult and costly once a phase is complete.</li><li><strong>Risk:</strong> High risk of building the wrong thing, as testing happens at the end.</li><li><strong>Best For:</strong> Projects with fixed, clear requirements, strict deadlines, or regulatory compliance needs (e.g., construction, medical devices).</li></ul><h4>Agile</h4><ul><li><strong>Structure:</strong> Iterative and cyclic. Work is broken into small chunks.</li><li><strong>Flexibility:</strong> Highly flexible. Changes are welcomed even late in development.</li><li><strong>Risk:</strong> Lower risk, as testing and feedback happen continuously.</li><li><strong>Best For:</strong> Projects with evolving requirements, startups, or when rapid user feedback is needed (e.g., mobile apps, SaaS products).</li></ul><h4>Key Differences</h4><p>While Waterfall focuses on upfront planning and documentation ('Plan-driven'), Agile focuses on adaptability and delivering working software frequently ('Value-driven').</p>",
+          "code": "Comparison Summary:\nWaterfall = Linear, Rigid, Plan-Driven\nAgile = Iterative, Flexible, Value-Driven",
+          "quiz": {
+            "question": "Which methodology is best for projects with rapidly changing requirements?",
+            "options": ["Waterfall", "Agile", "V-Model", "Linear"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Agile Simulation",
+        "description": "Simulate a Sprint Planning meeting for a hypothetical app feature."
+      }
+    },
+    {
+      "id": "meth-mod-4",
+      "title": "Module 4: DevOps",
+      "description": "Bridging the gap between development and operations.",
+      "lessons": [
+        {
+          "id": "meth-devops-intro",
+          "title": "What is DevOps?",
+          "theory": "DevOps is a cultural philosophy and set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the development life cycle and provide continuous delivery with high software quality by automating and integrating the processes between development and operations teams.<br><br><h4>The DevOps Lifecycle:</h4><ul><li><strong>Plan:</strong> Define features and requirements.</li><li><strong>Code:</strong> Develop the code and manage it with version control (e.g., Git).</li><li><strong>Build:</strong> Compile the code into a runnable artifact (Continuous Integration).</li><li><strong>Test:</strong> Run automated tests to ensure quality.</li><li><strong>Release:</strong> Prepare the artifact for deployment.</li><li><strong>Deploy:</strong> Push the release to the production environment (Continuous Deployment).</li><li><strong>Operate:</strong> Manage and maintain the application in production.</li><li><strong>Monitor:</strong> Collect feedback and performance data to feed back into the planning phase.</li></ul>",
+          "code": "DevOps Cycle:\nPlan -> Code -> Build -> Test -> Release -> Deploy -> Operate -> Monitor",
+          "quiz": {
+            "question": "What is the main goal of DevOps?",
+            "options": ["To separate Dev and Ops teams", "To shorten the development life cycle", "To increase documentation", "To slow down releases"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "CI/CD Pipeline",
+        "description": "Draw a diagram of a Continuous Integration/Continuous Deployment pipeline."
+      }
+    },
+    {
+      "id": "mod-final",
+      "title": "Final Assessment",
+      "description": "Prove your mastery to unlock the certificate.",
+      "lessons": [
+        {
+          "id": "meth-final-exam",
+          "title": "Methodology Final Exam",
+          "type": "assessment",
+          "theory": "This is the final assessment for the Methodology course. <br><strong>Rules:</strong><ul><li>There are 30 questions.</li><li>You need a score of <strong>80%</strong> (24/30) to pass.</li><li>You have a maximum of <strong>3 attempts</strong>.</li><li>The certificate will unlock automatically upon passing.</li></ul>",
+          "questions": [
+            { "q": "What does SDLC stand for?", "o": ["Software Design Life Cycle", "System Design Life Cycle", "Software Development Life Cycle", "System Development Life Cycle"], "a": 2 },
+            { "q": "Which SDLC model is known for its sequential nature?", "o": ["Agile", "Spiral", "Waterfall", "V-Model"], "a": 2 },
+            { "q": "What is the main goal of the SDLC?", "o": ["To write code quickly", "To produce high-quality software within budget and time", "To hire developers", "To market a product"], "a": 1 },
+            { "q": "Which phase of SDLC involves gathering requirements from the client?", "o": ["Design", "Planning", "Analysis", "Testing"], "a": 2 },
+            { "q": "In which model is development done in short cycles called 'sprints'?", "o": ["Waterfall", "Scrum", "Kanban", "V-Model"], "a": 1 },
+            { "q": "Agile methodology values...", "o": ["Processes and tools over individuals and interactions", "Comprehensive documentation over working software", "Following a plan over responding to change", "Responding to change over following a plan"], "a": 3 },
+            { "q": "Who is responsible for the Product Backlog in Scrum?", "o": ["Scrum Master", "Development Team", "Product Owner", "Project Manager"], "a": 2 },
+            { "q": "What is a 'Daily Scrum'?", "o": ["A long meeting to plan the entire sprint", "A 15-minute daily meeting for the Development Team to sync", "A meeting to review the work done", "A meeting to plan the next release"], "a": 1 },
+            { "q": "Which of these is NOT a Scrum artifact?", "o": ["Product Backlog", "Sprint Backlog", "Increment", "Project Charter"], "a": 3 },
+            { "q": "What is the role of the Scrum Master?", "o": ["To manage the team and assign tasks", "To act as a servant-leader and coach for the team", "To define the product features", "To test the product"], "a": 1 },
+            { "q": "In the Waterfall model, when does testing begin?", "o": ["At the very beginning", "After the implementation phase is complete", "During the design phase", "Continuously throughout the project"], "a": 1 },
+            { "q": "What is a major drawback of the Waterfall model?", "o": ["It's too fast", "It's difficult to go back to a previous phase to make changes", "It requires too little documentation", "It's only for small projects"], "a": 1 },
+            { "q": "Which of the following is an Agile framework?", "o": ["Waterfall", "Scrum", "V-Model", "All of the above"], "a": 1 },
+            { "q": "What is a 'sprint' in Scrum?", "o": ["A very fast run", "A time-boxed period during which a 'Done' increment of product is created", "A type of bug", "A document"], "a": 1 },
+            { "q": "The 'Sprint Review' is a meeting where...", "o": ["The team discusses what went wrong", "The team demos the work done during the sprint", "The team plans the next sprint", "The team has a party"], "a": 1 },
+            { "q": "The 'Sprint Retrospective' is an opportunity for the Scrum Team to...", "o": ["Plan new features", "Inspect itself and create a plan for improvements", "Demo the product to stakeholders", "Get more budget"], "a": 1 },
+            { "q": "What is a 'Product Backlog'?", "o": ["A list of all bugs", "A list of all features, requirements, and fixes for a product", "The code repository", "The team's to-do list for the day"], "a": 1 },
+            { "q": "What is a 'Sprint Backlog'?", "o": ["The plan for the entire project", "The set of Product Backlog items selected for the Sprint", "A list of failed tests", "The list of all stakeholders"], "a": 1 },
+            { "q": "Which SDLC phase involves creating the architecture of the project?", "o": ["Planning", "Analysis", "Design", "Implementation"], "a": 2 },
+            { "q": "What does 'STLC' stand for?", "o": ["Software Testing Life Cycle", "System Testing Life Cycle", "Software Technical Life Cycle", "System Technical Life Cycle"], "a": 0 },
+            { "q": "In STLC, what is 'Test Planning'?", "o": ["Writing test cases", "Executing tests", "Defining the test strategy and objectives", "Reporting bugs"], "a": 2 },
+            { "q": "What is 'Kanban' primarily focused on?", "o": ["Fixed-length sprints", "Visualizing workflow and limiting work in progress", "Strict roles and responsibilities", "Detailed upfront planning"], "a": 1 },
+            { "q": "Which model is considered a 'high-risk' model for large projects?", "o": ["Agile", "Waterfall", "Spiral", "Iterative"], "a": 1 },
+            { "q": "What is the 'Deployment' phase in SDLC?", "o": ["Writing code", "Fixing bugs", "Putting the software into production for users", "Gathering requirements"], "a": 2 },
+            { "q": "Who owns the Sprint Backlog?", "o": ["Product Owner", "Scrum Master", "The Development Team", "The Project Manager"], "a": 2 },
+            { "q": "Which of the following is a principle of the Agile Manifesto?", "o": ["Customer collaboration over contract negotiation", "Contract negotiation over customer collaboration", "Following a plan over responding to change", "Processes and tools over individuals and interactions"], "a": 0 },
+            { "q": "The V-Model is an extension of which model?", "o": ["Agile", "Spiral", "Waterfall", "Scrum"], "a": 2 },
+            { "q": "What is the primary output of a Sprint?", "o": ["A plan for the next Sprint", "A 'Done', usable, and potentially releasable product Increment", "A status report", "A list of bugs"], "a": 1 },
+            { "q": "Which role in Scrum is responsible for maximizing the value of the product?", "o": ["Scrum Master", "Development Team", "Product Owner", "CEO"], "a": 2 },
+            { "q": "What is the recommended duration of a Sprint?", "o": ["One day", "One year", "One month or less", "Six months"], "a": 2 }
+          ]
+        }
+      ],
+      "project": {
+        "title": "Final Review",
+        "description": "Review all modules before taking the final exam."
+      }
+    }
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "courseId": "css",
+  "title": "CSS3 Mastery: Style Your World",
+  "level": "Beginner to Advanced",
+  "modules": [
+    {
+      "id": "css-mod-1",
+      "title": "Module 1: CSS Fundamentals",
+      "description": "Understand the syntax, selectors, and how to apply styles.",
+      "lessons": [
+        {
+          "id": "css-intro",
+          "title": "Introduction to CSS",
+          "theory": "CSS (Cascading Style Sheets) is used to format the layout of a webpage. A CSS rule consists of a selector and a declaration block.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\nbody {\n  background-color: lightblue;\n}\nh1 {\n  color: white;\n  text-align: center;\n}\n</style>\n</head>\n<body>\n\n<h1>My First CSS Example</h1>\n<p>This is a paragraph.</p>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "What does CSS stand for?",
+            "options": ["Computer Style Sheets", "Cascading Style Sheets", "Creative Style Sheets", "Colorful Style Sheets"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "css-selectors",
+          "title": "CSS Selectors",
+          "theory": "Selectors are used to find (or select) the HTML elements you want to style. Common selectors include element, id (#), and class (.).",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\np {\n  text-align: center;\n  color: red;\n}\n#para1 {\n  text-align: center;\n  color: blue;\n}\n.center {\n  text-align: center;\n  color: green;\n}\n</style>\n</head>\n<body>\n\n<p>Every paragraph will be affected by the style.</p>\n<p id=\"para1\">Me too!</p>\n<p class=\"center\">And me!</p>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which character is used to select an element with a specific ID?",
+            "options": [".", "#", "*", "%"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "css-comments",
+          "title": "CSS Comments",
+          "theory": "Comments are used to explain the code, and may help when you edit the source code at a later date. Comments are ignored by browsers.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\np {\n  color: red;\n  /* This is a single-line comment */\n  text-align: center;\n}\n\n/* This is\na multi-line\ncomment */\n</style>\n</head>\n<body>\n\n<p>Hello World!</p>\n<p>This paragraph is styled with CSS.</p>\n<p>CSS comments are not shown in the output.</p>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "How do you start a CSS comment?",
+            "options": ["//", "<!--", "/*", "'"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "css-colors",
+          "title": "CSS Colors",
+          "theory": "Colors are specified using predefined color names, or RGB, HEX, HSL, RGBA, HSLA values.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\nh1 {background-color: Tomato;}\nh2 {background-color: Orange;}\nh3 {background-color: DodgerBlue;}\nh4 {background-color: MediumSeaGreen;}\n</style>\n</head>\n<body>\n\n<h1>Tomato</h1>\n<h2>Orange</h2>\n<h3>DodgerBlue</h3>\n<h4>MediumSeaGreen</h4>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which is NOT a valid way to define a color?",
+            "options": ["Red", "#ff0000", "rgb(255,0,0)", "color(255,0,0)"],
+            "answer": 3
+          }
+        }
+      ],
+      "project": {
+        "title": "Styled Page",
+        "description": "Create a webpage with a custom background color and styled headings using different selector types."
+      }
+    },
+    {
+      "id": "css-mod-2",
+      "title": "Module 2: Typography & Backgrounds",
+      "description": "Mastering fonts, text alignment, and background images.",
+      "lessons": [
+        {
+          "id": "css-fonts",
+          "title": "CSS Fonts",
+          "theory": "CSS font properties define the font family, boldness, size, and the style of a text.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\np.serif {\n  font-family: \"Times New Roman\", Times, serif;\n}\np.sansserif {\n  font-family: Arial, Helvetica, sans-serif;\n}\np.monospace {\n  font-family: \"Courier New\", Courier, monospace;\n}\np.cursive {\n  font-family: \"Brush Script MT\", cursive;\n}\n</style>\n</head>\n<body>\n\n<h1>CSS Font Families</h1>\n<p class=\"serif\">This is a paragraph, shown in Times New Roman font.</p>\n<p class=\"sansserif\">This is a paragraph, shown in Arial font.</p>\n<p class=\"monospace\">This is a paragraph, shown in Courier New font.</p>\n<p class=\"cursive\">This is a paragraph, shown in Cursive font.</p>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which property controls the text size?",
+            "options": ["font-style", "text-size", "font-size", "text-style"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "css-text",
+          "title": "CSS Text Formatting",
+          "theory": "Text formatting properties allow you to change the color, alignment, decoration, transformation, and spacing of text.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\nh1 {\n  text-align: center;\n  text-decoration: underline;\n  text-transform: uppercase;\n  color: #4CAF50;\n}\np {\n  text-indent: 50px;\n  text-align: justify;\n  letter-spacing: 3px;\n}\n</style>\n</head>\n<body>\n\n<h1>Text Formatting</h1>\n<p>This text is styled with some of the text formatting properties. The heading is centered, underlined, and uppercase.</p>\n<p>This paragraph is indented, justified, and has letter spacing.</p>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which property is used to remove the underline from links?",
+            "options": ["text-decoration: none", "text-style: no-underline", "decoration: none", "underline: none"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "css-backgrounds",
+          "title": "CSS Backgrounds",
+          "theory": "The CSS background properties are used to define the background effects for elements. You can use colors or images.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\nbody {\n  background-image: url(\"https://www.w3schools.com/css/paper.gif\");\n  background-color: #cccccc;\n}\n</style>\n</head>\n<body>\n\n<h1>Hello World!</h1>\n<p>This page has an image as the background!</p>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which property specifies the background image?",
+            "options": ["background-img", "background-source", "background-image", "image"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Blog Post Styling",
+        "description": "Style a blog post with a nice font, centered headings, and a subtle background image."
+      }
+    },
+    {
+      "id": "css-mod-3",
+      "title": "Module 3: The Box Model",
+      "description": "Understand how every element is a box with margins, borders, and padding.",
+      "lessons": [
+        {
+          "id": "css-boxmodel",
+          "title": "The CSS Box Model",
+          "theory": "All HTML elements can be considered as boxes. The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\ndiv {\n  background-color: lightgrey;\n  width: 300px;\n  border: 15px solid green;\n  padding: 50px;\n  margin: 20px;\n}\n</style>\n</head>\n<body>\n\n<h2>The Box Model</h2>\n<p>The box model has margins, borders, padding, and content.</p>\n\n<div>This text is the content of the box.</div>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which part of the box model is transparent and clears an area outside the border?",
+            "options": ["Content", "Padding", "Margin", "Border"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "css-borders",
+          "title": "CSS Borders",
+          "theory": "The CSS border properties allow you to specify the style, width, and color of an element's border.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\np.dotted {border-style: dotted;}\np.dashed {border-style: dashed;}\np.solid {border-style: solid;}\np.double {border-style: double;}\n</style>\n</head>\n<body>\n\n<h2>CSS Borders</h2>\n<p class=\"dotted\">A dotted border.</p>\n<p class=\"dashed\">A dashed border.</p>\n<p class=\"solid\">A solid border.</p>\n<p class=\"double\">A double border.</p>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which property specifies the type of border to display?",
+            "options": ["border-type", "border-style", "border-display", "border-decoration"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "css-margins",
+          "title": "CSS Margins",
+          "theory": "Margins are used to create space around elements, outside of any defined borders.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\ndiv {\n  margin: 50px;\n  background-color: lightblue;\n  border: 1px solid black;\n}\n</style>\n</head>\n<body>\n\n<div>This div has a margin of 50px.</div>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "How do you center a block element horizontally?",
+            "options": ["margin: center;", "margin: auto;", "align: center;", "padding: auto;"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "css-padding",
+          "title": "CSS Padding",
+          "theory": "Padding is used to create space around an element's content, inside of any defined borders.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\ndiv {\n  padding: 50px;\n  background-color: lightblue;\n  border: 1px solid black;\n}\n</style>\n</head>\n<body>\n\n<div>This div has a padding of 50px.</div>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Does padding affect the total width of an element?",
+            "options": ["Yes", "No"],
+            "answer": 0
+          }
+        }
+      ],
+      "project": {
+        "title": "Card Component",
+        "description": "Create a 'Product Card' with a border, inner padding for text, and outer margin to separate it from other elements."
+      }
+    },
+    {
+      "id": "css-mod-4",
+      "title": "Module 4: CSS Layout",
+      "description": "Control the layout and positioning of elements.",
+      "lessons": [
+        {
+          "id": "css-display",
+          "title": "Display Property",
+          "theory": "The display property specifies if/how an element is displayed. Common values are none, block, inline, and inline-block.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\nli { display: inline; }\n</style>\n</head>\n<body>\n\n<p>Display a list of links as a horizontal menu:</p>\n\n<ul>\n  <li><a href=\"/html/default.asp\" target=\"_blank\">HTML</a></li>\n  <li><a href=\"/css/default.asp\" target=\"_blank\">CSS</a></li>\n  <li><a href=\"/js/default.asp\" target=\"_blank\">JavaScript</a></li>\n</ul>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which value hides an element but takes up no space?",
+            "options": ["hidden", "visible", "none", "block"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "css-position",
+          "title": "Position Property",
+          "theory": "The position property specifies the type of positioning method used for an element (static, relative, fixed, absolute, or sticky).",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\ndiv.relative {\n  position: relative;\n  left: 30px;\n  border: 3px solid #73AD21;\n}\n</style>\n</head>\n<body>\n\n<h2>position: relative;</h2>\n<div class=\"relative\">\nThis div element has position: relative;\n</div>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which position is relative to the viewport?",
+            "options": ["absolute", "relative", "fixed", "static"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "css-float",
+          "title": "Float and Clear",
+          "theory": "The float property specifies how an element should float. The clear property specifies what elements can float beside the cleared element and on which side.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\nimg {\n  float: right;\n}\n</style>\n</head>\n<body>\n\n<p>In this example, the image will float to the right in the paragraph, and the text in the paragraph will wrap around the image.</p>\n\n<p>\n<img src=\"https://www.w3schools.com/css/pineapple.jpg\" alt=\"Pineapple\" style=\"width:170px;height:170px;margin-left:15px;\">\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.\n</p>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which property is used to stop elements from wrapping around a floated element?",
+            "options": ["float", "clear", "display", "overflow"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "css-flexbox",
+          "title": "Flexbox Basics",
+          "theory": "The Flexible Box Layout Module, makes it easier to design flexible responsive layout structure without using float or positioning.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\n.flex-container {\n  display: flex;\n  background-color: DodgerBlue;\n}\n\n.flex-container > div {\n  background-color: #f1f1f1;\n  margin: 10px;\n  padding: 20px;\n  font-size: 30px;\n}\n</style>\n</head>\n<body>\n\n<h1>Flexible Boxes</h1>\n\n<div class=\"flex-container\">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>  \n</div>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which property defines a flex container?",
+            "options": ["display: flex;", "position: flex;", "float: flex;", "display: block;"],
+            "answer": 0
+          }
+        }
+      ],
+      "project": {
+        "title": "Navigation Bar",
+        "description": "Create a horizontal navigation bar using list items and the display property (or flexbox)."
+      }
+    },
+    {
+      "id": "css-mod-5",
+      "title": "Module 5: Visual Effects",
+      "description": "Add polish with shadows, gradients, and transitions.",
+      "lessons": [
+        {
+          "id": "css-shadows",
+          "title": "CSS Shadows",
+          "theory": "With CSS you can add shadow effects to text and elements.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\nh1 {\n  text-shadow: 2px 2px 5px red;\n}\ndiv {\n  width: 300px;\n  height: 100px;\n  padding: 15px;\n  background-color: yellow;\n  box-shadow: 10px 10px 5px grey;\n}\n</style>\n</head>\n<body>\n\n<h1>Text Shadow Effect</h1>\n\n<div>This div has a box-shadow.</div>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which property adds a shadow to an element's box?",
+            "options": ["text-shadow", "box-shadow", "shadow", "element-shadow"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "css-gradients",
+          "title": "CSS Gradients",
+          "theory": "CSS gradients let you display smooth transitions between two or more specified colors.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\n#grad1 {\n  height: 200px;\n  background-color: red; /* For browsers that do not support gradients */\n  background-image: linear-gradient(to right, red , yellow);\n}\n</style>\n</head>\n<body>\n\n<h1>Linear Gradient</h1>\n\n<div id=\"grad1\"></div>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which function creates a linear gradient?",
+            "options": ["gradient()", "linear-gradient()", "color-gradient()", "linear()"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "css-transitions",
+          "title": "CSS Transitions",
+          "theory": "CSS transitions allows you to change property values smoothly, over a given duration.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\ndiv {\n  width: 100px;\n  height: 100px;\n  background: red;\n  transition: width 2s;\n}\n\ndiv:hover {\n  width: 300px;\n}\n</style>\n</head>\n<body>\n\n<h1>CSS Transitions</h1>\n\n<p>Hover over the div element below:</p>\n\n<div></div>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which property specifies the duration of the transition?",
+            "options": ["transition-duration", "transition-time", "time", "duration"],
+            "answer": 0
+          }
+        }
+      ],
+      "project": {
+        "title": "Button Styles",
+        "description": "Create a set of buttons with hover effects using transitions and shadows."
+      }
+    },
+    {
+      "id": "css-mod-6",
+      "title": "Module 6: Responsive Design",
+      "description": "Make your websites look good on all devices.",
+      "lessons": [
+        {
+          "id": "css-rwd-intro",
+          "title": "RWD Introduction",
+          "theory": "Responsive Web Design is about creating web pages that look good on all devices! It uses HTML and CSS to automatically resize, hide, shrink, or enlarge, a website, to make it look good on all devices (desktops, tablets, and phones).",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<style>\nimg {\n  width: 100%;\n  height: auto;\n}\n</style>\n</head>\n<body>\n\n<h2>Responsive Image</h2>\n<p>When the CSS width property is set to 100%, the image will be responsive and scale up and down.</p>\n\n<img src=\"https://www.w3schools.com/css/img_5terre.jpg\" width=\"600\" height=\"400\">\n\n</body>\n</html>",
+          "quiz": {
+            "question": "What does RWD stand for?",
+            "options": ["Rapid Web Design", "Responsive Web Design", "Real Web Design", "Robust Web Design"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "css-mediaqueries",
+          "title": "Media Queries",
+          "theory": "Media query is a CSS technique introduced in CSS3. It uses the @media rule to include a block of CSS properties only if a certain condition is true.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<style>\nbody {\n  background-color: lightgreen;\n  font-family: sans-serif;\n  text-align: center;\n  transition: background-color 0.3s;\n}\n\n.desktop-msg { display: none; }\n.mobile-msg { display: block; }\n\n/* Change layout when width is 400px or more */\n@media only screen and (min-width: 400px) {\n  body {\n    background-color: lightblue;\n  }\n  .desktop-msg { display: block; }\n  .mobile-msg { display: none; }\n}\n</style>\n</head>\n<body>\n\n<h1>Resize the Window</h1>\n\n<h2 class=\"mobile-msg\">📱 Small Screen (< 400px)</h2>\n<h2 class=\"desktop-msg\">💻 Large Screen (>= 400px)</h2>\n\n<p>The content and background color change based on the viewport width.</p>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which rule is used to define media queries?",
+            "options": ["@media", "@screen", "@query", "@responsive"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "css-flexbox-responsive",
+          "title": "Responsive Flexbox",
+          "theory": "You can use Flexbox to create responsive layouts that wrap items when the screen size decreases.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\n.flex-container {\n  display: flex;\n  flex-wrap: wrap;\n  background-color: DodgerBlue;\n}\n\n.flex-container > div {\n  background-color: #f1f1f1;\n  width: 100px;\n  margin: 10px;\n  text-align: center;\n  line-height: 75px;\n  font-size: 30px;\n}\n</style>\n</head>\n<body>\n<h1>Responsive Flexbox</h1>\n<div class=\"flex-container\">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>\n  <div>4</div>\n  <div>5</div>\n  <div>6</div>\n  <div>7</div>\n  <div>8</div>\n</div>\n</body>\n</html>",
+          "quiz": {
+            "question": "Which property allows flex items to wrap onto multiple lines?",
+            "options": ["flex-wrap", "flex-flow", "wrap", "flex-line"],
+            "answer": 0
+          }
+        }
+      ],
+      "project": {
+        "title": "Responsive Gallery",
+        "description": "Create a photo gallery that shows 4 images per row on desktop, 2 on tablets, and 1 on mobile."
+      }
+    },
+    {
+      "id": "css-mod-7",
+      "title": "Module 7: Animations",
+      "description": "Bring your web pages to life.",
+      "lessons": [
+        {
+          "id": "css-2dtransforms",
+          "title": "2D Transforms",
+          "theory": "CSS transforms allow you to move, rotate, scale, and skew elements.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\ndiv {\n  width: 200px;\n  height: 100px;\n  background-color: yellow;\n  border: 1px solid black;\n  transform: rotate(20deg);\n}\n</style>\n</head>\n<body>\n\n<h1>The rotate() Method</h1>\n\n<div>\nThis div element is rotated 20 degrees.\n</div>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which method rotates an element?",
+            "options": ["turn()", "rotate()", "spin()", "move()"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "css-3dtransforms",
+          "title": "3D Transforms",
+          "theory": "CSS also supports 3D transformations.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\ndiv {\n  width: 200px;\n  height: 100px;\n  background-color: yellow;\n  border: 1px solid black;\n  transform: rotateX(150deg);\n}\n</style>\n</head>\n<body>\n\n<h1>The rotateX() Method</h1>\n\n<div>\nThis div element is rotated 150 degrees.\n</div>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which method rotates an element around its X-axis?",
+            "options": ["rotateX()", "rotateY()", "rotateZ()", "rotate()"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "css-animations",
+          "title": "CSS Animations",
+          "theory": "CSS allows animation of HTML elements without using JavaScript or Flash!",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\ndiv {\n  width: 100px;\n  height: 100px;\n  background-color: red;\n  animation-name: example;\n  animation-duration: 4s;\n}\n\n@keyframes example {\n  from {background-color: red;}\n  to {background-color: yellow;}\n}\n</style>\n</head>\n<body>\n\n<h1>CSS Animation</h1>\n\n<div></div>\n\n<p><b>Note:</b> When an animation is finished, it goes back to its original style.</p>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which rule is used to specify the animation code?",
+            "options": ["@animation", "@keyframes", "@animate", "@motion"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Loading Spinner",
+        "description": "Create a loading spinner using CSS animations and keyframes."
+      }
+    },
+    {
+      "id": "css-mod-8",
+      "title": "Module 8: CSS Grid",
+      "description": "Master the two-dimensional layout system.",
+      "lessons": [
+        {
+          "id": "css-grid-intro",
+          "title": "Grid Introduction",
+          "theory": "CSS Grid Layout offers a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\n.grid-container {\n  display: grid;\n  grid-template-columns: auto auto auto;\n  background-color: #2196F3;\n  padding: 10px;\n}\n.grid-item {\n  background-color: rgba(255, 255, 255, 0.8);\n  border: 1px solid rgba(0, 0, 0, 0.8);\n  padding: 20px;\n  font-size: 30px;\n  text-align: center;\n}\n</style>\n</head>\n<body>\n\n<h1>Grid Elements</h1>\n\n<div class=\"grid-container\">\n  <div class=\"grid-item\">1</div>\n  <div class=\"grid-item\">2</div>\n  <div class=\"grid-item\">3</div>  \n  <div class=\"grid-item\">4</div>\n  <div class=\"grid-item\">5</div>\n  <div class=\"grid-item\">6</div>  \n  <div class=\"grid-item\">7</div>\n  <div class=\"grid-item\">8</div>\n  <div class=\"grid-item\">9</div>  \n</div>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which property defines a grid container?",
+            "options": ["display: grid;", "display: inline-grid;", "Both A and B", "None of the above"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "css-grid-gap",
+          "title": "Grid Gaps",
+          "theory": "The gap property defines the size of the gap between the rows and columns.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\n.grid-container {\n  display: grid;\n  grid-template-columns: auto auto auto;\n  gap: 10px;\n  background-color: #2196F3;\n  padding: 10px;\n}\n.grid-item {\n  background-color: rgba(255, 255, 255, 0.8);\n  border: 1px solid rgba(0, 0, 0, 0.8);\n  padding: 20px;\n  font-size: 30px;\n  text-align: center;\n}\n</style>\n</head>\n<body>\n\n<h1>Grid Gap</h1>\n\n<div class=\"grid-container\">\n  <div class=\"grid-item\">1</div>\n  <div class=\"grid-item\">2</div>\n  <div class=\"grid-item\">3</div>  \n  <div class=\"grid-item\">4</div>\n  <div class=\"grid-item\">5</div>\n  <div class=\"grid-item\">6</div>  \n</div>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which property is a shorthand for row-gap and column-gap?",
+            "options": ["grid-gap", "gap", "margin", "spacing"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "css-grid-lines",
+          "title": "Grid Lines",
+          "theory": "The lines between columns are called column lines. The lines between rows are called row lines. You can refer to line numbers when placing items.",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\n.grid-container {\n  display: grid;\n  grid-template-columns: auto auto auto;\n  gap: 10px;\n  background-color: #2196F3;\n  padding: 10px;\n}\n.item1 {\n  grid-column-start: 1;\n  grid-column-end: 3;\n}\n.grid-item {\n  background-color: rgba(255, 255, 255, 0.8);\n  border: 1px solid rgba(0, 0, 0, 0.8);\n  padding: 20px;\n  font-size: 30px;\n  text-align: center;\n}\n</style>\n</head>\n<body>\n\n<h1>Grid Lines</h1>\n\n<div class=\"grid-container\">\n  <div class=\"grid-item item1\">1</div>\n  <div class=\"grid-item\">2</div>\n  <div class=\"grid-item\">3</div>  \n  <div class=\"grid-item\">4</div>\n  <div class=\"grid-item\">5</div>\n  <div class=\"grid-item\">6</div>  \n</div>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which property defines where a grid item starts?",
+            "options": ["grid-start", "grid-column-start", "start-column", "column-start"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Photo Gallery",
+        "description": "Build a responsive photo gallery using CSS Grid."
+      }
+    },
+    {
+      "id": "mod-final",
+      "title": "Final Assessment",
+      "description": "Prove your mastery to unlock the certificate.",
+      "lessons": [
+        {
+          "id": "css-final-exam",
+          "title": "CSS Final Exam",
+          "type": "assessment",
+          "theory": "This is the final assessment for the CSS course. <br><strong>Rules:</strong><ul><li>There are 30 questions.</li><li>You need a score of <strong>80%</strong> (24/30) to pass.</li><li>You have a maximum of <strong>3 attempts</strong>.</li><li>The certificate will unlock automatically upon passing.</li></ul>",
+          "questions": [
+            { "q": "What does CSS stand for?", "o": ["Creative Style Sheets", "Cascading Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"], "a": 1 },
+            { "q": "Which HTML tag is used to define an internal style sheet?", "o": ["<script>", "<css>", "<style>", "<link>"], "a": 2 },
+            { "q": "Which is the correct CSS syntax?", "o": ["body:color=black;", "{body;color:black;}", "body {color: black;}", "{body:color=black;}"], "a": 2 },
+            { "q": "How do you insert a comment in a CSS file?", "o": ["// this is a comment", "/* this is a comment */", "' this is a comment", "<!-- this is a comment -->"], "a": 1 },
+            { "q": "Which property is used to change the background color?", "o": ["color", "bgcolor", "background-color", "background"], "a": 2 },
+            { "q": "How do you add a background color for all <h1> elements?", "o": ["all.h1 {background-color:#FFFFFF;}", "h1.all {background-color:#FFFFFF;}", "h1 {background-color:#FFFFFF;}", "h1 {bgcolor:#FFFFFF;}"], "a": 2 },
+            { "q": "Which property is used to change the text color of an element?", "o": ["text-color", "fgcolor", "color", "font-color"], "a": 2 },
+            { "q": "Which CSS property controls the text size?", "o": ["font-style", "text-size", "font-size", "text-style"], "a": 2 },
+            { "q": "What is the correct CSS to make all the <p> elements bold?", "o": ["p {text-size:bold;}", "p {font-weight:bold;}", "<p style=\"font-size:bold;\">", "p {font:bold;}"], "a": 1 },
+            { "q": "How do you display hyperlinks without an underline?", "o": ["a {text-decoration:none;}", "a {text-decoration:no-underline;}", "a {underline:none;}", "a {decoration:no-underline;}"], "a": 0 },
+            { "q": "How do you make each word in a text start with a capital letter?", "o": ["text-transform:capitalize", "text-style:capitalize", "transform:capitalize", "You can't do that with CSS"], "a": 0 },
+            { "q": "Which property is used to change the font of an element?", "o": ["font-family", "font-style", "font-weight", "font-variant"], "a": 0 },
+            { "q": "How do you make the text italic?", "o": ["font:italic;", "style:italic;", "font-style:italic;", "text:italic;"], "a": 2 },
+            { "q": "Which property is used to change the left margin of an element?", "o": ["padding-left", "margin-left", "indent", "margin"], "a": 1 },
+            { "q": "When using the padding property; are you allowed to use negative values?", "o": ["Yes", "No"], "a": 1 },
+            { "q": "How do you make a list that lists its items with squares?", "o": ["list-type: square;", "list-style-type: square;", "list: square;", "list-style: square;"], "a": 1 },
+            { "q": "How do you select an element with id 'demo'?", "o": ["#demo", ".demo", "demo", "*demo"], "a": 0 },
+            { "q": "How do you select elements with class name 'test'?", "o": ["#test", ".test", "test", "*test"], "a": 1 },
+            { "q": "How do you select all p elements inside a div element?", "o": ["div.p", "div p", "div + p", "div > p"], "a": 1 },
+            { "q": "How do you group selectors?", "o": ["Separate each selector with a space", "Separate each selector with a comma", "Separate each selector with a plus sign", "Separate each selector with a hyphen"], "a": 1 },
+            { "q": "What is the default value of the position property?", "o": ["relative", "fixed", "absolute", "static"], "a": 3 },
+            { "q": "Which property specifies the stack order of an element?", "o": ["z-index", "s-index", "stack-order", "position"], "a": 0 },
+            { "q": "Which CSS property is used to control the space between the border and the content?", "o": ["margin", "padding", "border-spacing", "spacing"], "a": 1 },
+            { "q": "Which CSS property is used to control the space outside the border?", "o": ["padding", "margin", "spacing", "border-spacing"], "a": 1 },
+            { "q": "Which property is used to align text to the center?", "o": ["text-align", "align", "font-align", "center"], "a": 0 },
+            { "q": "How do you hide an element but keep its space in the layout?", "o": ["display: none;", "visibility: hidden;", "opacity: 0;", "hidden: true"], "a": 1 },
+            { "q": "Which property is used to create a flexible box layout?", "o": ["box-flex", "display: flex", "flex-direction", "flex-wrap"], "a": 1 },
+            { "q": "Which property is used to define a grid container?", "o": ["display: grid", "grid-template", "grid-container", "display: block"], "a": 0 },
+            { "q": "Which CSS property controls the transparency of an element?", "o": ["transparent", "opacity", "filter", "visibility"], "a": 1 },
+            { "q": "Which rule is used to define media queries for responsive design?", "o": ["@media", "@screen", "@responsive", "@query"], "a": 0 }
+          ]
+        }
+      ],
+      "project": {
+        "title": "Final Review",
+        "description": "Review all modules before taking the final exam."
+      }
+    }
+  ]
+}

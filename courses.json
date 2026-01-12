@@ -1,0 +1,65 @@
+[
+    {
+        "id": "html",
+        "title": "HTML5",
+        "description": "The structure of the web. Learn semantic markup and accessibility.",
+        "color": "#e34c26",
+        "link": "tutorials/html/intro.html"
+    },
+    {
+        "id": "css",
+        "title": "CSS3",
+        "description": "Style and layout. Master Flexbox, Grid, and responsive design.",
+        "color": "#264de4",
+        "link": "tutorials/css/index.html"
+    },
+    {
+        "id": "js",
+        "title": "JavaScript",
+        "description": "The language of the web. DOM manipulation, ES6+, and logic.",
+        "color": "#f7df1e",
+        "link": "tutorials/js/index.html"
+    },
+    {
+        "id": "java",
+        "title": "Java",
+        "description": "Object-oriented programming. Build robust backend systems.",
+        "color": "#b07219",
+        "link": "tutorials/java/index.html"
+    },
+    {
+        "id": "python",
+        "title": "Python",
+        "description": "Data science and automation. Clean syntax for powerful logic.",
+        "color": "#306998",
+        "link": "tutorials/python/index.html"
+    },
+    {
+        "id": "react",
+        "title": "React",
+        "description": "Building User Interfaces. Components, JSX, and Virtual DOM.",
+        "color": "#61dafb",
+        "link": "tutorials/react/index.html"
+    },
+    {
+        "id": "sql",
+        "title": "SQL",
+        "description": "Database management. Query, filter, and analyze data.",
+        "color": "#00758f",
+        "link": "tutorials/sql/index.html"
+    },
+    {
+        "id": "git",
+        "title": "Git & GitHub",
+        "description": "Version control. Collaborate and manage code history.",
+        "color": "#f1502f",
+        "link": "tutorials/git/index.html"
+    },
+    {
+        "id": "methodologies",
+        "title": "Methodology",
+        "description": "SDLC, Agile, Scrum, and Waterfall. Learn how teams build software.",
+        "color": "#6b7280",
+        "link": "tutorials/methodologies/index.html"
+    }
+]

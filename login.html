@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Av_eSAFE Gurukul</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="images/India.png">
+    <style>
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            padding: 2rem;
+        }
+        .login-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 3rem;
+            border-radius: var(--radius);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        .login-card h1 { margin-bottom: 2rem; color: var(--primary); }
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); }
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            background: var(--input-bg);
+            color: var(--text-main);
+            font-family: var(--font-main);
+        }
+        .form-group input:focus { outline: none; border-color: var(--primary); }
+        .error { color: #ef4444; font-size: 0.9rem; margin-top: 1rem; display: none; }
+        .links { margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
+        .links a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <header></header>
+    <div class="login-container">
+        <div class="login-card">
+            <h1>Welcome Back</h1>
+            <button type="button" id="googleLoginBtn" class="btn-small" style="width: 100%; background: #ffffff; color: #333; border: 1px solid #ccc; margin-bottom: 2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; padding: 0.8rem;">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="G" style="width: 18px; height: 18px;">
+                Continue with Google
+            </button>
+            
+            <div class="links">
+                Don't have an account? <a href="register.html">Create Account</a>
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

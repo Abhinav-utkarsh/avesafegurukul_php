@@ -1,0 +1,551 @@
+{
+  "courseId": "java",
+  "title": "Java Programming",
+  "level": "Beginner to Intermediate",
+  "modules": [
+    {
+      "id": "java-mod-1",
+      "title": "Module 1: Java Fundamentals",
+      "description": "Master the building blocks of Java: Syntax, Variables, Data Types, and Operators.",
+      "lessons": [
+        {
+          "id": "java-intro",
+          "title": "Hello World",
+          "theory": "Java is a popular programming language, created in 1995. It is used for mobile apps, web apps, desktop apps, games, and much more. Every Java application begins with a class definition and a main method, which is the entry point of any Java code.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    System.out.println(\"Hello World\");\n  }\n}",
+          "quiz": {
+            "question": "What is the entry point of a Java program?",
+            "options": ["start()", "main()", "init()", "run()"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-variables",
+          "title": "Variables",
+          "theory": "Variables are containers for storing data values. In Java, there are different types of variables, for example: String (text), int (integers), float (floating point numbers), char (single characters), and boolean (true/false). Variables must be declared with a specific type.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    String name = \"John\";\n    int age = 25;\n    System.out.println(name + \" is \" + age);\n  }\n}",
+          "quiz": {
+            "question": "How do you declare a variable for storing whole numbers?",
+            "options": ["String", "float", "int", "char"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "java-datatypes",
+          "title": "Data Types",
+          "theory": "Data types are divided into two groups: Primitive data types (byte, short, int, long, float, double, boolean, char) which store simple values, and Non-primitive data types (String, Arrays, Classes) which refer to objects. Primitives are predefined by Java, while non-primitives are created by the programmer.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    int myNum = 5;               // Integer (whole number)\n    float myFloatNum = 5.99f;    // Floating point number\n    char myLetter = 'D';         // Character\n    boolean myBool = true;       // Boolean\n    String myText = \"Hello\";     // String\n    System.out.println(myNum);\n  }\n}",
+          "quiz": {
+            "question": "Which data type is used to store text?",
+            "options": ["char", "string", "String", "Text"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "java-type-casting",
+          "title": "Type Casting",
+          "theory": "Type casting is when you assign a value of one primitive data type to another type. Widening Casting (automatically) - converting a smaller type to a larger type size. Narrowing Casting (manually) - converting a larger type to a smaller size type.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    int myInt = 9;\n    double myDouble = myInt; // Automatic casting: int to double\n\n    System.out.println(myInt);      // Outputs 9\n    System.out.println(myDouble);   // Outputs 9.0\n  }\n}",
+          "quiz": {
+            "question": "Which casting is done automatically?",
+            "options": ["Narrowing", "Widening", "Manual", "Explicit"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-operators",
+          "title": "Operators",
+          "theory": "Operators are used to perform operations on variables and values. Java divides operators into groups: Arithmetic (+, -), Assignment (=, +=), Comparison (==, >), Logical (&&, ||), and Bitwise operators.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    int x = 100 + 50;\n    int y = x * 2;\n    System.out.println(y);\n  }\n}",
+          "quiz": {
+            "question": "Which operator is used for multiplication?",
+            "options": ["x", "*", "%", "#"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Console Greeter",
+        "description": "Write a program that declares variables for your name and age, and prints them to the console."
+      }
+    },
+    {
+      "id": "java-mod-2",
+      "title": "Module 2: Control Flow",
+      "description": "Control the flow of your program with Conditions, Switches, and Loops.",
+      "lessons": [
+        {
+          "id": "java-if-else",
+          "title": "If...Else",
+          "theory": "Java supports logical conditions from mathematics. You can use these conditions to perform different actions for different decisions. Use 'if' to specify a block of code to be executed if a condition is true, and 'else' if it is false.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    int time = 20;\n    if (time < 18) {\n      System.out.println(\"Good day.\");\n    } else {\n      System.out.println(\"Good evening.\");\n    }\n  }\n}",
+          "quiz": {
+            "question": "How do you start an if statement in Java?",
+            "options": ["if x > y:", "if (x > y)", "if x > y then:", "if x > y {}"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-switch",
+          "title": "Switch",
+          "theory": "Use the switch statement to select one of many code blocks to be executed. The switch expression is evaluated once. The value of the expression is compared with the values of each case. If there is a match, the associated block of code is executed.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    int day = 4;\n    switch (day) {\n      case 6:\n        System.out.println(\"Today is Saturday\");\n        break;\n      case 7:\n        System.out.println(\"Today is Sunday\n\");\n        break;\n      default:\n        System.out.println(\"Looking forward to the Weekend\");\n    }\n  }\n}",
+          "quiz": {
+            "question": "Which keyword is used to specify a default block of code in a switch statement?",
+            "options": ["default", "case", "break", "otherwise"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "java-while-loop",
+          "title": "While Loop",
+          "theory": "The while loop loops through a block of code as long as a specified condition is true. It is useful when you don't know in advance how many times the loop should run.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    int i = 0;\n    while (i < 5) {\n      System.out.println(i);\n      i++;\n    }\n  }\n}",
+          "quiz": {
+            "question": "What is a loop that never ends called?",
+            "options": ["A while loop", "An infinite loop", "A for loop", "A broken loop"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-for-loop",
+          "title": "For Loop",
+          "theory": "When you know exactly how many times you want to loop through a block of code, use the for loop instead of a while loop. It consists of initialization, condition, and increment/decrement.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    for (int i = 0; i < 5; i++) {\n      System.out.println(i);\n    }\n  }\n}",
+          "quiz": {
+            "question": "How many times will this loop run: for (int i = 0; i <= 10; i++)?",
+            "options": ["9", "10", "11", "12"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "java-break-continue",
+          "title": "Break and Continue",
+          "theory": "The break statement can also be used to jump out of a loop. The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    for (int i = 0; i < 10; i++) {\n      if (i == 4) {\n        break;\n      }\n      System.out.println(i);\n    }\n  }\n}",
+          "quiz": {
+            "question": "Which statement stops the loop completely?",
+            "options": ["stop", "break", "continue", "exit"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Even or Odd",
+        "description": "Write a program that checks if a number is even or odd using an if/else statement."
+      }
+    },
+    {
+      "id": "java-mod-3",
+      "title": "Module 3: Object-Oriented Programming",
+      "description": "Dive into OOP: Classes, Objects, Constructors, Modifiers, and Encapsulation.",
+      "lessons": [
+        {
+          "id": "java-classes",
+          "title": "Classes & Objects",
+          "theory": "Java is an object-oriented programming language. Everything in Java is associated with classes and objects, along with its attributes and methods. A Class is like a blueprint for creating objects. An Object is an instance of a class.",
+          "code": "public class Main {\n  int x = 5;\n\n  public static void main(String[] args) {\n    Main myObj = new Main();\n    System.out.println(myObj.x);\n  }\n}",
+          "quiz": {
+            "question": "Which keyword is used to create an object from a class?",
+            "options": ["create", "new", "make", "instance"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-modifiers",
+          "title": "Modifiers",
+          "theory": "By now, you are quite familiar with the public keyword that appears in almost all of our examples. The public keyword is an access modifier. Access modifiers set the access level for classes, attributes, methods and constructors (e.g., public, private, protected).",
+          "code": "public class Main {\n  final int x = 10;\n  final double PI = 3.14;\n\n  public static void main(String[] args) {\n    Main myObj = new Main();\n    // myObj.x = 50; // will generate an error: cannot assign a value to a final variable\n    System.out.println(myObj.x);\n  }\n}",
+          "quiz": {
+            "question": "Which modifier makes an attribute unchangeable (constant)?",
+            "options": ["static", "final", "public", "abstract"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-constructors",
+          "title": "Constructors",
+          "theory": "A constructor is a special method that is used to initialize objects. The constructor is called when an object of a class is created. It can be used to set initial values for object attributes.",
+          "code": "public class Main {\n  int x;\n\n  public Main() {\n    x = 5;\n  }\n\n  public static void main(String[] args) {\n    Main myObj = new Main();\n    System.out.println(myObj.x);\n  }\n}",
+          "quiz": {
+            "question": "What is the name of the constructor method?",
+            "options": ["Main", "MyClass", "It must be named constructor()", "It must be the same as the class name"],
+            "answer": 3
+          }
+        },
+        {
+          "id": "java-methods",
+          "title": "Methods",
+          "theory": "A method is a block of code which only runs when it is called. You can pass data, known as parameters, into a method. Methods are used to perform certain actions, and they are also known as functions.",
+          "code": "public class Main {\n  static void myMethod() {\n    System.out.println(\"I just got executed!\");\n  }\n\n  public static void main(String[] args) {\n    myMethod();\n  }\n}",
+          "quiz": {
+            "question": "How do you call a method named 'myMethod'?",
+            "options": ["myMethod;", "myMethod();", "call myMethod();", "run myMethod();"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-encapsulation",
+          "title": "Encapsulation",
+          "theory": "The meaning of Encapsulation, is to make sure that 'sensitive' data is hidden from users. To achieve this, you must declare class variables/attributes as private and provide public get and set methods to access and update the value of a private variable.",
+          "code": "public class Main {\n  public static class Person {\n    private String name;\n\n    public String getName() {\n      return name;\n    }\n\n    public void setName(String newName) {\n      this.name = newName;\n    }\n  }\n\n  public static void main(String[] args) {\n    Person myObj = new Person();\n    myObj.setName(\"John\");\n    System.out.println(myObj.getName());\n  }\n}",
+          "quiz": {
+            "question": "Which keyword restricts access to a variable?",
+            "options": ["public", "private", "protected", "hidden"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Student Class",
+        "description": "Create a Student class with private fields for name and grade, and methods to get and set them."
+      }
+    },
+    {
+      "id": "java-mod-4",
+      "title": "Module 4: Advanced OOP & Data Structures",
+      "description": "Explore Inheritance, Polymorphism, Abstraction, and basic Data Structures.",
+      "lessons": [
+        {
+          "id": "java-inheritance",
+          "title": "Inheritance",
+          "theory": "In Java, it is possible to inherit attributes and methods from one class to another. We group the 'inheritance concept' into two categories: subclass (child) - the class that inherits from another class, and superclass (parent) - the class being inherited from. To inherit from a class, use the 'extends' keyword.",
+          "code": "public class Main {\n  static class Vehicle {\n    protected String brand = \"Ford\";\n    public void honk() {\n      System.out.println(\"Tuut, tuut!\");\n    }\n  }\n\n  static class Car extends Vehicle {\n    private String modelName = \"Mustang\";\n    public static void main(String[] args) {\n      Car myCar = new Car();\n      myCar.honk();\n      System.out.println(myCar.brand + \" \" + myCar.modelName);\n    }\n  }\n}",
+          "quiz": {
+            "question": "Which keyword is used for inheritance?",
+            "options": ["inherits", "implements", "extends", "super"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "java-polymorphism",
+          "title": "Polymorphism",
+          "theory": "Polymorphism means 'many forms', and it occurs when we have many classes that are related to each other by inheritance. For example, think of a superclass called Animal that has a method called animalSound(). Subclasses of Animals could be Pigs, Cats, Dogs, Birds - And they also have their own implementation of an animal sound (the pig oinks, the cat meows, etc.)",
+          "code": "public class Main {\n  static class Animal {\n    public void animalSound() {\n      System.out.println(\"The animal makes a sound\");\n    }\n  }\n\n  static class Pig extends Animal {\n    public void animalSound() {\n      System.out.println(\"The pig says: wee wee\");\n    }\n  }\n\n  public static void main(String[] args) {\n    Animal myPig = new Pig();\n    myPig.animalSound();\n  }\n}",
+          "quiz": {
+            "question": "What is polymorphism?",
+            "options": ["A way to create private variables", "The ability of an object to take on many forms", "A type of loop", "A way to store data"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-interfaces",
+          "title": "Interfaces",
+          "theory": "Another way to achieve abstraction in Java is with interfaces. An interface is a completely 'abstract class' that is used to group related methods with empty bodies. To access the interface methods, the interface must be 'implemented' by another class with the 'implements' keyword.",
+          "code": "interface Animal {\n  public void animalSound(); // interface method (does not have a body)\n  public void sleep(); // interface method (does not have a body)\n}\n\nclass Pig implements Animal {\n  public void animalSound() {\n    System.out.println(\"The pig says: wee wee\");\n  }\n  public void sleep() {\n    System.out.println(\"Zzz\");\n  }\n}\n\nclass Main {\n  public static void main(String[] args) {\n    Pig myPig = new Pig();\n    myPig.animalSound();\n    myPig.sleep();\n  }\n}",
+          "quiz": {
+            "question": "Which keyword is used to implement an interface?",
+            "options": ["extends", "implements", "inherits", "uses"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-enums",
+          "title": "Enums",
+          "theory": "An enum is a special 'class' that represents a group of constants (unchangeable variables, like final variables). To create an enum, use the enum keyword (instead of class or interface), and separate the constants with a comma.",
+          "code": "public class Main {\n  enum Level {\n    LOW,\n    MEDIUM,\n    HIGH\n  }\n\n  public static void main(String[] args) {\n    Level myVar = Level.MEDIUM;\n    System.out.println(myVar);\n  }\n}",
+          "quiz": {
+            "question": "Can you instantiate an enum with 'new'?",
+            "options": ["Yes", "No"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-arrays",
+          "title": "Arrays",
+          "theory": "Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value. To declare an array, define the variable type with square brackets. They have a fixed size.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    String[] cars = {\"Volvo\", \"BMW\", \"Ford\", \"Mazda\"};\n    System.out.println(cars[0]);\n  }\n}",
+          "quiz": {
+            "question": "How do you access the first element of an array named 'cars'?",
+            "options": ["cars(0)", "cars.get(0)", "cars[0]", "cars{0}"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "java-arraylist",
+          "title": "ArrayList",
+          "theory": "The ArrayList class is a resizable array, which can be found in the java.util package. While a standard array has a fixed size, an ArrayList can grow and shrink as needed. It provides more flexibility.",
+          "code": "import java.util.ArrayList;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<String> cars = new ArrayList<String>();\n    cars.add(\"Volvo\");\n    cars.add(\"BMW\");\n    cars.add(\"Ford\");\n    System.out.println(cars);\n  }\n}",
+          "quiz": {
+            "question": "Which method adds an element to an ArrayList?",
+            "options": ["add()", "insert()", "push()", "append()"],
+            "answer": 0
+          }
+        }
+      ],
+      "project": {
+        "title": "Vehicle Showroom",
+        "description": "Create a Vehicle superclass and a Car subclass. Store Car objects in an ArrayList and print their details."
+      }
+    },
+    {
+      "id": "java-mod-5",
+      "title": "Module 5: Exception Handling",
+      "description": "Gracefully handle runtime errors and maintain normal application flow.",
+      "lessons": [
+        {
+          "id": "java-exceptions",
+          "title": "Try...Catch",
+          "theory": "When executing Java code, different errors can occur: coding errors made by the programmer, errors due to wrong input, or other unforeseeable things. The 'try' statement allows you to define a block of code to be tested for errors. The 'catch' statement allows you to define a block of code to be executed, if an error occurs in the try block.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    try {\n      int[] myNumbers = {1, 2, 3};\n      System.out.println(myNumbers[10]);\n    } catch (Exception e) {\n      System.out.println(\"Something went wrong.\");\n    }\n  }\n}",
+          "quiz": {
+            "question": "Which block is used to handle the exception?",
+            "options": ["try", "catch", "finally", "throw"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-finally",
+          "title": "Finally Block",
+          "theory": "The 'finally' statement lets you execute code, after try...catch, regardless of the result. This is useful for cleanup tasks, like closing files or database connections, that must happen whether an error occurred or not.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    try {\n      int[] myNumbers = {1, 2, 3};\n      System.out.println(myNumbers[10]);\n    } catch (Exception e) {\n      System.out.println(\"Something went wrong.\");\n    } finally {\n      System.out.println(\"The 'try catch' is finished.\");\n    }\n  }\n}",
+          "quiz": {
+            "question": "Does the finally block execute if no exception occurs?",
+            "options": ["Yes", "No", "Only if specified", "Depends on the JVM"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "java-throw",
+          "title": "Throw Keyword",
+          "theory": "The 'throw' statement allows you to create a custom error. The throw statement is used together with an exception type. There are many exception types available in Java: ArithmeticException, FileNotFoundException, ArrayIndexOutOfBoundsException, SecurityException, etc.",
+          "code": "public class Main {\n  static void checkAge(int age) {\n    if (age < 18) {\n      throw new ArithmeticException(\"Access denied - You must be at least 18 years old.\");\n    } else {\n      System.out.println(\"Access granted - You are old enough!\");\n    }\n  }\n\n  public static void main(String[] args) {\n    checkAge(15);\n  }\n}",
+          "quiz": {
+            "question": "Which keyword is used to manually create an exception?",
+            "options": ["try", "catch", "throw", "new"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Safe Division",
+        "description": "Write a program that divides two numbers and handles the 'ArithmeticException' when dividing by zero."
+      }
+    },
+    {
+      "id": "java-mod-6",
+      "title": "Module 6: Collections Framework",
+      "description": "Store and manipulate groups of objects.",
+      "lessons": [
+        {
+          "id": "java-hashmap",
+          "title": "HashMap",
+          "theory": "A HashMap store items in 'key/value' pairs, and you can access them by an index of another type (e.g. a String). One object is used as a key (index) to another object (value).",
+          "code": "import java.util.HashMap;\n\npublic class Main {\n  public static void main(String[] args) {\n    HashMap<String, String> capitalCities = new HashMap<String, String>();\n    capitalCities.put(\"England\", \"London\");\n    capitalCities.put(\"Germany\", \"Berlin\");\n    System.out.println(capitalCities.get(\"England\"));\n  }\n}",
+          "quiz": {
+            "question": "Which method is used to add items to a HashMap?",
+            "options": ["add()", "put()", "insert()", "set()"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-hashset",
+          "title": "HashSet",
+          "theory": "A HashSet is a collection of items where every item is unique, and it is found in the java.util package.",
+          "code": "import java.util.HashSet;\n\npublic class Main {\n  public static void main(String[] args) {\n    HashSet<String> cars = new HashSet<String>();\n    cars.add(\"Volvo\");\n    cars.add(\"BMW\");\n    cars.add(\"Volvo\"); // Duplicate, won't be added\n    System.out.println(cars);\n  }\n}",
+          "quiz": {
+            "question": "Does a HashSet allow duplicate values?",
+            "options": ["Yes", "No"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Phonebook",
+        "description": "Create a Phonebook using a HashMap where keys are names and values are phone numbers."
+      }
+    },
+    {
+      "id": "java-mod-7",
+      "title": "Module 7: Advanced Features",
+      "description": "Threads and Lambda Expressions.",
+      "lessons": [
+        {
+          "id": "java-threads",
+          "title": "Java Threads",
+          "theory": "Threads allows a program to operate more efficiently by doing multiple things at the same time. Threads can be created by extending the Thread class and overriding its run() method.",
+          "code": "public class Main extends Thread {\n  public void run() {\n    System.out.println(\"This code is running in a thread\");\n  }\n  public static void main(String[] args) {\n    Main thread = new Main();\n    thread.start();\n    System.out.println(\"This code is outside of the thread\");\n  }\n}",
+          "quiz": {
+            "question": "Which method starts a thread?",
+            "options": ["run()", "start()", "go()", "init()"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-lambda",
+          "title": "Lambda Expressions",
+          "theory": "A lambda expression is a short block of code which takes in parameters and returns a value. They are similar to methods, but they do not need a name and they can be implemented right in the body of a method.",
+          "code": "import java.util.ArrayList;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<Integer> numbers = new ArrayList<Integer>();\n    numbers.add(5);\n    numbers.add(9);\n    numbers.add(8);\n    numbers.forEach( (n) -> { System.out.println(n); } );\n  }\n}",
+          "quiz": {
+            "question": "Lambda expressions were introduced in which Java version?",
+            "options": ["Java 7", "Java 8", "Java 9", "Java 11"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Threaded Counter",
+        "description": "Create a program that uses a thread to count down from 10 while the main program prints 'Waiting...'."
+      }
+    },
+    {
+      "id": "java-mod-8",
+      "title": "Module 8: File Handling",
+      "description": "Learn how to create, read, update, and delete files in Java.",
+      "lessons": [
+        {
+          "id": "java-files",
+          "title": "Java Files",
+          "theory": "The File class from the java.io package, allows us to work with files. To use the File class, create an object of the class, and specify the filename or directory name.",
+          "code": "import java.io.File;\n\npublic class Main {\n  public static void main(String[] args) {\n    File myObj = new File(\"filename.txt\");\n    if (myObj.exists()) {\n      System.out.println(\"File name: \" + myObj.getName());\n    } else {\n      System.out.println(\"The file does not exist.\");\n    }\n  }\n}",
+          "quiz": {
+            "question": "Which package contains the File class?",
+            "options": ["java.util", "java.io", "java.file", "java.text"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-create-write",
+          "title": "Create & Write",
+          "theory": "To create a file, use the createNewFile() method. To write to a file, use the FileWriter class.",
+          "code": "import java.io.FileWriter;\nimport java.io.IOException;\n\npublic class Main {\n  public static void main(String[] args) {\n    try {\n      FileWriter myWriter = new FileWriter(\"filename.txt\");\n      myWriter.write(\"Files in Java might be tricky, but it is fun enough!\");\n      myWriter.close();\n      System.out.println(\"Successfully wrote to the file.\");\n    } catch (IOException e) {\n      System.out.println(\"An error occurred.\");\n      e.printStackTrace();\n    }\n  }\n}",
+          "quiz": {
+            "question": "Which method is used to write text to a file?",
+            "options": ["print()", "write()", "insert()", "add()"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Note Taker",
+        "description": "Create a program that takes user input and saves it to a text file."
+      }
+    },
+    {
+      "id": "java-mod-9",
+      "title": "Module 9: Date & Time",
+      "description": "Working with dates and times using the java.time package.",
+      "lessons": [
+        {
+          "id": "java-dates",
+          "title": "Java Dates",
+          "theory": "Java does not have a built-in Date class, but we can import the java.time package to work with the date and time API. LocalDate represents a date (year, month, day), LocalTime represents a time (hour, minute, second, nanoseconds), LocalDateTime represents both.",
+          "code": "import java.time.LocalDateTime;\n\npublic class Main {\n  public static void main(String[] args) {\n    LocalDateTime myObj = LocalDateTime.now();\n    System.out.println(myObj);\n  }\n}",
+          "quiz": {
+            "question": "Which class represents both date and time?",
+            "options": ["LocalDate", "LocalTime", "LocalDateTime", "Date"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "java-date-formatting",
+          "title": "Formatting Dates",
+          "theory": "The 'ofPattern()' method from the DateTimeFormatter class allows you to format date and time objects.",
+          "code": "import java.time.LocalDateTime;\nimport java.time.format.DateTimeFormatter;\n\npublic class Main {\n  public static void main(String[] args) {\n    LocalDateTime myDateObj = LocalDateTime.now();\n    System.out.println(\"Before formatting: \" + myDateObj);\n    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(\"dd-MM-yyyy HH:mm:ss\");\n    String formattedDate = myDateObj.format(myFormatObj);\n    System.out.println(\"After formatting: \" + formattedDate);\n  }\n}",
+          "quiz": {
+            "question": "Which pattern displays the year as 4 digits?",
+            "options": ["yy", "yyyy", "Y", "YYYY"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Digital Clock",
+        "description": "Display the current date and time in a specific format."
+      }
+    },
+    {
+      "id": "java-mod-10",
+      "title": "Module 10: Essential Libraries",
+      "description": "Math, Regex, and Wrapper Classes.",
+      "lessons": [
+        {
+          "id": "java-math",
+          "title": "Java Math",
+          "theory": "The Java Math class has many methods that allows you to perform mathematical tasks on numbers.",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    System.out.println(Math.max(5, 10));\n    System.out.println(Math.sqrt(64));\n    System.out.println(Math.random());\n  }\n}",
+          "quiz": {
+            "question": "Which method returns the square root of a number?",
+            "options": ["Math.sq()", "Math.root()", "Math.sqrt()", "Math.square()"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "java-regex",
+          "title": "Java Regex",
+          "theory": "A regular expression is a sequence of characters that forms a search pattern. When you search for data in a text, you can use this search pattern to describe what you are searching for.",
+          "code": "import java.util.regex.Matcher;\nimport java.util.regex.Pattern;\n\npublic class Main {\n  public static void main(String[] args) {\n    Pattern pattern = Pattern.compile(\"w3schools\", Pattern.CASE_INSENSITIVE);\n    Matcher matcher = pattern.matcher(\"Visit W3Schools!\");\n    boolean matchFound = matcher.find();\n    if(matchFound) {\n      System.out.println(\"Match found\");\n    } else {\n      System.out.println(\"Match not found\");\n    }\n  }\n}",
+          "quiz": {
+            "question": "Which class is used to define a pattern (to be used in a search)?",
+            "options": ["Matcher", "Pattern", "Regex", "Search"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "java-wrapper",
+          "title": "Wrapper Classes",
+          "theory": "Wrapper classes provide a way to use primitive data types (int, boolean, etc..) as objects. Sometimes you must use wrapper classes, for example when working with Collection objects, such as ArrayList, where primitive types cannot be used (the list can only store objects).",
+          "code": "public class Main {\n  public static void main(String[] args) {\n    Integer myInt = 5;\n    Double myDouble = 5.99;\n    Character myChar = 'A';\n    System.out.println(myInt.intValue());\n    System.out.println(myDouble.doubleValue());\n    System.out.println(myChar.charValue());\n  }\n}",
+          "quiz": {
+            "question": "What is the wrapper class for 'int'?",
+            "options": ["Int", "Integer", "Number", "Float"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Password Validator",
+        "description": "Use Regex to check if a password contains at least one number and one uppercase letter."
+      }
+    },
+    {
+      "id": "mod-final",
+      "title": "Final Assessment",
+      "description": "Prove your mastery to unlock the certificate.",
+      "lessons": [
+        {
+          "id": "java-final-exam",
+          "title": "Java Final Exam",
+          "type": "assessment",
+          "theory": "This is the final assessment for the Java course. <br><strong>Rules:</strong><ul><li>There are 30 questions.</li><li>You need a score of <strong>80%</strong> (24/30) to pass.</li><li>You have a maximum of <strong>3 attempts</strong>.</li><li>The certificate will unlock automatically upon passing.</li></ul>",
+          "questions": [
+            { "q": "What is the correct syntax to output 'Hello World' in Java?", "o": ["print(\"Hello World\");", "Console.WriteLine(\"Hello World\");", "System.out.println(\"Hello World\");", "echo(\"Hello World\");"], "a": 2 },
+            { "q": "Which data type is used to create a variable that should store text?", "o": ["String", "Char", "Txt", "string"], "a": 0 },
+            { "q": "How do you create a variable with the numeric value 5?", "o": ["num x = 5", "x = 5;", "float x = 5;", "int x = 5;"], "a": 3 },
+            { "q": "Which method can be used to find the length of a string?", "o": ["getSize()", "length()", "len()", "getLength()"], "a": 1 },
+            { "q": "Which operator is used to compare two values?", "o": ["=", "<>", "==", "><"], "a": 2 },
+            { "q": "To declare an array in Java, define the variable type with:", "o": ["()", "{}", "[]", "<>"], "a": 2 },
+            { "q": "Array indexes start with:", "o": ["1", "0", "-1", "undefined"], "a": 1 },
+            { "q": "How do you call a method in Java?", "o": ["methodName[];", "methodName();", "(methodName);", "methodName;"], "a": 1 },
+            { "q": "Which keyword is used to create a class in Java?", "o": ["class", "MyClass", "class()", "className"], "a": 0 },
+            { "q": "What is the correct way to create an object called 'myObj' of MyClass?", "o": ["class myObj = new MyClass();", "MyClass myObj = new MyClass();", "new myObj = MyClass();", "MyClass myObj = new MyClass;"], "a": 1 },
+            { "q": "Which method is the entry point for any Java program?", "o": ["main", "start", "init", "run"], "a": 0 },
+            { "q": "Which keyword is used to import a package from the Java API library?", "o": ["package", "getlib", "import", "lib"], "a": 2 },
+            { "q": "How do you start writing an if statement in Java?", "o": ["if x > y:", "if (x > y)", "if x > y then:", "if x > y"], "a": 1 },
+            { "q": "How do you start writing a while loop in Java?", "o": ["while x > y:", "while (x > y)", "while x > y {", "x > y while {"], "a": 1 },
+            { "q": "Which keyword is used to return a value inside a method?", "o": ["return", "break", "get", "void"], "a": 0 },
+            { "q": "Which statement is used to stop a loop?", "o": ["stop", "break", "return", "exit"], "a": 1 },
+            { "q": "Which keyword is used to inherit a class?", "o": ["extends", "implements", "inherits", "super"], "a": 0 },
+            { "q": "What is the correct way to create an interface?", "o": ["interface MyInterface", "class MyInterface implements", "interface class MyInterface", "new interface MyInterface"], "a": 0 },
+            { "q": "Which keyword is used to access members of a package?", "o": ["import", "package", ".", "extends"], "a": 0 },
+            { "q": "How do you cast a double to an int?", "o": ["(int) 5.5", "int(5.5)", "5.5 to int", "cast(5.5)"], "a": 0 },
+            { "q": "Which operator can be used to compare two strings?", "o": ["==", "=", "equals()", "<>"], "a": 2 },
+            { "q": "Which class is used to handle errors in Java?", "o": ["Error", "Exception", "Problem", "Bug"], "a": 1 },
+            { "q": "Which block is always executed whether an exception is handled or not?", "o": ["catch", "finally", "throw", "throws"], "a": 1 },
+            { "q": "Which keyword is used to create a constant variable?", "o": ["const", "final", "static", "var"], "a": 1 },
+            { "q": "Which collection stores key-value pairs?", "o": ["ArrayList", "HashSet", "HashMap", "LinkedList"], "a": 2 },
+            { "q": "Which collection contains unique elements only?", "o": ["ArrayList", "HashSet", "HashMap", "Vector"], "a": 1 },
+            { "q": "Which package contains the Date and Time classes?", "o": ["java.io", "java.sql", "java.time", "java.util"], "a": 2 },
+            { "q": "Which operator is used for logical AND?", "o": ["&", "&&", "|", "||"], "a": 1 },
+            { "q": "How do you insert COMMENTS in Java code?", "o": ["# This is a comment", "/* This is a comment", "// This is a comment", "<!-- This is a comment -->"], "a": 2 },
+            { "q": "Which keyword is used to implement an interface?", "o": ["extends", "implements", "interface", "using"], "a": 1 }
+          ]
+        }
+      ],
+      "project": {
+        "title": "Final Review",
+        "description": "Review all modules before taking the final exam."
+      }
+    }
+  ]
+}

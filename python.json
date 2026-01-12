@@ -1,0 +1,496 @@
+{
+  "courseId": "python",
+  "title": "Python for Beginners",
+  "level": "Beginner to Intermediate",
+  "modules": [
+    {
+      "id": "py-mod-1",
+      "title": "Module 1: Python Basics",
+      "description": "Master the fundamentals: Syntax, Variables, and Data Types.",
+      "lessons": [
+        {
+          "id": "py-syntax",
+          "title": "Syntax & Indentation",
+          "theory": "Python uses indentation to indicate a block of code. Where in other programming languages the indentation in code is for readability only, the indentation in Python is very important.",
+          "code": "if 5 > 2:\n  print(\"Five is greater than two!\")",
+          "quiz": {
+            "question": "What is used to define a block of code in Python?",
+            "options": ["Parentheses", "Indentation", "Curly braces", "Quotation marks"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-variables",
+          "title": "Variables",
+          "theory": "Variables are containers for storing data values. Python has no command for declaring a variable. A variable is created the moment you first assign a value to it.",
+          "code": "x = 5\ny = \"John\"\nprint(x)\nprint(y)",
+          "quiz": {
+            "question": "How do you create a variable in Python?",
+            "options": ["var x = 5", "x = 5", "int x = 5", "variable x = 5"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-datatypes",
+          "title": "Data Types",
+          "theory": "Python has the following data types built-in by default: Text Type (str), Numeric Types (int, float, complex), Sequence Types (list, tuple, range), Mapping Type (dict), Set Types (set, frozenset), Boolean Type (bool).",
+          "code": "x = 5\ny = \"Hello World\"\nz = 20.5\nprint(type(x))\nprint(type(y))\nprint(type(z))",
+          "quiz": {
+            "question": "Which function returns the data type of a variable?",
+            "options": ["typeof()", "type()", "gettype()", "datatype()"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-casting",
+          "title": "Casting",
+          "theory": "There may be times when you want to specify a type on to a variable. This can be done with casting. Python is an object-orientated language, and as such it uses classes to define data types, including its primitive types.",
+          "code": "x = int(1)\ny = int(2.8)\nz = int(\"3\")\nprint(x)\nprint(y)\nprint(z)",
+          "quiz": {
+            "question": "What will be the value of int(2.8)?",
+            "options": ["2.8", "3", "2", "Error"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Variable Swap",
+        "description": "Create two variables, assign values, and swap them."
+      }
+    },
+    {
+      "id": "py-mod-2",
+      "title": "Module 2: Operators & Logic",
+      "description": "Perform operations and control program flow.",
+      "lessons": [
+        {
+          "id": "py-operators",
+          "title": "Operators",
+          "theory": "Operators are used to perform operations on variables and values. Python divides the operators in the following groups: Arithmetic, Assignment, Comparison, Logical, Identity, Membership, Bitwise.",
+          "code": "print(10 + 5)\nprint(10 > 5)\nprint(True and False)",
+          "quiz": {
+            "question": "Which operator is used for exponentiation?",
+            "options": ["^", "**", "//", "%"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-if-else",
+          "title": "If...Else",
+          "theory": "Python supports the usual logical conditions from mathematics. These conditions can be used in several ways, most commonly in 'if statements' and loops.",
+          "code": "a = 33\nb = 200\nif b > a:\n  print(\"b is greater than a\")\nelif a == b:\n  print(\"a and b are equal\")\nelse:\n  print(\"a is greater than b\")",
+          "quiz": {
+            "question": "Which keyword is used for 'else if' in Python?",
+            "options": ["else if", "elseif", "elif", "then"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "py-while",
+          "title": "While Loops",
+          "theory": "With the while loop we can execute a set of statements as long as a condition is true.",
+          "code": "i = 1\nwhile i < 6:\n  print(i)\n  i += 1",
+          "quiz": {
+            "question": "How do you stop a loop even if the while condition is true?",
+            "options": ["stop", "break", "exit", "continue"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-for",
+          "title": "For Loops",
+          "theory": "A for loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).",
+          "code": "fruits = [\"apple\", \"banana\", \"cherry\"]\nfor x in fruits:\n  print(x)",
+          "quiz": {
+            "question": "Which function returns a sequence of numbers?",
+            "options": ["range()", "seq()", "numbers()", "list()"],
+            "answer": 0
+          }
+        }
+      ],
+      "project": {
+        "title": "Guess the Number",
+        "description": "Write a program that loops until the user guesses a secret number (simulated with a variable)."
+      }
+    },
+    {
+      "id": "py-mod-3",
+      "title": "Module 3: Data Structures",
+      "description": "Lists, Tuples, Sets, and Dictionaries.",
+      "lessons": [
+        {
+          "id": "py-lists",
+          "title": "Lists",
+          "theory": "Lists are used to store multiple items in a single variable. Lists are one of 4 built-in data types in Python used to store collections of data. Lists are created using square brackets.",
+          "code": "thislist = [\"apple\", \"banana\", \"cherry\"]\nprint(thislist)\nthislist.append(\"orange\")\nprint(thislist)",
+          "quiz": {
+            "question": "Are lists mutable (changeable)?",
+            "options": ["Yes", "No"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "py-tuples",
+          "title": "Tuples",
+          "theory": "A tuple is a collection which is ordered and unchangeable. Tuples are written with round brackets.",
+          "code": "thistuple = (\"apple\", \"banana\", \"cherry\")\nprint(thistuple)",
+          "quiz": {
+            "question": "Which brackets define a tuple?",
+            "options": ["[]", "{}", "()", "<>"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "py-sets",
+          "title": "Sets",
+          "theory": "A set is a collection which is unordered, unchangeable*, and unindexed. Sets are written with curly brackets. *Note: Set items are unchangeable, but you can remove items and add new items.",
+          "code": "thisset = {\"apple\", \"banana\", \"cherry\"}\nprint(thisset)",
+          "quiz": {
+            "question": "Do sets allow duplicate values?",
+            "options": ["Yes", "No"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-dictionaries",
+          "title": "Dictionaries",
+          "theory": "Dictionaries are used to store data values in key:value pairs. A dictionary is a collection which is ordered*, changeable and do not allow duplicates.",
+          "code": "thisdict = {\n  \"brand\": \"Ford\",\n  \"model\": \"Mustang\",\n  \"year\": 1964\n}\nprint(thisdict[\"brand\"])",
+          "quiz": {
+            "question": "How do you access a value in a dictionary?",
+            "options": ["dict[key]", "dict.key", "dict(key)", "dict->key"],
+            "answer": 0
+          }
+        }
+      ],
+      "project": {
+        "title": "Contact Book",
+        "description": "Create a dictionary to store names and phone numbers, and print a specific contact."
+      }
+    },
+    {
+      "id": "py-mod-4",
+      "title": "Module 4: Functions",
+      "description": "Reusable blocks of code.",
+      "lessons": [
+        {
+          "id": "py-functions",
+          "title": "Defining Functions",
+          "theory": "A function is a block of code which only runs when it is called. You can pass data, known as parameters, into a function. A function can return data as a result.",
+          "code": "def my_function(fname):\n  print(fname + \" Refsnes\")\n\nmy_function(\"Emil\")\nmy_function(\"Tobias\")\nmy_function(\"Linus\")",
+          "quiz": {
+            "question": "Which keyword is used to create a function?",
+            "options": ["function", "def", "fun", "define"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-args",
+          "title": "Arguments",
+          "theory": "Information can be passed into functions as arguments. Arguments are specified after the function name, inside the parentheses. You can add as many arguments as you want, just separate them with a comma.",
+          "code": "def my_function(fname, lname):\n  print(fname + \" \" + lname)\n\nmy_function(\"Emil\", \"Refsnes\")",
+          "quiz": {
+            "question": "How many arguments does this function expect: def my_function(fname, lname)?",
+            "options": ["1", "2", "0", "Unlimited"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-lambda",
+          "title": "Lambda",
+          "theory": "A lambda function is a small anonymous function. A lambda function can take any number of arguments, but can only have one expression.",
+          "code": "x = lambda a : a + 10\nprint(x(5))",
+          "quiz": {
+            "question": "What is a lambda function?",
+            "options": ["A large function", "A named function", "An anonymous function", "A loop"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Calculator Function",
+        "description": "Create functions for add, subtract, multiply, and divide, and call them based on user input."
+      }
+    },
+    {
+      "id": "py-mod-5",
+      "title": "Module 5: File Handling",
+      "description": "Working with files.",
+      "lessons": [
+        {
+          "id": "py-files",
+          "title": "File Handling",
+          "theory": "The key function for working with files in Python is the open() function. The open() function takes two parameters; filename, and mode.",
+          "code": "f = open(\"demofile.txt\", \"w\")\nf.write(\"Now the file has more content!\")\nf.close()\n\n#open and read the file after the appending:\nf = open(\"demofile.txt\", \"r\")\nprint(f.read())",
+          "quiz": {
+            "question": "Which mode opens a file for writing?",
+            "options": ["\"r\"", "\"w\"", "\"x\"", "\"a\""],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-read",
+          "title": "Read Files",
+          "theory": "To open the file, use the built-in open() function. The open() function returns a file object, which has a read() method for reading the content of the file.",
+          "code": "f = open(\"demofile.txt\", \"r\")\nprint(f.read())",
+          "quiz": {
+            "question": "Which method reads the content of a file?",
+            "options": ["get()", "read()", "open()", "load()"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Log Keeper",
+        "description": "Write a script that appends a timestamp and message to a log file."
+      }
+    },
+    {
+      "id": "py-mod-6",
+      "title": "Module 6: Modules & Libraries",
+      "description": "Extending Python's capabilities.",
+      "lessons": [
+        {
+          "id": "py-modules",
+          "title": "Modules",
+          "theory": "Consider a module to be the same as a code library. A file containing a set of functions you want to include in your application.",
+          "code": "import platform\n\nx = platform.system()\nprint(x)",
+          "quiz": {
+            "question": "Which keyword is used to import a module?",
+            "options": ["include", "import", "using", "from"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-datetime",
+          "title": "Dates",
+          "theory": "A date in Python is not a data type of its own, but we can import a module named datetime to work with dates as date objects.",
+          "code": "import datetime\n\nx = datetime.datetime.now()\nprint(x)",
+          "quiz": {
+            "question": "Which module is used for dates?",
+            "options": ["date", "time", "datetime", "calendar"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "py-json",
+          "title": "JSON",
+          "theory": "JSON is a syntax for storing and exchanging data. Python has a built-in package called json, which can be used to work with JSON data.",
+          "code": "import json\n\n# some JSON:\nx =  '{ \"name\":\"John\", \"age\":30, \"city\":\"New York\"}'\n\n# parse x:\ny = json.loads(x)\n\n# the result is a Python dictionary:\nprint(y[\"age\"])",
+          "quiz": {
+            "question": "Which method parses a JSON string into a Python dictionary?",
+            "options": ["json.parse()", "json.loads()", "json.convert()", "json.read()"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "System Info",
+        "description": "Use the platform module to print system information and the datetime module to print the current time."
+      }
+    },
+    {
+      "id": "py-mod-7",
+      "title": "Module 7: Object-Oriented Programming",
+      "description": "Learn about classes, objects, and inheritance.",
+      "lessons": [
+        {
+          "id": "py-classes",
+          "title": "Classes and Objects",
+          "theory": "Python is an object oriented programming language. Almost everything in Python is an object, with its properties and methods. A Class is like an object constructor, or a 'blueprint' for creating objects.",
+          "code": "class MyClass:\n  x = 5\n\np1 = MyClass()\nprint(p1.x)",
+          "quiz": {
+            "question": "What is a class often called?",
+            "options": ["An object", "A blueprint", "A function", "A variable"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-init",
+          "title": "The __init__() Function",
+          "theory": "All classes have a function called __init__(), which is always executed when the class is being initiated. Use the __init__() function to assign values to object properties, or other operations that are necessary to do when the object is being created.",
+          "code": "class Person:\n  def __init__(self, name, age):\n    self.name = name\n    self.age = age\n\np1 = Person(\"John\", 36)\n\nprint(p1.name)\nprint(p1.age)",
+          "quiz": {
+            "question": "What is the purpose of the __init__() function?",
+            "options": ["To delete an object", "To initialize an object's state", "To print the object", "To create a copy"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-inheritance",
+          "title": "Inheritance",
+          "theory": "Inheritance allows us to define a class that inherits all the methods and properties from another class. Parent class is the class being inherited from, also called base class. Child class is the class that inherits from another class, also called derived class.",
+          "code": "class Person:\n  def __init__(self, fname, lname):\n    self.firstname = fname\n    self.lastname = lname\n\n  def printname(self):\n    print(self.firstname, self.lastname)\n\nclass Student(Person):\n  pass\n\nx = Student(\"Mike\", \"Olsen\")\nx.printname()",
+          "quiz": {
+            "question": "Which class inherits from the other?",
+            "options": ["Parent class", "Child class", "Base class", "Super class"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-iterators",
+          "title": "Iterators",
+          "theory": "An iterator is an object that contains a countable number of values. An iterator is an object that can be iterated upon, meaning that you can traverse through all the values. Technically, in Python, an iterator is an object which implements the iterator protocol, which consist of the methods __iter__() and __next__().",
+          "code": "mytuple = (\"apple\", \"banana\", \"cherry\")\nmyit = iter(mytuple)\n\nprint(next(myit))\nprint(next(myit))\nprint(next(myit))",
+          "quiz": {
+            "question": "Which method returns the next item in an iterator?",
+            "options": ["next()", "iterate()", "get()", "next_value()"],
+            "answer": 0
+          }
+        }
+      ],
+      "project": {
+        "title": "Vehicle Class",
+        "description": "Create a 'Vehicle' class with properties for brand and model, and a 'Car' subclass that inherits from it."
+      }
+    },
+    {
+      "id": "py-mod-8",
+      "title": "Module 8: Error Handling",
+      "description": "Handle errors gracefully with Try...Except.",
+      "lessons": [
+        {
+          "id": "py-try-except",
+          "title": "Try Except",
+          "theory": "The 'try' block lets you test a block of code for errors. The 'except' block lets you handle the error.",
+          "code": "try:\n  print(x)\nexcept:\n  print(\"An exception occurred\")",
+          "quiz": {
+            "question": "Which block handles the error?",
+            "options": ["try", "except", "finally", "catch"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-finally",
+          "title": "Finally",
+          "theory": "The 'finally' block, if specified, will be executed regardless if the try block raises an error or not.",
+          "code": "try:\n  print(x)\nexcept:\n  print(\"Something went wrong\")\nfinally:\n  print(\"The 'try except' is finished\")",
+          "quiz": {
+            "question": "Does 'finally' run if no error occurs?",
+            "options": ["Yes", "No"],
+            "answer": 0
+          }
+        }
+      ],
+      "project": {
+        "title": "Safe Division",
+        "description": "Create a division function that handles ZeroDivisionError."
+      }
+    },
+    {
+      "id": "py-mod-9",
+      "title": "Module 9: Input & Formatting",
+      "description": "Interact with users and format strings.",
+      "lessons": [
+        {
+          "id": "py-input",
+          "title": "User Input",
+          "theory": "Python allows for user input. That means we are able to ask the user for input.",
+          "code": "username = input(\"Enter username:\")\nprint(\"Username is: \" + username)",
+          "quiz": {
+            "question": "Which function gets input from the user?",
+            "options": ["get()", "input()", "scan()", "read()"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-string-formatting",
+          "title": "String Formatting",
+          "theory": "F-strings allow you to format selected parts of a string. To specify a string as an f-string, simply put an f in front of the string literal.",
+          "code": "age = 36\ntxt = f\"My name is John, I am {age}\"\nprint(txt)",
+          "quiz": {
+            "question": "How do you start an f-string?",
+            "options": ["f\"...\"", "format(...)", "str(...)", "s\"...\""],
+            "answer": 0
+          }
+        }
+      ],
+      "project": {
+        "title": "Greeting App",
+        "description": "Ask for the user's name and age, then print a formatted greeting."
+      }
+    },
+    {
+      "id": "py-mod-10",
+      "title": "Module 10: Advanced Topics",
+      "description": "RegEx and Package Management.",
+      "lessons": [
+        {
+          "id": "py-regex",
+          "title": "RegEx",
+          "theory": "A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern.",
+          "code": "import re\ntxt = \"The rain in Spain\"\nx = re.search(\"^The.*Spain$\", txt)\nif x:\n  print(\"YES! We have a match!\")\nelse:\n  print(\"No match\")",
+          "quiz": {
+            "question": "Which module is used for RegEx in Python?",
+            "options": ["regex", "re", "pyre", "reg"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "py-pip",
+          "title": "PIP",
+          "theory": "PIP is a package manager for Python packages, or modules if you like.",
+          "code": "# This is a command line example, not python code\n# pip install camelcase",
+          "quiz": {
+            "question": "What is PIP used for?",
+            "options": ["Running Python", "Installing packages", "Writing code", "Debugging"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Email Validator",
+        "description": "Use RegEx to check if a string is a valid email address."
+      }
+    },
+    {
+      "id": "mod-final",
+      "title": "Final Assessment",
+      "description": "Prove your mastery to unlock the certificate.",
+      "lessons": [
+        {
+          "id": "py-final-exam",
+          "title": "Python Final Exam",
+          "type": "assessment",
+          "theory": "This is the final assessment for the Python course. <br><strong>Rules:</strong><ul><li>There are 30 questions.</li><li>You need a score of <strong>80%</strong> (24/30) to pass.</li><li>You have a maximum of <strong>3 attempts</strong>.</li><li>The certificate will unlock automatically upon passing.</li></ul>",
+          "questions": [
+            { "q": "What is the correct file extension for Python files?", "o": [".pyt", ".pt", ".py", ".python"], "a": 2 },
+            { "q": "How do you create a variable with the numeric value 5?", "o": ["x = 5", "x = int(5)", "Both A and B", "int x = 5"], "a": 2 },
+            { "q": "What is the correct syntax to output the type of a variable or object in Python?", "o": ["print(typeof(x))", "print(type(x))", "print(typeOf(x))", "print(type.x)"], "a": 1 },
+            { "q": "What is the correct way to create a function in Python?", "o": ["create myFunction():", "def myFunction():", "function myFunction():", "def myFunction:"], "a": 1 },
+            { "q": "In Python, 'Hello', is the same as \"Hello\"", "o": ["True", "False"], "a": 0 },
+            { "q": "What is a correct syntax to return the first character in a string?", "o": ["x = \"Hello\".sub(0, 1)", "x = \"Hello\"[0]", "x = sub(\"Hello\", 0, 1)", "x = \"Hello\".0"], "a": 1 },
+            { "q": "Which method can be used to remove any whitespace from both the beginning and the end of a string?", "o": ["strip()", "trim()", "len()", "ptrim()"], "a": 0 },
+            { "q": "Which method can be used to return a string in upper case letters?", "o": ["upper()", "uppercase()", "toUpperCase()", "upperCase()"], "a": 0 },
+            { "q": "Which method can be used to replace parts of a string?", "o": ["replace()", "repl()", "switch()", "replaceString()"], "a": 0 },
+            { "q": "Which operator is used to multiply numbers?", "o": ["%", "x", "#", "*"], "a": 3 },
+            { "q": "Which operator can be used to compare two values?", "o": ["=", "<>", "==", "><"], "a": 2 },
+            { "q": "Which collection is ordered, changeable, and allows duplicate members?", "o": ["List", "Tuple", "Set", "Dictionary"], "a": 0 },
+            { "q": "Which collection is ordered, unchangeable, and allows duplicate members?", "o": ["Set", "List", "Dictionary", "Tuple"], "a": 3 },
+            { "q": "Which collection does not allow duplicate members?", "o": ["List", "Tuple", "Set", "All of the above"], "a": 2 },
+            { "q": "How do you start a while loop?", "o": ["while x > y:", "while (x > y)", "while x > y {", "x > y while {"], "a": 0 },
+            { "q": "How do you start a for loop?", "o": ["for x in y:", "for each x in y:", "for x > y:", "for x in y {"], "a": 0 },
+            { "q": "Which statement is used to stop a loop?", "o": ["stop", "break", "return", "exit"], "a": 1 },
+            { "q": "How can you create a variable with the floating number 2.8?", "o": ["x = 2.8", "x = float(2.8)", "Both A and B", "float x = 2.8"], "a": 2 },
+            { "q": "Which function is used to read input from the user?", "o": ["input()", "get()", "scan()", "read()"], "a": 0 },
+            { "q": "How do you insert COMMENTS in Python code?", "o": ["/* This is a comment */", "# This is a comment", "// This is a comment", "<!-- This is a comment -->"], "a": 1 },
+            { "q": "Which keyword is used to import a module?", "o": ["import", "include", "using", "from"], "a": 0 },
+            { "q": "What is the correct syntax to create a class named MyClass?", "o": ["class MyClass:", "Create class MyClass:", "class MyClass", "new class MyClass:"], "a": 0 },
+            { "q": "What is the name of the method that is executed when a class is initiated?", "o": ["__init__", "__start__", "__class__", "init"], "a": 0 },
+            { "q": "Which keyword is used to create an alias for a module?", "o": ["as", "alias", "name", "from"], "a": 0 },
+            { "q": "Which method is used to parse a JSON string into a Python dictionary?", "o": ["json.parse()", "json.loads()", "json.convert()", "json.read()"], "a": 1 },
+            { "q": "Which block handles the error in a try...except statement?", "o": ["try", "except", "finally", "catch"], "a": 1 },
+            { "q": "Which function returns the length of a list?", "o": ["length()", "count()", "len()", "size()"], "a": 2 },
+            { "q": "How do you create a dictionary?", "o": ["x = {}", "x = []", "x = ()", "x = <>"], "a": 0 },
+            { "q": "Which operator is used for exponentiation?", "o": ["^", "**", "//", "%"], "a": 1 },
+            { "q": "What is the output of print(10 // 3)?", "o": ["3.33", "3", "1", "3.0"], "a": 1 }
+          ]
+        }
+      ],
+      "project": {
+        "title": "Final Review",
+        "description": "Review all modules before taking the final exam."
+      }
+    }
+  ]
+}

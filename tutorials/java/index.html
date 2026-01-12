@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Introduction | Av_eSAFE Gurukul</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="icon" type="image/png" href="../../images/India.png">
+
+</head>
+<body>
+    <header></header>
+    <div class="tutorial-container">
+        <aside class="sidebar"></aside>
+        <main class="content reveal">
+            <h1>Java Introduction</h1>
+            <p>Java is a popular programming language, created in 1995.</p>
+            <p>It is owned by Oracle, and more than 3 billion devices run Java.</p>
+
+            <h2>What is Java used for?</h2>
+            <ul>
+                <li>Mobile applications (specially Android apps)</li>
+                <li>Desktop applications</li>
+                <li>Web applications</li>
+                <li>Web servers and application servers</li>
+                <li>Games</li>
+            </ul>
+
+            <h2>Java Syntax</h2>
+            <pre><code>public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}</code><button class="copy-btn">Copy</button></pre>
+
+            <h2>Java Editor (Simulated)</h2>
+            <div class="editor-container">
+                <div class="editor-header">
+                    <span>Java Console</span>
+                    <button class="run-btn" onclick="runCode()">Run ▶</button>
+                </div>
+                <div class="editor-body">
+                    <textarea id="code-html" class="code-input" spellcheck="false">
+public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}</textarea>
+                    <iframe id="preview-frame" class="preview-frame"></iframe>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/editor.js"></script>
+</body>
+</html>

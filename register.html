@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Av_eSAFE Gurukul</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="images/India.png">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --radius: 16px;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .auth-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        .auth-card {
+            background: var(--glass-bg);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .brand { font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 2rem; }
+        .brand span { color: var(--text-main); }
+        .form-group { margin-bottom: 1.2rem; text-align: left; }
+        label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.9rem; }
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        input:focus { outline: none; border-color: var(--primary); }
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        .error { color: #ef4444; font-size: 0.9rem; margin-top: 1rem; display: none; }
+        .links { margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
+        .links a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <header></header>
+    <div class="auth-container">
+        <div class="auth-card">
+        <div class="brand">Av_eSAFE <span>Gurukul</span></div>
+        <h2 style="margin-bottom: 1.5rem; color: var(--text-main);">Create Account</h2>
+        <form id="registerForm">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="email" required placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password" required placeholder="Create a strong password" minlength="6">
+            </div>
+            <button type="submit" id="submitBtn">Register</button>
+            <div id="errorMsg" class="error"></div>
+        </form>
+        <div class="links">
+            Already have an account? <a href="login.html">Sign In</a>
+        </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const err = document.getElementById('errorMsg');
+            btn.disabled = true; btn.textContent = 'Creating Account...';
+            err.style.display = 'none';
+
+            try {
+                const response = await fetch('api/register.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        password: document.getElementById('password').value
+                    })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    window.location.href = 'index.html';
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                err.textContent = error.message;
+                err.style.display = 'block';
+                btn.disabled = false; btn.textContent = 'Register';
+            }
+        });
+    </script>
+</body>
+</html>

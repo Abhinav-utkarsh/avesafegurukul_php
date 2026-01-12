@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | Av_eSAFE Gurukul</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="images/India.png">
+    <style>
+        .profile-header {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+            border-bottom: 1px solid var(--glass-border);
+            margin-bottom: 2rem;
+        }
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 1rem;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: -3rem auto 3rem;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.1);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section-title {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            font-size: 2rem;
+            color: var(--text-main);
+        }
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            background: var(--glass-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main>
+        <div class="profile-header">
+            <div class="profile-avatar">👤</div>
+            <h1 style="margin-bottom: 0.5rem;" id="profileName">Guest User</h1>
+            <p style="color: var(--text-muted);" id="profileEmail">Please login to save progress</p>
+            <button onclick="logout()" id="logoutBtn" class="btn-small" style="background: #ef4444; border: none; cursor: pointer; display: none; margin-top: 1rem;">Logout</button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalCompleted">0</div>
+                <div class="stat-label">Topics Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalCertificates">0</div>
+                <div class="stat-label">Certificates Earned</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Earned Certificates</h2>
+        <div id="certificatesGrid" class="grid-container">
+            <!-- Certificates will be injected here -->
+        </div>
+
+        <h2 class="section-title">Course Progress</h2>
+        <div id="progressGrid" class="grid-container">
+            <!-- Progress bars will be injected here -->
+        </div>
+    </main>
+    <footer></footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initProfile();
+        });
+
+        function initProfile() {
+            if (!window.curriculum) return;
+
+            const userSession = JSON.parse(localStorage.getItem('user_session'));
+            if (userSession) {
+                document.getElementById('profileName').textContent = userSession.name;
+                document.getElementById('profileEmail').textContent = userSession.email;
+                document.getElementById('logoutBtn').style.display = 'inline-block';
+            }
+
+            let completedTopics = [];
+            try {
+                completedTopics = JSON.parse(localStorage.getItem(window.getUserKey('completedTopics'))) || [];
+            } catch (e) {
+                console.error("Error parsing completedTopics:", e);
+                completedTopics = [];
+            }
+            
+            const courses = Object.keys(window.curriculum);
+            let earnedCerts = 0;
+            
+            const certGrid = document.getElementById('certificatesGrid');
+            const progressGrid = document.getElementById('progressGrid');
+            
+            certGrid.innerHTML = '';
+            progressGrid.innerHTML = '';
+
+            courses.forEach(course => {
+                // 1. Check for Certificate
+                const badgeKey = window.getUserKey(`badge_${course}`);
+                const hasBadge = localStorage.getItem(badgeKey) === 'true';
+                
+                if (hasBadge) {
+                    earnedCerts++;
+                    certGrid.innerHTML += `
+                        <div class="card reveal">
+                            <h3 style="color: var(--primary); text-transform: capitalize;">${course} Certificate</h3>
+                            <p>Status: <span style="color: #10b981; font-weight: bold;">Earned</span></p>
+                            <div style="margin-top: 1.5rem;">
+                                <a href="certificate.html?course=${course}" class="btn-small" style="background: var(--accent); border: none; width: 100%; text-align: center; display: block;">Download Certificate 🏆</a>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // 2. Calculate Progress
+                let totalItems = 0;
+                let completedCount = 0;
+                window.curriculum[course].forEach(section => {
+                    section.items.forEach(item => {
+                        totalItems++;
+                        if (completedTopics.includes(item.url)) completedCount++;
+                    });
+                });
+
+                const percent = totalItems === 0 ? 0 : Math.round((completedCount / totalItems) * 100);
+                
+                // Determine link to course (intro page)
+                let courseLink = '#';
+                if (window.curriculum[course][0] && window.curriculum[course][0].items[0]) {
+                    const rawUrl = window.curriculum[course][0].items[0].url;
+                    courseLink = rawUrl.startsWith('/') ? rawUrl.substring(1) : rawUrl;
+                }
+
+                progressGrid.innerHTML += `
+                    <div class="card reveal">
+                        <h3 style="text-transform: capitalize;">${course}</h3>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">
+                            <span>${completedCount} / ${totalItems} Topics</span>
+                            <span>${percent}%</span>
+                        </div>
+                        <div style="width: 100%; background: var(--glass-border); height: 8px; border-radius: 4px; overflow: hidden;">
+                            <div style="width: ${percent}%; background: ${percent === 100 ? '#10b981' : 'var(--primary)'}; height: 100%;"></div>
+                        </div>
+                        ${percent === 100 && !hasBadge ? '<p style="color: var(--accent); font-size: 0.8rem; margin-top: 0.5rem;">Course complete! Go to the last chapter to claim your certificate.</p>' : ''}
+                        <div style="margin-top: 1.5rem;">
+                            <a href="${courseLink}" class="btn-small" style="width: 100%; text-align: center; display: block;">${percent === 100 ? 'Review Course' : 'Continue Learning'}</a>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Update Stats
+            document.getElementById('totalCompleted').textContent = completedTopics.length;
+            document.getElementById('totalCertificates').textContent = earnedCerts;
+
+            // Empty State for Certificates
+            if (earnedCerts === 0) {
+                certGrid.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1 / -1;">
+                        <h3>No Certificates Yet</h3>
+                        <p>Complete a course to earn your first certificate!</p>
+                        <a href="roadmap.html" class="btn-small" style="margin-top: 1rem;">View Roadmap</a>
+                    </div>
+                `;
+            }
+
+            // Initialize animations for dynamically added content
+            if (typeof initAnimations === 'function') initAnimations();
+        }
+    </script>
+</body>
+</html>

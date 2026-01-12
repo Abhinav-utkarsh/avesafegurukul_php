@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Mastery | Av_eSAFE Gurukul</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+    <header></header>
+
+    <div class="tutorial-container">
+        <aside class="sidebar">
+            <!-- Sidebar links injected via JS based on folder context -->
+        </aside>
+
+        <main class="content reveal">
+            <h1>HTML5 Mastery</h1>
+            <p>Welcome to the complete HTML5 course. Select a module from the sidebar to begin your journey.</p>
+
+            <h2>The Structure of a Web Page</h2>
+            <p>HTML elements tell the browser how to display the content. Here is a standard boilerplate:</p>
+
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;My First Heading&lt;/h1&gt;
+    &lt;p&gt;My first paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code><button class="copy-btn">Copy</button></pre>
+
+            <h2>Try It Yourself</h2>
+            <p>Edit the code below and click "Run" to see the result instantly.</p>
+
+            <div class="editor-container">
+                <div class="editor-header">
+                    <span>Live Editor</span>
+                    <button class="run-btn" onclick="runCode()">Run ▶</button>
+                </div>
+                <div class="editor-body">
+                    <textarea id="code-html" class="code-input" spellcheck="false">
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { font-family: sans-serif; padding: 20px; }
+  h1 { color: #2563eb; }
+</style>
+</head>
+<body>
+
+<h1>Hello, Gurukul!</h1>
+<p>This is a live preview.</p>
+<button>Click Me</button>
+
+</body>
+</html></textarea>
+                    <iframe id="preview-frame" class="preview-frame"></iframe>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/editor.js"></script>
+</body>
+</html>

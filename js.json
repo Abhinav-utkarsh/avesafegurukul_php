@@ -1,0 +1,441 @@
+{
+  "courseId": "js",
+  "title": "JavaScript: The Language of the Web",
+  "level": "Beginner to Advanced",
+  "modules": [
+    {
+      "id": "js-mod-1",
+      "title": "Module 1: JS Introduction",
+      "description": "Get started with JavaScript syntax, variables, and data types.",
+      "lessons": [
+        {
+          "id": "js-intro",
+          "title": "JS Output",
+          "theory": "JavaScript can display data in different ways: innerHTML, document.write(), window.alert(), and console.log().",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Output</h2>\n<p id=\"demo\"></p>\n\n<script>\ndocument.getElementById(\"demo\").innerHTML = \"Hello JavaScript!\";\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which method writes data into an HTML element?",
+            "options": ["console.log()", "document.write()", "innerHTML", "window.alert()"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "js-variables",
+          "title": "JS Variables",
+          "theory": "Variables are containers for storing data. JavaScript has 3 ways to declare variables: var, let, and const.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Variables</h2>\n<p id=\"demo\"></p>\n\n<script>\nlet x = 5;\nconst y = 6;\nlet z = x + y;\ndocument.getElementById(\"demo\").innerHTML = \"The value of z is: \" + z;\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which keyword defines a variable that cannot be reassigned?",
+            "options": ["var", "let", "const", "static"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "js-datatypes",
+          "title": "JS Data Types",
+          "theory": "JavaScript variables can hold different data types: numbers, strings, objects, booleans, etc.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Data Types</h2>\n<p id=\"demo\"></p>\n\n<script>\nlet length = 16;                               // Number\nlet lastName = \"Johnson\";                      // String\nlet x = {firstName:\"John\", lastName:\"Doe\"};    // Object\n\ndocument.getElementById(\"demo\").innerHTML =\n\"Length: \" + length + \"<br>\" + \n\"Name: \" + lastName + \"<br>\" + \n\"Object: \" + x.firstName;\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "What data type is 'Hello World'?",
+            "options": ["Number", "String", "Boolean", "Object"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Variable Playground",
+        "description": "Create a script that declares variables of different types and displays them."
+      }
+    },
+    {
+      "id": "js-mod-2",
+      "title": "Module 2: Operators & Logic",
+      "description": "Perform operations and make decisions.",
+      "lessons": [
+        {
+          "id": "js-operators",
+          "title": "JS Operators",
+          "theory": "JavaScript operators are used to perform arithmetic, assignment, comparison, logical, and type operations.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Operators</h2>\n<p id=\"demo\"></p>\n\n<script>\nlet x = 5;\nlet y = 2;\nlet z = x * y;\ndocument.getElementById(\"demo\").innerHTML = \"The product is: \" + z;\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which operator is used for multiplication?",
+            "options": ["x", "*", "%", "#"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "js-if-else",
+          "title": "JS If...Else",
+          "theory": "Conditional statements are used to perform different actions based on different conditions.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript if..else</h2>\n<p id=\"demo\"></p>\n\n<script>\nconst hour = new Date().getHours();\nlet greeting;\nif (hour < 18) {\n  greeting = \"Good day\";\n} else {\n  greeting = \"Good evening\";\n}\ndocument.getElementById(\"demo\").innerHTML = greeting;\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "How do you write an IF statement in JavaScript?",
+            "options": ["if i = 5", "if i == 5 then", "if (i == 5)", "if i = 5 then"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "js-loops",
+          "title": "JS Loops",
+          "theory": "Loops can execute a block of code a number of times.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript For Loop</h2>\n<p id=\"demo\"></p>\n\n<script>\nlet text = \"\";\nfor (let i = 0; i < 5; i++) {\n  text += \"The number is \" + i + \"<br>\";\n}\ndocument.getElementById(\"demo\").innerHTML = text;\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which loop is best when you know how many times to loop?",
+            "options": ["while", "for", "do...while", "foreach"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Number Checker",
+        "description": "Write a script that checks if a number is even or odd."
+      }
+    },
+    {
+      "id": "js-mod-3",
+      "title": "Module 3: Functions",
+      "description": "Reusable blocks of code.",
+      "lessons": [
+        {
+          "id": "js-functions",
+          "title": "JS Functions",
+          "theory": "A JavaScript function is a block of code designed to perform a particular task.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Functions</h2>\n<p id=\"demo\"></p>\n\n<script>\nfunction toCelsius(fahrenheit) {\n  return (5/9) * (fahrenheit-32);\n}\ndocument.getElementById(\"demo\").innerHTML = \"77 deg F is \" + toCelsius(77) + \" deg C\";\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "How do you create a function in JavaScript?",
+            "options": ["function:myFunction()", "function myFunction()", "function = myFunction()", "def myFunction()"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "js-arrow-function",
+          "title": "Arrow Functions",
+          "theory": "Arrow functions allow for a shorter syntax for writing function expressions.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Arrow Function</h2>\n<p id=\"demo\"></p>\n\n<script>\nlet hello = \"\";\nhello = () => {\n  return \"Hello World!\";\n}\ndocument.getElementById(\"demo\").innerHTML = hello();\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Arrow functions were introduced in which version?",
+            "options": ["ES5", "ES6", "ES2018", "ES2020"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Temperature Converter",
+        "description": "Create functions to convert between Celsius and Fahrenheit."
+      }
+    },
+    {
+      "id": "js-mod-4",
+      "title": "Module 4: Objects & Arrays",
+      "description": "Working with complex data structures.",
+      "lessons": [
+        {
+          "id": "js-objects",
+          "title": "JS Objects",
+          "theory": "Objects are variables too. But objects can contain many values. The values are written as name:value pairs.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Objects</h2>\n<p id=\"demo\"></p>\n\n<script>\nconst car = {type:\"Fiat\", model:\"500\", color:\"white\"};\ndocument.getElementById(\"demo\").innerHTML = \"The car type is \" + car.type;\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "How do you access an object property?",
+            "options": ["objectName[propertyName]", "objectName.propertyName", "Both A and B", "None"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "js-arrays",
+          "title": "JS Arrays",
+          "theory": "An array is a special variable, which can hold more than one value.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Arrays</h2>\n<p id=\"demo\"></p>\n\n<script>\nconst cars = [\"Saab\", \"Volvo\", \"BMW\"];\ndocument.getElementById(\"demo\").innerHTML = cars[0];\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "How do you access the first element of an array?",
+            "options": ["array[1]", "array[0]", "array.first()", "array.0"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "js-array-methods",
+          "title": "Array Methods",
+          "theory": "JavaScript provides many methods to work with arrays, like push(), pop(), shift(), unshift(), map(), filter(), etc.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Array Methods</h2>\n<p id=\"demo\"></p>\n\n<script>\nconst fruits = [\"Banana\", \"Orange\", \"Apple\", \"Mango\"];\nfruits.push(\"Kiwi\");\ndocument.getElementById(\"demo\").innerHTML = fruits.join(\", \");\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which method removes the last element from an array?",
+            "options": ["push()", "pop()", "shift()", "remove()"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "To-Do List Data",
+        "description": "Manage a list of tasks using an array and object methods."
+      }
+    },
+    {
+      "id": "js-mod-5",
+      "title": "Module 5: The DOM",
+      "description": "Manipulating the HTML Document Object Model.",
+      "lessons": [
+        {
+          "id": "js-dom-intro",
+          "title": "DOM Introduction",
+          "theory": "With the HTML DOM, JavaScript can access and change all the elements of an HTML document.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>Finding HTML Elements</h2>\n<p id=\"intro\">Hello World!</p>\n<p id=\"demo\"></p>\n\n<script>\nconst element = document.getElementById(\"intro\");\ndocument.getElementById(\"demo\").innerHTML = \n\"The text from the intro paragraph is: \" + element.innerHTML;\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "What does DOM stand for?",
+            "options": ["Data Object Model", "Document Object Model", "Digital Object Model", "Document Oriented Model"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "js-dom-css",
+          "title": "Changing CSS",
+          "theory": "JavaScript can change the style of HTML elements.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript HTML DOM</h2>\n<p id=\"p2\">Hello World!</p>\n\n<script>\ndocument.getElementById(\"p2\").style.color = \"blue\";\ndocument.getElementById(\"p2\").style.fontSize = \"24px\";\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "How do you change the background color of an element?",
+            "options": ["element.style.background-color", "element.style.backgroundColor", "element.background", "element.style.bg"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "js-events",
+          "title": "DOM Events",
+          "theory": "HTML events are 'things' that happen to HTML elements. JavaScript can react to these events.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Events</h2>\n<button onclick=\"displayDate()\">The time is?</button>\n<p id=\"demo\"></p>\n\n<script>\nfunction displayDate() {\n  document.getElementById(\"demo\").innerHTML = Date();\n}\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which event occurs when the user clicks on an HTML element?",
+            "options": ["onchange", "onmouseover", "onclick", "onmouseclick"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Interactive Button",
+        "description": "Create a button that changes the background color of the page when clicked."
+      }
+    },
+    {
+      "id": "js-mod-6",
+      "title": "Module 6: Async JS",
+      "description": "Handling asynchronous operations.",
+      "lessons": [
+        {
+          "id": "js-async",
+          "title": "Async/Await",
+          "theory": "Async/Await makes promises easier to write. 'async' makes a function return a Promise. 'await' makes a function wait for a Promise.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Async/Await</h2>\n<p id=\"demo\"></p>\n\n<script>\nfunction myDisplayer(some) {\n  document.getElementById(\"demo\").innerHTML = some;\n}\n\nasync function myFunction() {\n  return \"Hello\";\n}\n\nmyFunction().then(\n  function(value) {myDisplayer(value);}\n);\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "The keyword 'await' can only be used inside which type of function?",
+            "options": ["regular function", "async function", "arrow function", "anonymous function"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "js-fetch",
+          "title": "Fetch API",
+          "theory": "The Fetch API interface allows web browser to make HTTP requests to web servers.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Fetch API</h2>\n<p id=\"demo\">Fetching data...</p>\n\n<script>\n// Simulating a fetch request\n// In a real scenario: fetch('https://api.example.com/data')\n\nsetTimeout(() => {\n    const data = { id: 1, title: \"Fetched Data\" };\n    document.getElementById(\"demo\").innerHTML = JSON.stringify(data);\n}, 1000);\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "What does the fetch() method return?",
+            "options": ["XML", "JSON", "Promise", "String"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Data Fetcher",
+        "description": "Simulate fetching user data and displaying it on the page."
+      }
+    },
+    {
+      "id": "js-mod-7",
+      "title": "Module 7: ES6+ Features",
+      "description": "Learn the modern features introduced in ECMAScript 2015 and beyond.",
+      "lessons": [
+        {
+          "id": "js-let-const",
+          "title": "let and const",
+          "theory": "let and const are modern variable declarations. let is block-scoped and can be reassigned, while const is block-scoped and cannot be reassigned.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript let and const</h2>\n<p>let allows you to declare variables that are limited to the scope of a block statement, or expression on which it is used.</p>\n<p>Using const is good practice when declaring a variable that should not change.</p>\n\n<p id=\"demo\"></p>\n\n<script>\nlet x = 10;\n// Here x is 10\n{\n  let x = 2;\n  // Here x is 2\n}\n// Here x is 10\n\nconst PI = 3.141592653589793;\n\ndocument.getElementById(\"demo\").innerHTML = \"x is \" + x + \" and PI is \" + PI;\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "What is the scope of a variable declared with 'let'?",
+            "options": ["Global", "Function", "Block", "File"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "js-arrow-functions",
+          "title": "Arrow Functions",
+          "theory": "Arrow functions provide a more concise syntax for writing function expressions.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Arrow Functions</h2>\n\n<p>Arrow functions allows a short syntax for writing function expressions.</p>\n\n<p id=\"demo\"></p>\n\n<script>\nlet hello = () => {\n  return \"Hello World!\";\n}\n\ndocument.getElementById(\"demo\").innerHTML = hello();\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which syntax is correct for an arrow function?",
+            "options": ["function => {}", "() => {}", "() -> {}", "func() {}"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "js-template-literals",
+          "title": "Template Literals",
+          "theory": "Template literals provide an easy way to interpolate variables and expressions inside strings.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Template Literals</h2>\n\n<p id=\"demo\"></p>\n\n<script>\nlet firstName = \"John\";\nlet lastName = \"Doe\";\n\nlet text = `Welcome ${firstName}, ${lastName}!`;\n\ndocument.getElementById(\"demo\").innerHTML = text;\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "What character is used to enclose template literals?",
+            "options": ["'", "\"", "`", "$"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "js-spread-operator",
+          "title": "Spread Operator",
+          "theory": "The spread operator allows an iterable to expand in places where 0+ arguments are expected.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Spread Operator</h2>\n\n<p id=\"demo\"></p>\n\n<script>\nconst q1 = [\"Jan\", \"Feb\", \"Mar\"];\nconst q2 = [\"Apr\", \"May\", \"Jun\"];\nconst q3 = [\"Jul\", \"Aug\", \"Sep\"];\nconst q4 = [\"Oct\", \"Nov\", \"Dec\"];\n\nconst allMonths = [...q1, ...q2, ...q3, ...q4];\n\ndocument.getElementById(\"demo\").innerHTML = allMonths;\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which operator is the spread operator?",
+            "options": ["+", "*", "...", "->"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "js-destructuring",
+          "title": "Destructuring",
+          "theory": "Destructuring allows you to unpack values from arrays, or properties from objects, into distinct variables.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Destructuring</h2>\n\n<p id=\"demo\"></p>\n\n<script>\nconst person = {firstName:\"John\", lastName:\"Doe\", age:50, eyeColor:\"blue\"};\n\nlet { firstName, lastName, age, eyeColor } = person;\n\ndocument.getElementById(\"demo\").innerHTML = firstName + \" is \" + age + \" years old.\";\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "What does destructuring do?",
+            "options": ["Copies objects", "Deletes objects", "Unpacks values into variables", "Creates new objects"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "ES6+ Feature Showcase",
+        "description": "Create a webpage that demonstrates the use of let/const, arrow functions, template literals, spread operator, and destructuring."
+      }
+    },
+    {
+      "id": "js-mod-8",
+      "title": "Module 8: Classes",
+      "description": "Object-Oriented Programming in JavaScript.",
+      "lessons": [
+        {
+          "id": "js-classes",
+          "title": "Class Syntax",
+          "theory": "Use the keyword class to create a class. Always add a method named constructor().",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Classes</h2>\n<p id=\"demo\"></p>\n\n<script>\nclass Car {\n  constructor(name, year) {\n    this.name = name;\n    this.year = year;\n  }\n}\n\nconst myCar = new Car(\"Ford\", 2014);\ndocument.getElementById(\"demo\").innerHTML =\nmyCar.name + \" \" + myCar.year;\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which keyword is used to create a class?",
+            "options": ["class", "object", "struct", "constructor"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "js-class-inheritance",
+          "title": "Class Inheritance",
+          "theory": "To create a class inheritance, use the extends keyword. A class created with a class inheritance inherits all the methods from another class.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Class Inheritance</h2>\n<p id=\"demo\"></p>\n\n<script>\nclass Car {\n  constructor(brand) {\n    this.carname = brand;\n  }\n  present() {\n    return 'I have a ' + this.carname;\n  }\n}\n\nclass Model extends Car {\n  constructor(brand, mod) {\n    super(brand);\n    this.model = mod;\n  }\n  show() {\n    return this.present() + ', it is a ' + this.model;\n  }\n}\n\nlet myCar = new Model(\"Ford\", \"Mustang\");\ndocument.getElementById(\"demo\").innerHTML = myCar.show();\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which keyword is used to inherit from another class?",
+            "options": ["inherits", "extends", "super", "implements"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "js-static-methods",
+          "title": "Static Methods",
+          "theory": "Static methods are defined on the class itself, and cannot be called on objects created from the class.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript Static Methods</h2>\n<p id=\"demo\"></p>\n\n<script>\nclass Car {\n  constructor(name) {\n    this.name = name;\n  }\n  static hello() {\n    return \"Hello!!\";\n  }\n}\n\nlet myCar = new Car(\"Ford\");\n\n// You can call 'hello()' on the Car Class:\ndocument.getElementById(\"demo\").innerHTML = Car.hello();\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Can you call a static method on an instantiated object?",
+            "options": ["Yes", "No"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Car Factory",
+        "description": "Create a Car class and a Truck subclass, then instantiate them."
+      }
+    },
+    {
+      "id": "js-mod-9",
+      "title": "Module 9: JSON and Storage",
+      "description": "Handling data formats and client-side storage.",
+      "lessons": [
+        {
+          "id": "js-json",
+          "title": "JSON Syntax",
+          "theory": "JSON stands for JavaScript Object Notation. It is a lightweight data interchange format. JSON is text, written with JavaScript object notation.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript JSON</h2>\n<p id=\"demo\"></p>\n\n<script>\nlet text = '{\"employees\":[' +\n'{\"firstName\":\"John\",\"lastName\":\"Doe\" },' +\n'{\"firstName\":\"Anna\",\"lastName\":\"Smith\" },' +\n'{\"firstName\":\"Peter\",\"lastName\":\"Jones\" }]}';\n\nconst obj = JSON.parse(text);\ndocument.getElementById(\"demo\").innerHTML =\nobj.employees[1].firstName + \" \" + obj.employees[1].lastName;\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Which method converts a JavaScript object into a string?",
+            "options": ["JSON.parse()", "JSON.stringify()", "JSON.toString()", "JSON.convert()"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "js-localstorage",
+          "title": "LocalStorage",
+          "theory": "The localStorage object allows you to save key/value pairs in the browser. The data is not deleted when the browser is closed.",
+          "code": "<!DOCTYPE html>\n<html>\n<body>\n\n<h2>JavaScript localStorage</h2>\n<p id=\"demo\"></p>\n\n<script>\n// Store\nlocalStorage.setItem(\"lastname\", \"Smith\");\n// Retrieve\ndocument.getElementById(\"demo\").innerHTML = localStorage.getItem(\"lastname\");\n</script>\n\n</body>\n</html>",
+          "quiz": {
+            "question": "Does localStorage data expire?",
+            "options": ["Yes, after 24 hours", "Yes, when browser closes", "No", "Yes, after 1 year"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "User Preferences",
+        "description": "Create a page that saves the user's name in localStorage and greets them when they return."
+      }
+    },
+    {
+      "id": "mod-final",
+      "title": "Final Assessment",
+      "description": "Prove your mastery to unlock the certificate.",
+      "lessons": [
+        {
+          "id": "js-final-exam",
+          "title": "JavaScript Final Exam",
+          "type": "assessment",
+          "theory": "This is the final assessment for the JavaScript course. <br><strong>Rules:</strong><ul><li>There are 30 questions.</li><li>You need a score of <strong>80%</strong> (24/30) to pass.</li><li>You have a maximum of <strong>3 attempts</strong>.</li><li>The certificate will unlock automatically upon passing.</li></ul>",
+          "questions": [
+            { "q": "Inside which HTML element do we put the JavaScript?", "o": ["<script>", "<javascript>", "<js>", "<scripting>"], "a": 0 },
+            { "q": "What is the correct syntax for referring to an external script called 'xxx.js'?", "o": ["<script href=\"xxx.js\">", "<script name=\"xxx.js\">", "<script src=\"xxx.js\">", "<script file=\"xxx.js\">"], "a": 2 },
+            { "q": "How do you write 'Hello World' in an alert box?", "o": ["msgBox(\"Hello World\");", "alertBox(\"Hello World\");", "msg(\"Hello World\");", "alert(\"Hello World\");"], "a": 3 },
+            { "q": "How do you create a function in JavaScript?", "o": ["function myFunction()", "function:myFunction()", "function = myFunction()", "def myFunction()"], "a": 0 },
+            { "q": "How do you call a function named 'myFunction'?", "o": ["call function myFunction()", "call myFunction()", "myFunction()", "run myFunction()"], "a": 2 },
+            { "q": "How to write an IF statement in JavaScript?", "o": ["if i = 5 then", "if i == 5 then", "if (i == 5)", "if i = 5"], "a": 2 },
+            { "q": "How to write an IF statement for executing some code if 'i' is NOT equal to 5?", "o": ["if (i <> 5)", "if i =! 5 then", "if (i != 5)", "if i <> 5"], "a": 2 },
+            { "q": "How does a WHILE loop start?", "o": ["while (i <= 10; i++)", "while (i <= 10)", "while i = 1 to 10", "while (i++ < 10)"], "a": 1 },
+            { "q": "How does a FOR loop start?", "o": ["for (i = 0; i <= 5)", "for (i = 0; i <= 5; i++)", "for i = 1 to 5", "for (i <= 5; i++)"], "a": 1 },
+            { "q": "How can you add a comment in a JavaScript?", "o": ["'This is a comment", "<!--This is a comment-->", "//This is a comment", "*This is a comment"], "a": 2 },
+            { "q": "How to insert a comment that has more than one line?", "o": ["/*This comment has\nmore than one line*/", "//This comment has\nmore than one line//", "<!--This comment has\nmore than one line-->", "'This comment has\nmore than one line'"], "a": 0 },
+            { "q": "What is the correct way to write a JavaScript array?", "o": ["var colors = 1 = (\"red\"), 2 = (\"green\"), 3 = (\"blue\")", "var colors = (1:\"red\", 2:\"green\", 3:\"blue\")", "var colors = [\"red\", \"green\", \"blue\"]", "var colors = \"red\", \"green\", \"blue\""], "a": 2 },
+            { "q": "How do you round the number 7.25, to the nearest integer?", "o": ["Math.round(7.25)", "round(7.25)", "Math.rnd(7.25)", "rnd(7.25)"], "a": 0 },
+            { "q": "How do you find the number with the highest value of x and y?", "o": ["Math.ceil(x, y)", "Math.max(x, y)", "ceil(x, y)", "top(x, y)"], "a": 1 },
+            { "q": "What is the correct JavaScript syntax for opening a new window called 'w2'?", "o": ["w2 = window.new(\"http://www.w3schools.com\");", "w2 = window.open(\"http://www.w3schools.com\");", "w2 = window.create(\"http://www.w3schools.com\");", "w2 = window.window(\"http://www.w3schools.com\");"], "a": 1 },
+            { "q": "JavaScript is the same as Java.", "o": ["True", "False"], "a": 1 },
+            { "q": "How can you detect the client's browser name?", "o": ["navigator.appName", "browser.name", "client.navName", "window.browser"], "a": 0 },
+            { "q": "Which event occurs when the user clicks on an HTML element?", "o": ["onmouseclick", "onmouseover", "onchange", "onclick"], "a": 3 },
+            { "q": "How do you declare a JavaScript variable?", "o": ["v carName;", "variable carName;", "var carName;", "val carName;"], "a": 2 },
+            { "q": "Which operator is used to assign a value to a variable?", "o": ["*", "-", "=", "x"], "a": 2 },
+            { "q": "What will the following code return: Boolean(10 > 9)", "o": ["NaN", "false", "true", "undefined"], "a": 2 },
+            { "q": "Is JavaScript case-sensitive?", "o": ["No", "Yes"], "a": 1 },
+            { "q": "Which method converts a JSON string into a JavaScript object?", "o": ["JSON.stringify()", "JSON.parse()", "JSON.toObject()", "JSON.fromString()"], "a": 1 },
+            { "q": "Which keyword is used to define a constant variable?", "o": ["let", "var", "const", "fixed"], "a": 2 },
+            { "q": "What is the correct syntax for an arrow function?", "o": ["() => {}", "function => {}", "-> {}", "=> {}"], "a": 0 },
+            { "q": "Which method adds an element to the end of an array?", "o": ["pop()", "push()", "shift()", "unshift()"], "a": 1 },
+            { "q": "Which symbol is used for template literals?", "o": ["'", "\"", "`", "."], "a": 2 },
+            { "q": "What does DOM stand for?", "o": ["Data Object Model", "Document Object Model", "Digital Object Model", "Dynamic Object Model"], "a": 1 },
+            { "q": "Which keyword is used to create a class?", "o": ["class", "object", "struct", "constructor"], "a": 0 },
+            { "q": "Which method is used to wait for a Promise to resolve in an async function?", "o": ["wait", "await", "pause", "then"], "a": 1 }
+          ]
+        }
+      ],
+      "project": {
+        "title": "Final Review",
+        "description": "Review all modules before taking the final exam."
+      }
+    }
+  ]
+}

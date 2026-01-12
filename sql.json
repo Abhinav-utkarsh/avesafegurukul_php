@@ -1,0 +1,452 @@
+{
+  "courseId": "sql",
+  "title": "SQL Mastery: From Queries to Design",
+  "level": "Beginner to Advanced",
+  "modules": [
+    {
+      "id": "sql-mod-1",
+      "title": "Module 1: Basic Queries",
+      "description": "Learn how to retrieve data from a database.",
+      "lessons": [
+        {
+          "id": "sql-select",
+          "title": "SELECT Statement",
+          "theory": "The SELECT statement is used to select data from a database. The data returned is stored in a result table, called the result-set.",
+          "code": "SELECT CustomerName, City FROM Customers;",
+          "quiz": {
+            "question": "Which SQL statement is used to extract data from a database?",
+            "options": ["EXTRACT", "SELECT", "GET", "OPEN"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "sql-select-distinct",
+          "title": "SELECT DISTINCT",
+          "theory": "The SELECT DISTINCT statement is used to return only distinct (different) values. Inside a table, a column often contains many duplicate values; and sometimes you only want to list the different (distinct) values.",
+          "code": "SELECT DISTINCT Country FROM Customers;",
+          "quiz": {
+            "question": "Which keyword returns only unique values?",
+            "options": ["UNIQUE", "DIFFERENT", "DISTINCT", "SINGLE"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "sql-orderby",
+          "title": "ORDER BY",
+          "theory": "The ORDER BY keyword is used to sort the result-set in ascending or descending order. The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.",
+          "code": "SELECT * FROM Products ORDER BY Price DESC;",
+          "quiz": {
+            "question": "Which keyword sorts the result in descending order?",
+            "options": ["SORT DESC", "ORDER DESC", "DESC", "DESCENDING"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Product Catalog",
+        "description": "Write a query to select all products sorted by price from highest to lowest."
+      }
+    },
+    {
+      "id": "sql-mod-2",
+      "title": "Module 2: Filtering Data",
+      "description": "Narrow down your search results.",
+      "lessons": [
+        {
+          "id": "sql-where",
+          "title": "WHERE Clause",
+          "theory": "The WHERE clause is used to filter records. It is used to extract only those records that fulfill a specified condition.",
+          "code": "SELECT * FROM Customers WHERE Country='India';",
+          "quiz": {
+            "question": "Which clause is used to filter records?",
+            "options": ["FILTER", "WHERE", "HAVING", "LIKE"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "sql-and-or",
+          "title": "AND, OR, NOT",
+          "theory": "The WHERE clause can be combined with AND, OR, and NOT operators. The AND and OR operators are used to filter records based on more than one condition.",
+          "code": "SELECT * FROM Customers WHERE Country='India' AND City='Mumbai';",
+          "quiz": {
+            "question": "Which operator displays a record if ALL conditions are true?",
+            "options": ["OR", "AND", "NOT", "ALL"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "sql-like",
+          "title": "LIKE Operator",
+          "theory": "The LIKE operator is used in a WHERE clause to search for a specified pattern in a column. There are two wildcards often used in conjunction with the LIKE operator: % (percent sign) represents zero, one, or multiple characters. _ (underscore) represents a single character.",
+          "code": "SELECT * FROM Customers WHERE CustomerName LIKE 'S%';",
+          "quiz": {
+            "question": "Which wildcard represents zero or more characters?",
+            "options": ["_", "?", "%", "*"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Targeted Marketing",
+        "description": "Select all customers from 'USA' or 'UK' who have a credit limit greater than 5000."
+      }
+    },
+    {
+      "id": "sql-mod-3",
+      "title": "Module 3: Modifying Data",
+      "description": "Insert, Update, and Delete records.",
+      "lessons": [
+        {
+          "id": "sql-insert",
+          "title": "INSERT INTO",
+          "theory": "The INSERT INTO statement is used to insert new records in a table.",
+          "code": "INSERT INTO Customers (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country)\nVALUES (6, 'Reddy Electronics', 'Anil Reddy', '12 Jubilee Hills', 'Hyderabad', '500033', 'India');",
+          "quiz": {
+            "question": "Which statement inserts new data?",
+            "options": ["ADD RECORD", "INSERT INTO", "INSERT NEW", "ADD INTO"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "sql-update",
+          "title": "UPDATE",
+          "theory": "The UPDATE statement is used to modify the existing records in a table. Be careful when updating records. If you omit the WHERE clause, ALL records will be updated!",
+          "code": "UPDATE Customers SET ContactName = 'Priya Sharma', City= 'Pune' WHERE CustomerID = 1;",
+          "quiz": {
+            "question": "What happens if you omit the WHERE clause in an UPDATE statement?",
+            "options": ["It updates the first record", "It updates no records", "It updates all records", "It throws an error"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "sql-delete",
+          "title": "DELETE",
+          "theory": "The DELETE statement is used to delete existing records in a table. Again, be careful! If you omit the WHERE clause, all records in the table will be deleted!",
+          "code": "-- Run this query to delete the customer with ID 3.\n-- Afterwards, run 'SELECT * FROM Customers;' to see the result.\nDELETE FROM Customers WHERE CustomerID = 3;",
+          "quiz": {
+            "question": "Which statement deletes records?",
+            "options": ["DELETE FROM", "REMOVE", "DROP", "CLEAR"],
+            "answer": 0
+          }
+        }
+      ],
+      "project": {
+        "title": "Data Cleanup",
+        "description": "Write a script to update a customer's address and delete any orders older than 5 years."
+      }
+    },
+    {
+      "id": "sql-mod-4",
+      "title": "Module 4: Aggregate Functions",
+      "description": "Perform calculations on sets of data.",
+      "lessons": [
+        {
+          "id": "sql-min-max",
+          "title": "MIN() and MAX()",
+          "theory": "The MIN() function returns the smallest value of the selected column. The MAX() function returns the largest value of the selected column.",
+          "code": "SELECT MIN(Price) AS SmallestPrice FROM Products;",
+          "quiz": {
+            "question": "Which function finds the largest value?",
+            "options": ["MAX()", "MIN()", "LARGE()", "TOP()"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "sql-count-avg-sum",
+          "title": "COUNT(), AVG(), SUM()",
+          "theory": "The COUNT() function returns the number of rows that matches a specified criterion. The AVG() function returns the average value of a numeric column. The SUM() function returns the total sum of a numeric column.",
+          "code": "SELECT COUNT(ProductID) FROM Products;",
+          "quiz": {
+            "question": "Which function returns the total number of records?",
+            "options": ["SUM()", "TOTAL()", "COUNT()", "AVG()"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "sql-groupby",
+          "title": "GROUP BY",
+          "theory": "The GROUP BY statement groups rows that have the same values into summary rows, like 'find the number of customers in each country'. The GROUP BY statement is often used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns.",
+          "code": "SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country;",
+          "quiz": {
+            "question": "Which clause is used with aggregate functions to group the result-set?",
+            "options": ["GROUP", "SORT BY", "GROUP BY", "ORDER BY"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "sql-having",
+          "title": "HAVING",
+          "theory": "The HAVING clause was added to SQL because the WHERE keyword cannot be used with aggregate functions. It is used to filter groups based on a specified condition.",
+          "code": "SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country HAVING COUNT(CustomerID) > 2;",
+          "quiz": {
+            "question": "Which clause filters groups after aggregation?",
+            "options": ["WHERE", "FILTER", "HAVING", "GROUP"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Sales Analysis",
+        "description": "Find the total number of orders and total sales amount for each customer."
+      }
+    },
+    {
+      "id": "sql-mod-5",
+      "title": "Module 5: Joins",
+      "description": "Combine rows from two or more tables.",
+      "lessons": [
+        {
+          "id": "sql-inner-join",
+          "title": "INNER JOIN",
+          "theory": "The INNER JOIN keyword selects records that have matching values in both tables.",
+          "code": "SELECT Orders.OrderID, Customers.CustomerName FROM Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;",
+          "quiz": {
+            "question": "Which JOIN returns records with matching values in both tables?",
+            "options": ["LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "FULL JOIN"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "sql-left-join",
+          "title": "LEFT JOIN",
+          "theory": "The LEFT JOIN keyword returns all records from the left table (table1), and the matching records from the right table (table2). The result is NULL from the right side, if there is no match.",
+          "code": "SELECT Customers.CustomerName, Orders.OrderID FROM Customers LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;",
+          "quiz": {
+            "question": "Which JOIN returns all records from the left table?",
+            "options": ["LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "ALL JOIN"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "sql-right-join",
+          "title": "RIGHT JOIN",
+          "theory": "The RIGHT JOIN keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is NULL from the left side, when there is no match.",
+          "code": "SELECT Orders.OrderID, Employees.LastName FROM Orders RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID;",
+          "quiz": {
+            "question": "Which JOIN returns all records from the right table?",
+            "options": ["LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "ALL JOIN"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Customer Orders",
+        "description": "Write a query to list all customers and their orders, including customers who have not placed any orders."
+      }
+    },
+    {
+      "id": "sql-mod-6",
+      "title": "Module 6: Database Design",
+      "description": "Create and manage database structures.",
+      "lessons": [
+        {
+          "id": "sql-create-db",
+          "title": "CREATE DATABASE/TABLE",
+          "theory": "The CREATE DATABASE statement is used to create a new SQL database. The CREATE TABLE statement is used to create a new table in a database.",
+          "code": "CREATE TABLE Persons (\n    PersonID int,\n    LastName varchar(255),\n    FirstName varchar(255),\n    Address varchar(255),\n    City varchar(255)\n);",
+          "quiz": {
+            "question": "Which statement creates a new table?",
+            "options": ["CREATE NEW TABLE", "ADD TABLE", "CREATE TABLE", "MAKE TABLE"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "sql-constraints",
+          "title": "Constraints",
+          "theory": "SQL constraints are used to specify rules for the data in a table. Common constraints include NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK, and DEFAULT.",
+          "code": "CREATE TABLE Persons (\n    ID int NOT NULL,\n    LastName varchar(255) NOT NULL,\n    Age int,\n    PRIMARY KEY (ID)\n);",
+          "quiz": {
+            "question": "Which constraint ensures that a column cannot have a NULL value?",
+            "options": ["UNIQUE", "PRIMARY KEY", "NOT NULL", "CHECK"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "sql-alter-table",
+          "title": "ALTER TABLE",
+          "theory": "The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.",
+          "code": "ALTER TABLE Customers ADD Email varchar(255);",
+          "quiz": {
+            "question": "Which statement adds a column to a table?",
+            "options": ["MODIFY TABLE", "ALTER TABLE", "ADD COLUMN", "UPDATE TABLE"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "sql-drop-table",
+          "title": "DROP TABLE",
+          "theory": "The DROP TABLE statement is used to drop an existing table in a database. Be careful before dropping a table. Deleting a table will result in loss of complete information stored in the table!",
+          "code": "DROP TABLE Shippers;",
+          "quiz": {
+            "question": "Which statement deletes a table?",
+            "options": ["DELETE TABLE", "REMOVE TABLE", "DROP TABLE", "CLEAR TABLE"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Blog Schema",
+        "description": "Write SQL statements to create tables for 'Posts' and 'Comments' with appropriate constraints."
+      }
+    },
+    {
+      "id": "sql-mod-7",
+      "title": "Module 7: Advanced Queries",
+      "description": "Subqueries, CASE statements, and advanced operators.",
+      "lessons": [
+        {
+          "id": "sql-subqueries",
+          "title": "Subqueries",
+          "theory": "A subquery is a query within another query. The inner query executes first, and its result is used by the outer query.",
+          "code": "SELECT * FROM Products WHERE Price > (SELECT AVG(Price) FROM Products);",
+          "quiz": {
+            "question": "Where can a subquery be used?",
+            "options": ["SELECT clause", "FROM clause", "WHERE clause", "All of the above"],
+            "answer": 3
+          }
+        },
+        {
+          "id": "sql-case",
+          "title": "CASE Statement",
+          "theory": "The CASE statement goes through conditions and returns a value when the first condition is met (like an if-then-else statement).",
+          "code": "SELECT OrderID, Quantity,\nCASE\n    WHEN Quantity > 30 THEN 'The quantity is greater than 30'\n    WHEN Quantity = 30 THEN 'The quantity is 30'\n    ELSE 'The quantity is under 30'\nEND AS QuantityText\nFROM OrderDetails;",
+          "quiz": {
+            "question": "Which keyword ends a CASE statement?",
+            "options": ["END", "FINISH", "STOP", "CLOSE"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "sql-exists",
+          "title": "EXISTS Operator",
+          "theory": "The EXISTS operator is used to test for the existence of any record in a subquery. It returns TRUE if the subquery returns one or more records.",
+          "code": "SELECT SupplierName FROM Suppliers WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20);",
+          "quiz": {
+            "question": "What does EXISTS return?",
+            "options": ["A table", "A row", "Boolean (True/False)", "An integer"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Price Categorization",
+        "description": "Use a CASE statement to categorize products as 'Cheap', 'Average', or 'Expensive' based on price."
+      }
+    },
+    {
+      "id": "sql-mod-8",
+      "title": "Module 8: Views & Procedures",
+      "description": "Reusable SQL objects.",
+      "lessons": [
+        {
+          "id": "sql-views",
+          "title": "SQL Views",
+          "theory": "In SQL, a view is a virtual table based on the result-set of an SQL statement. A view contains rows and columns, just like a real table.",
+          "code": "CREATE VIEW [India Customers] AS\nSELECT CustomerName, ContactName\nFROM Customers\nWHERE Country = 'India';",
+          "quiz": {
+            "question": "Which statement creates a view?",
+            "options": ["MAKE VIEW", "CREATE VIEW", "NEW VIEW", "ADD VIEW"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "sql-stored-procedures",
+          "title": "Stored Procedures",
+          "theory": "A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.",
+          "code": "CREATE PROCEDURE SelectAllCustomers\nAS\nSELECT * FROM Customers\nGO;\n\nEXEC SelectAllCustomers;",
+          "quiz": {
+            "question": "How do you execute a stored procedure?",
+            "options": ["RUN", "EXEC", "CALL", "DO"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Reusable Reports",
+        "description": "Create a View that shows only active products and a Stored Procedure to select customers by city."
+      }
+    },
+    {
+      "id": "sql-mod-9",
+      "title": "Module 9: Transactions & Performance",
+      "description": "Data integrity and optimization.",
+      "lessons": [
+        {
+          "id": "sql-transactions",
+          "title": "Transactions",
+          "theory": "A transaction is a unit of work that is performed against a database. Transactions are units or sequences of work accomplished in a logical order. Key commands: COMMIT (save changes), ROLLBACK (undo changes).",
+          "code": "BEGIN TRANSACTION;\nDELETE FROM Orders WHERE OrderDate = '1996-07-05';\n-- If mistake:\nROLLBACK;\n-- If correct:\nCOMMIT;",
+          "quiz": {
+            "question": "Which command undoes transactions that have not been saved to the database?",
+            "options": ["UNDO", "ROLLBACK", "RETURN", "REVERT"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "sql-indexes",
+          "title": "Indexes",
+          "theory": "Indexes are used to retrieve data from the database more quickly than otherwise. The users cannot see the indexes, they are just used to speed up searches/queries.",
+          "code": "CREATE INDEX idx_lastname\nON Persons (LastName);",
+          "quiz": {
+            "question": "Do indexes speed up SELECT queries?",
+            "options": ["Yes", "No", "Only on primary keys", "Only on foreign keys"],
+            "answer": 0
+          }
+        }
+      ],
+      "project": {
+        "title": "Optimization Plan",
+        "description": "Identify columns in your schema that would benefit from indexing."
+      }
+    },
+    {
+      "id": "mod-final",
+      "title": "Final Assessment",
+      "description": "Prove your mastery to unlock the certificate.",
+      "lessons": [
+        {
+          "id": "sql-final-exam",
+          "title": "SQL Final Exam",
+          "type": "assessment",
+          "theory": "This is the final assessment for the SQL course. <br><strong>Rules:</strong><ul><li>There are 30 questions.</li><li>You need a score of <strong>80%</strong> (24/30) to pass.</li><li>You have a maximum of <strong>3 attempts</strong>.</li><li>The certificate will unlock automatically upon passing.</li></ul>",
+          "questions": [
+            { "q": "What does SQL stand for?", "o": ["Structured Question Language", "Structured Query Language", "Strong Question Language", "Structured Query List"], "a": 1 },
+            { "q": "Which SQL statement is used to extract data from a database?", "o": ["EXTRACT", "SELECT", "GET", "OPEN"], "a": 1 },
+            { "q": "Which SQL statement is used to update data in a database?", "o": ["SAVE", "MODIFY", "SAVE AS", "UPDATE"], "a": 3 },
+            { "q": "Which SQL statement is used to delete data from a database?", "o": ["DELETE", "COLLAPSE", "REMOVE", "DROP"], "a": 0 },
+            { "q": "Which SQL statement is used to insert new data in a database?", "o": ["ADD RECORD", "INSERT NEW", "INSERT INTO", "ADD NEW"], "a": 2 },
+            { "q": "With SQL, how do you select a column named 'FirstName' from a table named 'Persons'?", "o": ["SELECT FirstName FROM Persons", "EXTRACT FirstName FROM Persons", "SELECT Persons.FirstName", "GET FirstName FROM Persons"], "a": 0 },
+            { "q": "With SQL, how do you select all the columns from a table named 'Persons'?", "o": ["SELECT [all] FROM Persons", "SELECT * FROM Persons", "SELECT *.Persons", "SELECT Persons"], "a": 1 },
+            { "q": "With SQL, how do you select all the records from a table named 'Persons' where the value of the column 'FirstName' is 'Peter'?", "o": ["SELECT * FROM Persons WHERE FirstName='Peter'", "SELECT * FROM Persons WHERE FirstName<>'Peter'", "SELECT [all] FROM Persons WHERE FirstName LIKE 'Peter'", "SELECT [all] FROM Persons WHERE FirstName='Peter'"], "a": 0 },
+            { "q": "With SQL, how do you select all the records from a table named 'Persons' where the value of the column 'FirstName' starts with an 'a'?", "o": ["SELECT * FROM Persons WHERE FirstName LIKE '%a'", "SELECT * FROM Persons WHERE FirstName LIKE 'a%'", "SELECT * FROM Persons WHERE FirstName='%a%'", "SELECT * FROM Persons WHERE FirstName='a'"], "a": 1 },
+            { "q": "The OR operator displays a record if ANY conditions listed are true. The AND operator displays a record if ALL of the conditions listed are true", "o": ["True", "False"], "a": 0 },
+            { "q": "With SQL, how do you select all the records from a table named 'Persons' where the 'FirstName' is 'Peter' and the 'LastName' is 'Jackson'?", "o": ["SELECT * FROM Persons WHERE FirstName='Peter' AND LastName='Jackson'", "SELECT FirstName='Peter', LastName='Jackson' FROM Persons", "SELECT * FROM Persons WHERE FirstName<>'Peter' AND LastName<>'Jackson'", "SELECT * FROM Persons WHERE FirstName='Peter' OR LastName='Jackson'"], "a": 0 },
+            { "q": "With SQL, how do you select all the records from a table named 'Persons' where the 'LastName' is alphabetically between (and including) 'Hansen' and 'Pettersen'?", "o": ["SELECT * FROM Persons WHERE LastName BETWEEN 'Hansen' AND 'Pettersen'", "SELECT * FROM Persons WHERE LastName>'Hansen' AND LastName<'Pettersen'", "SELECT * FROM Persons WHERE LastName>'Hansen' OR LastName<'Pettersen'", "SELECT LastName>'Hansen' AND LastName<'Pettersen' FROM Persons"], "a": 0 },
+            { "q": "Which SQL statement is used to return only different values?", "o": ["SELECT UNIQUE", "SELECT DISTINCT", "SELECT DIFFERENT", "SELECT ALL"], "a": 1 },
+            { "q": "Which SQL keyword is used to sort the result-set?", "o": ["ORDER BY", "SORT BY", "SORT", "ORDER"], "a": 0 },
+            { "q": "With SQL, how can you return all the records from a table named 'Persons' sorted descending by 'FirstName'?", "o": ["SELECT * FROM Persons ORDER BY FirstName DESC", "SELECT * FROM Persons SORT BY 'FirstName' DESC", "SELECT * FROM Persons ORDER FirstName DESC", "SELECT * FROM Persons SORT 'FirstName' DESC"], "a": 0 },
+            { "q": "With SQL, how can you insert a new record into the 'Persons' table?", "o": ["INSERT INTO Persons VALUES ('Jimmy', 'Jackson')", "INSERT ('Jimmy', 'Jackson') INTO Persons", "INSERT VALUES ('Jimmy', 'Jackson') INTO Persons", "ADD INTO Persons VALUES ('Jimmy', 'Jackson')"], "a": 0 },
+            { "q": "With SQL, how can you insert 'Olsen' as the 'LastName' in the 'Persons' table?", "o": ["INSERT INTO Persons (LastName) VALUES ('Olsen')", "INSERT ('Olsen') INTO Persons (LastName)", "INSERT INTO Persons ('Olsen') INTO LastName", "ADD INTO Persons (LastName) VALUES ('Olsen')"], "a": 0 },
+            { "q": "How can you change 'Hansen' into 'Nilsen' in the 'LastName' column in the 'Persons' table?", "o": ["UPDATE Persons SET LastName='Nilsen' WHERE LastName='Hansen'", "UPDATE Persons SET LastName='Hansen' INTO LastName='Nilsen'", "MODIFY Persons SET LastName='Nilsen' WHERE LastName='Hansen'", "MODIFY Persons SET LastName='Hansen' INTO LastName='Nilsen'"], "a": 0 },
+            { "q": "With SQL, how can you delete the records where the 'FirstName' is 'Peter' in the 'Persons' Table?", "o": ["DELETE FROM Persons WHERE FirstName = 'Peter'", "DELETE ROW FirstName='Peter' FROM Persons", "DELETE FirstName='Peter' FROM Persons", "REMOVE FROM Persons WHERE FirstName = 'Peter'"], "a": 0 },
+            { "q": "With SQL, how can you return the number of records in the 'Persons' table?", "o": ["SELECT COUNT(*) FROM Persons", "SELECT COLUMNS(*) FROM Persons", "SELECT COLUMNS() FROM Persons", "SELECT COUNT() FROM Persons"], "a": 0 },
+            { "q": "What is the most common type of join?", "o": ["INNER JOIN", "INSIDE JOIN", "JOINED TABLE", "JOINED"], "a": 0 },
+            { "q": "Which operator is used to select values within a range?", "o": ["BETWEEN", "WITHIN", "RANGE", "FROM"], "a": 0 },
+            { "q": "The NOT NULL constraint enforces a column to not accept NULL values.", "o": ["True", "False"], "a": 0 },
+            { "q": "Which operator is used to search for a specified pattern in a column?", "o": ["LIKE", "FROM", "GET", "SEARCH"], "a": 0 },
+            { "q": "Which SQL statement is used to create a database table called 'Customers'?", "o": ["CREATE TABLE Customers", "CREATE DB Customers", "CREATE DATABASE TABLE Customers", "NEW TABLE Customers"], "a": 0 },
+            { "q": "Which SQL statement is used to delete a table from a database?", "o": ["DROP TABLE", "DELETE TABLE", "REMOVE TABLE", "COLLAPSE TABLE"], "a": 0 },
+            { "q": "Which SQL statement is used to create a stored procedure?", "o": ["CREATE PROCEDURE", "CREATE PROC", "MAKE PROCEDURE", "NEW PROCEDURE"], "a": 0 },
+            { "q": "Which function returns the average value of a numeric column?", "o": ["AVG()", "AVERAGE()", "MEAN()", "MEDIAN()"], "a": 0 },
+            { "q": "Which SQL statement is used to create a view?", "o": ["CREATE VIEW", "MAKE VIEW", "NEW VIEW", "ADD VIEW"], "a": 0 },
+            { "q": "Which keyword is used to combine the result-set of two or more SELECT statements?", "o": ["UNION", "JOIN", "COMBINE", "MERGE"], "a": 0 }
+          ]
+        }
+      ],
+      "project": {
+        "title": "Final Review",
+        "description": "Review all modules before taking the final exam."
+      }
+    }
+  ]
+}

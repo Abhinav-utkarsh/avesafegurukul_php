@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Av_eSAFE Gurukul</title>
+    <link rel="stylesheet" href="assets/css/style.css"> <!-- Assuming existence, fallback styles below -->
+    <style>
+        :root {
+            --primary: #6366f1;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --text-main: #1e293b;
+            --radius: 16px;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f8fafc;
+            margin: 0;
+            color: var(--text-main);
+        }
+        .container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 20px;
+        }
+        .profile-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 1.5rem;
+        }
+        h1 { margin: 0 0 0.5rem; color: var(--text-main); }
+        .email { color: #64748b; margin-bottom: 2rem; }
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        .stat-box {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+        .stat-label { font-size: 0.9rem; color: #64748b; display: block; margin-bottom: 0.5rem; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .btn-logout {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header></header> <!-- Populated by main.js -->
+
+    <div class="container">
+        <div class="profile-card">
+            <div class="avatar">👤</div>
+            <h1 id="userName">Loading...</h1>
+            <p class="email" id="userEmail">...</p>
+            <button onclick="window.Auth.logout()" class="btn-logout">Sign Out</button>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        window.Auth.requireAuth();
+        const session = window.Auth.getSession();
+        if (session) {
+            document.getElementById('userName').textContent = session.name;
+            document.getElementById('userEmail').textContent = session.email;
+        }
+    </script>
+</body>
+</html>

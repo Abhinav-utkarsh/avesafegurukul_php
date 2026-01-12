@@ -1,0 +1,353 @@
+{
+  "courseId": "git",
+  "title": "Git & GitHub Fundamentals",
+  "level": "Beginner",
+  "modules": [
+    {
+      "id": "git-mod-1",
+      "title": "Module 1: Getting Started",
+      "description": "Install Git, configure it, and create your first repository.",
+      "lessons": [
+        {
+          "id": "git-intro",
+          "title": "What is Version Control?",
+          "theory": "A Version Control System (VCS) is a system that records changes to a file or set of files over time so that you can recall specific versions later. It allows you to revert files back to a previous state, revert the entire project back to a previous state, compare changes over time, and see who last modified something that might be causing a problem. Git is a Distributed Version Control System (DVCS), meaning every developer has a full copy of the project history on their local machine, which allows for powerful offline work and collaboration.",
+          "code": "# This is a conceptual lesson. No commands to run yet.",
+          "quiz": {
+            "question": "What is the primary purpose of a Version Control System (VCS)?",
+            "options": ["To write code faster", "To track changes to files over time", "To deploy applications", "To test code"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "git-install",
+          "title": "Installing Git",
+          "theory": "Git is free, open-source, and runs on all major operating systems. You can download it from the official website (git-scm.com). The installation includes the command-line tool `git` which you will interact with through your terminal (like Command Prompt on Windows, or Terminal on macOS/Linux). After installation, you can verify it's installed correctly by opening your terminal and typing the following command.",
+          "code": "git --version",
+          "quiz": {
+            "question": "Which command checks your installed Git version?",
+            "options": ["git version", "git -v", "git --version", "git check"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "git-config",
+          "title": "First-Time Configuration",
+          "theory": "The first thing you should do when you install Git is to set your user name and email address. This is important because every Git commit uses this information, and it’s immutably baked into the commits you start creating. This information isn't sent to any server; it's purely for labeling your work within the repository. The `--global` flag means this setting will apply to every repository on your computer.",
+          "code": "git config --global user.name \"Your Name\"\ngit config --global user.email \"youremail@example.com\"",
+          "quiz": {
+            "question": "Why is configuring your name and email important?",
+            "options": ["For licensing", "To log into GitHub", "It's included in every commit you make", "It's not important"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "git-init",
+          "title": "Initializing a Repository",
+          "theory": "To start tracking a project with Git, you navigate to the project's root directory in your terminal and run the `git init` command. This creates a new hidden subdirectory named `.git` that contains all of your necessary repository files — a Git repository skeleton. This `.git` folder is the 'database' for your project; it's where Git stores the history and metadata.",
+          "code": "cd /path/to/your/project\ngit init",
+          "quiz": {
+            "question": "Which command creates a new Git repository?",
+            "options": ["git new", "git create", "git init", "git start"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Setup Your Environment",
+        "description": "Install Git, configure your user name and email, and initialize a new repository in a project folder on your computer."
+      }
+    },
+    {
+      "id": "git-mod-2",
+      "title": "Module 2: Basic Workflow",
+      "description": "Learn the fundamental cycle of staging and committing changes.",
+      "lessons": [
+        {
+          "id": "git-status",
+          "title": "Checking Status",
+          "theory": "The `git status` command is your most-used command. It shows the state of the working directory and the staging area. It lets you see which changes have been staged (ready to be committed), which haven't (modified but not staged), and which files aren't being tracked by Git at all (untracked files).",
+          "code": "git status",
+          "quiz": {
+            "question": "Which command shows the current state of your repository?",
+            "options": ["git log", "git check", "git status", "git state"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "git-add",
+          "title": "Adding Files (Staging)",
+          "theory": "To start tracking a new file or to stage a modified file, you use the `git add` command. This command moves a snapshot of the file's current state from your working directory to a special area called the 'staging area' or 'index'. The staging area is like a draft of your next commit, allowing you to group related changes together before saving them to history.",
+          "code": "# Add a specific file\ngit add filename.txt\n\n# Add all files in the current directory\ngit add .",
+          "quiz": {
+            "question": "What does 'git add' do?",
+            "options": ["Commits the file", "Deletes the file", "Moves the file to the staging area", "Uploads the file to GitHub"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "git-commit",
+          "title": "Committing Changes",
+          "theory": "The `git commit` command takes all the files from the staging area and saves a snapshot of them permanently to your Git history. Each commit is a point in time you can always revert to. It's crucial to write a clear, concise commit message that describes *why* you made the changes, not just *what* you changed.",
+          "code": "git commit -m \"Your descriptive commit message here\"",
+          "quiz": {
+            "question": "What does the '-m' flag signify in a commit?",
+            "options": ["Modify", "Main branch", "Message", "Master"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "First Commit",
+        "description": "Create a new file, add some text, then stage and commit the file with a descriptive message."
+      }
+    },
+    {
+      "id": "git-mod-3",
+      "title": "Module 3: Viewing History",
+      "description": "Learn how to view past commits and see what has changed.",
+      "lessons": [
+        {
+          "id": "git-log",
+          "title": "Viewing Commit History",
+          "theory": "The `git log` command is used to explore the repository's history. By default, it shows you a list of all the commits made on your current branch, with the most recent commits appearing first. Each log entry includes the commit hash (a unique ID), the author, date, and the commit message. You can use flags like `--oneline` for a compact view or `--graph` to see how branches have diverged and merged.",
+          "code": "# See full history\ngit log\n\n# See a condensed version\ngit log --oneline",
+          "quiz": {
+            "question": "Which command shows the commit history?",
+            "options": ["git history", "git commits", "git log", "git show"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "git-diff",
+          "title": "Viewing Changes",
+          "theory": "The `git diff` command is used to see the exact changes between different states in your repository. By default, `git diff` shows the changes in your working directory that have not yet been staged. `git diff --staged` shows the changes that are staged and ready to be committed. Lines prefixed with `+` are additions, and lines prefixed with `-` are deletions.",
+          "code": "# See changes not yet staged\ngit diff\n\n# See changes that are staged\ngit diff --staged",
+          "quiz": {
+            "question": "What does 'git diff' show by default?",
+            "options": ["Changes between two branches", "Changes between the last two commits", "Changes not yet staged", "All changes ever made"],
+            "answer": 2
+          }
+        }
+      ],
+      "project": {
+        "title": "Inspect Your Work",
+        "description": "Make a change to a file, stage it, and then use 'git diff' and 'git diff --staged' to see the difference. Then, commit the change and view the history with 'git log'."
+      }
+    },
+    {
+      "id": "git-mod-4",
+      "title": "Module 4: Branching & Merging",
+      "description": "Work on different lines of development in parallel.",
+      "lessons": [
+        {
+          "id": "git-branch",
+          "title": "Creating Branches",
+          "theory": "Branching is one of Git's most powerful features. It means you diverge from the main line of development (`main`) and continue to do work without messing with that main line. This is perfect for developing new features or fixing bugs in an isolated environment. To create a new branch, you use the `git branch <branch-name>` command.",
+          "code": "# Create a new branch called 'new-feature'\ngit branch new-feature",
+          "quiz": {
+            "question": "What is the default branch name in a new repository?",
+            "options": ["main", "master", "develop", "root"],
+            "answer": 0
+          }
+        },
+        {
+          "id": "git-checkout",
+          "title": "Switching Branches",
+          "theory": "To switch to an existing branch, you use the `git checkout <branch-name>` command. This action updates the files in your working directory to match the snapshot of the last commit in that branch. You can use the `-b` flag to create and switch to a new branch in a single command. Note: Modern Git prefers `git switch <branch-name>` for this action, but `checkout` is still widely used.",
+          "code": "# Switch to the 'new-feature' branch\ngit checkout new-feature\n\n# You can also create and switch in one command\ngit checkout -b another-feature",
+          "quiz": {
+            "question": "Which command switches to a different branch?",
+            "options": ["git switch", "git go", "git checkout", "git branch -s"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "git-merge",
+          "title": "Merging Branches",
+          "theory": "Once you've completed work in a feature branch, you'll want to merge it back into your main branch (like `main`). Merging takes the independent lines of development created by `git branch` and integrates them back together. The `git merge` command will create a new 'merge commit' that ties the histories of both branches together.",
+          "code": "# First, switch to the branch you want to merge INTO\ngit checkout main\n\n# Then, merge the other branch\ngit merge new-feature",
+          "quiz": {
+            "question": "Before merging 'feature' into 'main', which branch should you be on?",
+            "options": ["feature", "main", "A new branch", "It doesn't matter"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Feature Development",
+        "description": "Create a new branch, make some changes and a commit on that branch, then switch back to the main branch and merge your changes."
+      }
+    },
+    {
+      "id": "git-mod-5",
+      "title": "Module 5: Working with Remotes",
+      "description": "Collaborate with others using remote repositories like GitHub.",
+      "lessons": [
+        {
+          "id": "git-remote",
+          "title": "Adding Remotes",
+          "theory": "Remote repositories are versions of your project that are hosted on the Internet or a network (like GitHub, GitLab, or Bitbucket). To collaborate with others, you need to connect your local repository to a remote one. You do this by adding a 'remote', which is essentially a nickname for the remote URL. By convention, the default name for the primary remote repository is `origin`.",
+          "code": "git remote add origin https://github.com/user/repo.git",
+          "quiz": {
+            "question": "What is the conventional name for the primary remote repository?",
+            "options": ["main", "remote", "server", "origin"],
+            "answer": 3
+          }
+        },
+        {
+          "id": "git-push",
+          "title": "Pushing Changes",
+          "theory": "When you want to share your local commits with others, you need to 'push' them to the remote repository. This command uploads your committed changes to the remote server, making them available to your collaborators. The `-u` flag sets the upstream tracking reference for the branch, so next time you can just run `git push`.",
+          "code": "git push -u origin main",
+          "quiz": {
+            "question": "Which command sends your local commits to a remote repository?",
+            "options": ["git upload", "git send", "git push", "git remote-update"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "git-pull",
+          "title": "Pulling Changes",
+          "theory": "If other people have made changes to the remote repository, you'll want to get those changes into your local copy to stay up-to-date. The `git pull` command is a shortcut that runs two other commands: `git fetch` (which downloads the changes from the remote) and `git merge` (which integrates those changes into your current local branch).",
+          "code": "git pull origin main",
+          "quiz": {
+            "question": "What does 'git pull' do?",
+            "options": ["Fetches remote changes and merges them", "Only fetches remote changes", "Only merges local changes", "Pushes local changes"],
+            "answer": 0
+          }
+        }
+      ],
+      "project": {
+        "title": "First GitHub Push",
+        "description": "Create a new repository on GitHub, add it as a remote to your local project, and push your main branch to GitHub."
+      }
+    },
+    {
+      "id": "git-mod-6",
+      "title": "Module 6: Undoing Changes",
+      "description": "Learn how to correct mistakes and manage your project's history.",
+      "lessons": [
+        {
+          "id": "git-reset",
+          "title": "Resetting Changes",
+          "theory": "The `git reset` command is a powerful tool for undoing changes. It can be used to unstage files (`--mixed`, the default), or even to remove commits from your branch history. The `--hard` flag is the most direct, but also the most dangerous, as it discards all uncommitted changes and removes commits from your history. It's best used only for local changes that haven't been shared.",
+          "code": "# Unstage a file, but keep the changes in your working directory\ngit reset HEAD filename.txt\n\n# Reset to a previous commit, discarding all changes since\ngit reset --hard <commit-hash>",
+          "quiz": {
+            "question": "Which 'reset' mode is potentially dangerous as it discards changes?",
+            "options": ["--soft", "--mixed", "--hard", "--safe"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "git-revert",
+          "title": "Reverting Commits",
+          "theory": "The `git revert` command is a safe way to undo a commit that has already been shared with others. Instead of deleting the commit from the project history (which can cause problems for collaborators), it figures out how to undo the changes introduced by the commit and creates a brand new commit with the resulting content. This preserves the project history and is non-destructive.",
+          "code": "# Create a new commit that undoes the changes from a specific commit\ngit revert <commit-hash>",
+          "quiz": {
+            "question": "How does 'git revert' differ from 'git reset'?",
+            "options": ["It deletes the commit", "It creates a new commit to undo the changes", "It only works on the latest commit", "They are the same"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Correcting a Mistake",
+        "description": "Make a commit with an error. Then, use 'git revert' to create a new commit that fixes the error, preserving the project history."
+      }
+    },
+    {
+      "id": "git-mod-7",
+      "title": "Module 7: Advanced Topics",
+      "description": "Explore powerful features like stashing and rebasing.",
+      "lessons": [
+        {
+          "id": "git-stash",
+          "title": "Stashing Changes",
+          "theory": "The `git stash` command takes your uncommitted changes (both staged and unstaged), saves them away in a 'stash', and then cleans your working directory back to the last committed state. This is extremely useful when you need to quickly switch branches to work on something else, but you're not ready to commit the code you're currently working on.",
+          "code": "# Save your current uncommitted changes\ngit stash\n\n# Re-apply the last stashed changes\ngit stash pop",
+          "quiz": {
+            "question": "When would you typically use 'git stash'?",
+            "options": ["To save a final version", "To temporarily hide uncommitted changes", "To delete a branch", "To create a commit"],
+            "answer": 1
+          }
+        },
+        {
+          "id": "git-rebase",
+          "title": "Rebasing",
+          "theory": "Rebasing is the process of moving or combining a sequence of commits to a new base commit. Instead of a merge commit, rebasing re-applies your commits one-by-one on top of another branch. This results in a perfectly linear project history. The golden rule of rebasing is to never use it on branches that have been shared with others, as it rewrites history.",
+          "code": "# Switch to the feature branch\ngit checkout feature\n\n# Re-apply your feature branch commits on top of the latest main branch\ngit rebase main",
+          "quiz": {
+            "question": "What is the primary goal of rebasing?",
+            "options": ["To undo commits", "To create a merge commit", "To create a more linear and clean project history", "To push to a remote"],
+            "answer": 2
+          }
+        },
+        {
+          "id": "git-tag",
+          "title": "Tagging",
+          "theory": "Git has the ability to tag specific points in a repository’s history as being important. Typically, people use this functionality to mark release points (v1.0, v2.0 and so on). There are two types: lightweight tags (just a pointer to a commit) and annotated tags (stored as full objects in the Git database, containing a message, author, and date).",
+          "code": "# Create a lightweight tag\ngit tag v1.0\n\n# Create an annotated tag with a message\ngit tag -a v1.1 -m \"My release version 1.1\"",
+          "quiz": {
+            "question": "What are Git tags commonly used for?",
+            "options": ["Branching", "Marking release points", "Stashing changes", "Commenting on code"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Capstone: Clean History",
+        "description": "Create a feature branch, make commits, then use rebase to integrate changes from the main branch before merging. Finally, tag the merge commit as v1.0."
+      }
+    },
+    {
+      "id": "mod-final",
+      "title": "Final Assessment",
+      "description": "Prove your mastery to unlock the certificate.",
+      "lessons": [
+        {
+          "id": "git-final-exam",
+          "title": "Git Final Exam",
+          "type": "assessment",
+          "theory": "This is the final assessment for the Git & GitHub course. <br><strong>Rules:</strong><ul><li>There are 30 questions.</li><li>You need a score of <strong>80%</strong> (24/30) to pass.</li><li>You have a maximum of <strong>3 attempts</strong>.</li><li>The certificate will unlock automatically upon passing.</li></ul>",
+          "questions": [
+            { "q": "What is Git?", "o": ["A text editor", "A Version Control System", "A programming language", "An operating system"], "a": 1 },
+            { "q": "Which command initializes a new Git repository?", "o": ["git start", "git new", "git init", "git create"], "a": 2 },
+            { "q": "Which command is used to stage files?", "o": ["git stage", "git add", "git commit", "git push"], "a": 1 },
+            { "q": "Which command saves your changes to the local repository?", "o": ["git save", "git add", "git commit", "git upload"], "a": 2 },
+            { "q": "Which command checks the status of your files?", "o": ["git check", "git status", "git info", "git log"], "a": 1 },
+            { "q": "What is the command to download a repository from GitHub?", "o": ["git download", "git pull", "git clone", "git fork"], "a": 2 },
+            { "q": "Which command uploads your local commits to a remote repository?", "o": ["git upload", "git push", "git send", "git sync"], "a": 1 },
+            { "q": "Which command fetches and merges changes from a remote repository?", "o": ["git get", "git fetch", "git pull", "git merge"], "a": 2 },
+            { "q": "How do you create a new branch?", "o": ["git branch <name>", "git new-branch <name>", "git checkout <name>", "git create <name>"], "a": 0 },
+            { "q": "How do you switch to another branch?", "o": ["git switch <name>", "git checkout <name>", "Both A and B", "git move <name>"], "a": 2 },
+            { "q": "Which command merges a branch into the current branch?", "o": ["git join", "git combine", "git merge", "git mix"], "a": 2 },
+            { "q": "What is 'origin' in Git?", "o": ["The default branch name", "The default remote repository name", "The user's computer", "The staging area"], "a": 1 },
+            { "q": "What is GitHub?", "o": ["A Git command", "A hosting service for Git repositories", "A text editor", "A programming language"], "a": 1 },
+            { "q": "Which command sets your user name?", "o": ["git config user.name", "git set user.name", "git name", "git user"], "a": 0 },
+            { "q": "What is the staging area?", "o": ["Where commits are saved", "A draft space for the next commit", "The remote repository", "The working directory"], "a": 1 },
+            { "q": "Which command shows the commit history?", "o": ["git history", "git log", "git show", "git past"], "a": 1 },
+            { "q": "Which command shows the differences between files?", "o": ["git diff", "git compare", "git changes", "git show"], "a": 0 },
+            { "q": "Which command is used to undo a commit by creating a new commit?", "o": ["git undo", "git reset", "git revert", "git delete"], "a": 2 },
+            { "q": "What does 'git stash' do?", "o": ["Deletes changes", "Temporarily saves uncommitted changes", "Commits changes", "Pushes changes"], "a": 1 },
+            { "q": "What is a Git tag used for?", "o": ["To label a specific commit (e.g., version)", "To tag a user", "To comment on code", "To create a branch"], "a": 0 },
+            { "q": "What is the difference between 'git fetch' and 'git pull'?", "o": ["They are the same", "Fetch downloads changes but doesn't merge; Pull does both", "Pull downloads changes but doesn't merge; Fetch does both", "Fetch uploads changes"], "a": 1 },
+            { "q": "What is a merge conflict?", "o": ["When Git crashes", "When two branches have competing changes to the same line", "When a push fails", "When a repository is deleted"], "a": 1 },
+            { "q": "What is the purpose of the .gitignore file?", "o": ["To list files to track", "To list files to ignore", "To store passwords", "To configure Git"], "a": 1 },
+            { "q": "What does HEAD refer to?", "o": ["The first commit", "The last commit", "The current commit/branch", "The remote repository"], "a": 2 },
+            { "q": "What is forking a repository?", "o": ["Deleting it", "Creating a personal copy of someone else's repository", "Merging it", "Cloning it"], "a": 1 },
+            { "q": "What is a Pull Request (PR)?", "o": ["A request to download code", "A request to merge changes into a repository", "A request to delete a branch", "A request to fork a repo"], "a": 1 },
+            { "q": "What does 'git rebase' do?", "o": ["Deletes commits", "Merges branches", "Reapplies commits on top of another base tip", "Creates a new repository"], "a": 2 },
+            { "q": "Which command shows who changed a file line-by-line?", "o": ["git who", "git blame", "git inspect", "git author"], "a": 1 },
+            { "q": "Git is a ___ Version Control System.", "o": ["Centralized", "Distributed", "Local", "Cloud"], "a": 1 },
+            { "q": "Which command shows details about a specific object (commit, tag, etc.)?", "o": ["git view", "git show", "git details", "git peek"], "a": 1 }
+          ]
+        }
+      ],
+      "project": {
+        "title": "Final Review",
+        "description": "Review all modules before taking the final exam."
+      }
+    }
+  ]
+}

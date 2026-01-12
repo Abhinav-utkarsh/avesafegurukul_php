@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Introduction | Av_eSAFE Gurukul</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="icon" type="image/png" href="../../images/India.png">
+</head>
+<body>
+    <header></header>
+    <div class="tutorial-container">
+        <aside class="sidebar"></aside>
+        <main class="content reveal">
+            <h1>CSS Introduction</h1>
+            <p>CSS (Cascading Style Sheets) is the language we use to style an HTML document.</p>
+            <p>CSS describes how HTML elements should be displayed.</p>
+
+            <h2>CSS Syntax</h2>
+            <p>A CSS rule-set consists of a selector and a declaration block:</p>
+            <pre><code>h1 {
+  color: blue;
+  font-size: 12px;
+}</code><button class="copy-btn">Copy</button></pre>
+
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+                <div class="editor-header">
+                    <span>Live Editor</span>
+                    <button class="run-btn" onclick="runCode()">Run ▶</button>
+                </div>
+                <div class="editor-body">
+                    <textarea id="code-html" class="code-input" spellcheck="false">
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #f3f4f6;
+  font-family: sans-serif;
+}
+h1 {
+  color: #6366f1;
+  text-align: center;
+}
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+
+<h1>My First CSS Example</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html></textarea>
+                    <iframe id="preview-frame" class="preview-frame"></iframe>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/editor.js"></script>
+</body>
+</html>

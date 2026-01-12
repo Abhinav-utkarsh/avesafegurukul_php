@@ -1,0 +1,1 @@
+// Logic moved to assets/js/main.js to ensure consistent loading and path handling.

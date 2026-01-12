@@ -1,0 +1,51 @@
+{
+  "courseId": "methodology",
+  "title": "Software Development Methodologies",
+  "level": "Beginner",
+  "modules": [
+    {
+      "id": "meth-mod-1",
+      "title": "Module 1: SDLC",
+      "description": "The Software Development Life Cycle.",
+      "lessons": [
+        {
+          "id": "sdlc-phases",
+          "title": "Phases of SDLC",
+          "theory": "Planning, Analysis, Design, Implementation, Testing, Maintenance.",
+          "code": "",
+          "quiz": {
+            "question": "Which phase involves coding?",
+            "options": ["Design", "Implementation", "Testing", "Planning"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Plan a Project",
+        "description": "Write a brief plan for a 'To-Do App' covering all SDLC phases."
+      }
+    },
+    {
+      "id": "meth-mod-2",
+      "title": "Module 2: Agile & Scrum",
+      "description": "Modern iterative development.",
+      "lessons": [
+        {
+          "id": "agile-scrum",
+          "title": "Scrum Framework",
+          "theory": "Scrum uses Sprints, Stand-ups, and Retrospectives.",
+          "code": "",
+          "quiz": {
+            "question": "How long is a typical Sprint?",
+            "options": ["1 day", "2-4 weeks", "3 months", "1 year"],
+            "answer": 1
+          }
+        }
+      ],
+      "project": {
+        "title": "Capstone: Mock Sprint",
+        "description": "Define a backlog of 3 tasks for a project and simulate a sprint planning session."
+      }
+    }
+  ]
+}
